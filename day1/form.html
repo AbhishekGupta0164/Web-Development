@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="form.css">
+</head>
+<body>
+     
+<div class="form-container">
+    <h2>Student Registration Form</h2>
+
+    <form action="#" method="post">
+
+        <!-- Text Input -->
+        <label>Full Name</label>
+        <input type="text" name="fullname" placeholder="Enter your name" required><br>
+
+        <!-- Email -->
+        <label>Email</label>
+        <input type="email" name="email" placeholder="Enter your email" required><br>
+
+        <!-- Password -->
+        <label>Password</label>
+        <input type="password" name="password" required><br>
+
+        <!-- Number -->
+        <label>Age</label>
+        <input type="number" name="age"><br>
+
+        <!-- Radio Buttons -->
+        <label>Gender</label>
+        <input type="radio" name="gender" value="male"> Male
+        <input type="radio" name="gender" value="female"> Female<br>
+
+        <label>Course</label>
+        <select name="course">
+            <option value="">Select Course</option>
+            <option><h2>B.Tech</h2></option>
+            <option>BCA</option>
+            <option>MCA</option>
+            <option>MBA</option>
+        </select>
+        <label>
+            <input type="checkbox" required> I agree to terms & conditions
+        </label>
+
+        <label>Address</label>
+        <textarea name="address" rows="2"></textarea>
+        <input type="submit" value="Register" class=<"btn">
+        
+
+    </form>
+</div>
+
+
+</body>
+</html>

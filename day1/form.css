@@ -1,0 +1,55 @@
+/* table {
+    padding: 10px;
+    margin: 10px;
+    border-color: rgb(247, 10, 77);
+    background-color:bisque;
+ }  */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eceded;
+        } 
+
+        .form-container {
+            width: 400px;
+            background-color: rgb(19, 249, 234);
+            padding: 20px;
+            margin: 50px auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgb(240, 1, 1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"]
+         {
+            width: auto;
+        }
+
+        .btn {
+            background-color: #ea2f2c;
+            color: rgb(240, 33, 33);
+            padding: 10px;
+            border: none;
+            margin-top: 15px;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #35cb3c;
+            border-bottom: 5px  solid #cbf206;
+        }

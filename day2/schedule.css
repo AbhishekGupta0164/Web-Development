@@ -1,0 +1,66 @@
+/* Page Styling */
+body {
+    font-family: "Times New Roman", serif;
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+/* Title */
+h2 {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 16px;
+}
+
+/* Table Borders */
+table, th, td {
+    border: 1.5px solid black;
+}
+
+/* Table Cells */
+th, td {
+    padding: 6px 8px;
+}
+
+/* Header Styling */
+th {
+    font-weight: bold;
+}
+
+/* Left Alignment (for text fields if needed) */
+.left {
+    text-align: left;
+}
+
+/* Bold Text */
+.bold {
+    font-weight: bold;
+}
+
+/* Highlight Header Sections (optional) */
+thead th {
+    background-color: #f2f2f2;
+}
+
+/* Footer Rows */
+tfoot td {
+    font-weight: bold;
+}
+
+/* Responsive (Optional) */
+@media (max-width: 768px) {
+    table {
+        font-size: 14px;
+    }
+    th, td {
+        padding: 4px;
+    }
+}
