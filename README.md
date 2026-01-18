@@ -24,7 +24,7 @@
 
 ### 🌱 Currently Learning
 - Advanced **Data Structures & Algorithms**
-- Learning C++
+- Learning C++ JAVA PYTHON 
 - **Full Stack Web Development** (HTML,CSS,JAVASCRIPT)
 - Competitive Programming & Problem Solving
 
