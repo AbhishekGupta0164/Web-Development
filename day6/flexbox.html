@@ -5,7 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
+ 
+        <!-- Trafic Light Using Divs -->
+
+    <!-- <style>
         #parent {
             border: 5px solid rgb(242, 6, 6);
             display: flex ;
@@ -16,9 +19,7 @@
             background-color: rgb(2, 9, 1);
             justify-content: center;
             justify-content: space-evenly;
-           
         }
-
         #parent div {
             height: 80px;
             width: 80px;
@@ -27,8 +28,6 @@
             border-color: rgb(237, 236, 236);
             border-style: solid;
             justify-items: center;
-
-
         }
     </style>
 </head>
@@ -41,9 +40,51 @@
         <div style="background-color: rgba(247, 255, 2, 0.977);"></div>
     </div>
  </div>
+       -->
 
 
+   <!-- Moving Bolls as Pointer Animation  -->
 
+    <style>
+        #parent{
+            height: 400px;
+            border: 2px solid red;
+        }
+        #parent:hover .one{
+            margin-left: 980px;
+        }
+        .one{
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            transition: 5s;
+        }
+        #one{
+            background-color: green;
+            transition-timing-function: linear;
+        }
+        #two{
+            background-color: rgb(170, 139, 200);
+            /* transition-timing-function: ease-in; */
+            transition-timing-function: step-end;
+        }
+        #three{
+            background-color: yellowgreen;
+            transition-timing-function: ease-out;
+        }
+        #four{
+            background-color: aquamarine;
+            transition-timing-function: ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div id="parent"> 
+        <div id="one"  class="one"></div>
+        <div id="two"  class="one"></div>
+        <div id="three"  class="one"></div>
+        <div id="four"  class="one"></div>
+    </div>
 
     <!-- indian flag  -->
     <!-- <div>
