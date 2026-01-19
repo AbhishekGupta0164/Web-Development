@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KidLearn Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f0f4ff;
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+
+        .container {
+            max-width: 1200px; /* 1rem = 16px */
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: #6a5acd;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom-left-radius: 1rem;
+            border-bottom-right-radius: 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        header .bell {
+            font-size: 1.5rem;
+        }
+
+        .welcome {
+            background: linear-gradient(135deg, #9c27b0, #673ab7);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            margin: 1rem 0;
+            text-align: left;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .welcome h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .welcome p {
+            font-size: 1rem;
+        }
+
+        .stats {
+            display: flex;
+            overflow-x: auto;
+            gap: 1rem;
+            margin: 1.5rem 0;
+            padding-bottom: 1rem;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1rem;
+            text-align: center;
+            min-width: 80px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .stat-card .icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card p {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #4a4a9e;
+        }
+
+        .stat-card small {
+            font-size: 0.8rem;
+            color: #777;
+        }
+
+        .assignments {
+            margin: 2rem 0;
+        }
+
+        .assignments h3 {
+            font-size: 1.5rem;
+            color: #4a4a9e;
+            margin-bottom: 0.25rem;
+        }
+
+        .assignments .subtitle {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .assignment-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .assignment-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            transition: transform 0.2s;
+        }
+
+        .assignment-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .assignment-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .progress {
+            background: #e0f7fa;
+            border-radius: 50%;
+            padding: 0.5rem;
+            font-size: 0.8rem;
+            color: #00796b;
+            text-align: center;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .details h4 {
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .details .subject {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .due {
+            color: #f50057;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .action {
+            background: linear-gradient(135deg, #4caf50, #388e3c);
+            color: white;
+            border: none;
+            padding: 0.75rem;
+            border-radius: 2rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: center;
+            margin-top: auto;
+            transition: opacity 0.2s;
+        }
+
+        .action:hover {
+            opacity: 0.9;
+        }
+
+        .encouragement {
+            text-align: center;
+            padding: 1.5rem;
+            background: #fffde7;
+            border-radius: 1rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .encouragement h3 {
+            font-size: 1.5rem;
+            color: #f57c00;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .stats {
+                justify-content: center;
+                overflow-x: hidden;
+            }
+
+            .stat-card {
+                min-width: 120px;
+            }
+
+            header h1,
+            .welcome h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>📚 KidLearn</h1>
+        <span class="bell">🔔</span>
+    </header>
+    <div class="container">
+        <section class="welcome">
+            <small>Welcome back!</small>
+            <h2>Hey Champ! Ready to Learn? ☀️</h2>
+            <p>You have 3 new assignments waiting for you. Let's make today awesome!</p>
+        </section>
+
+        <section class="stats">
+            <div class="stat-card">
+                <div class="icon">📋</div>
+                <p>6</p>
+                <small>Total</small>
+            </div>
+            <div class="stat-card">
+                <div class="icon">✅</div>
+                <p>1</p>
+                <small>Completed</small>
+            </div>
+            <div class="stat-card">
+                <div class="icon">🚀</div>
+                <p>2</p>
+                <small>In Progress</small>
+            </div>
+            <div class="stat-card">
+                <div class="icon">⭐</div>
+                <p>150</p>
+                <small>Points</small>
+            </div>
+        </section>
+
+        <section class="assignments">
+            <h3>My Assignments</h3>
+            <p class="subtitle">Keep going!</p>
+            <div class="assignment-list">
+                <div class="assignment-card">
+                    <div class="assignment-header">
+                        <div class="progress">3/4</div>
+                        <div class="details">
+                            <h4>Math Practice</h4>
+                            <p>Mathematics</p>
+                            <span class="status new">New! ✨</span>
+
+                        </div>
+                    </div>
+                    <span class="due">Tomorrow</span>
+                    <button class="action">Start Now! 🌟</button>
+                </div>
+
+                <div class="assignment-card">
+                    <div class="assignment-header">
+                        <div class="progress">2/5</div>
+                        <div class="details">
+                            <h4>Story Writing</h4>
+                            <p class="subject">English</p>
+                            <span class="status new">New! ✨</span>
+                        </div>
+                    </div>
+                    <span class="due">In 3 days</span>
+                    <button class="action">Continue 🚀</button>
+                </div>
+
+                <div class="assignment-card">
+                    <div class="assignment-header">
+                        <div class="icon">🔬</div>
+                        <div class="details">
+                            <h4>Science Project</h4>
+                            <p>Science</p>
+                            <span class="status new">New! ✨</span>
+                        </div>
+                    </div>
+                    <a href="#" class="action">Start Now! 🚀</a>
+                </div>
+
+                <div class="assignment-card">
+                    <div class="assignment-header">
+                        <div class="icon">🎨</div>
+                        <div class="details">
+                            <h4>Drawing Activity</h4>
+                            <p>Art</p>
+                            <span class="status done">Done! 🎉</span>
+                            <span class="due">Completed</span>
+                        </div>
+                    </div>
+                    <a href="#" class="action view">View Details 👀</a>
+                </div>
+
+                <div class="assignment-card">
+                    <div class="assignment-header">
+                        <div class="icon">📚</div>
+                        <div class="details">
+                            <h4>Hindi Poem</h4>
+                            <p>Hindi</p>
+                            <span class="status working">Working 🚀</span>
+                            <span class="due">In 2 days</span>
+                        </div>
+                    </div>
+                    <a href="#" class="action">Start Now! 🚀</a>
+                </div>
+
+                <div class="assignment-card">
+                    <div class="assignment-header">
+                        <div class="icon">🎯</div>
+                        <div class="details">
+                            <h4>Number Games</h4>
+                            <p>Mathematics</p>
+                            <span class="status new">New! ✨</span>
+                            <span class="due">Today</span>
+                        </div>
+                    </div>
+                    <a href="#" class="action">Start Now! 🚀</a>
+                </div>
+            </div>
+        </section>
+    </div>
+    </section>
+
+    <section class="encouragement">
+        <h3>You're doing amazing! 🎉</h3>
+        <p>Complete 2 more assignments to unlock a special badge!</p>
+    </section>
+
+    </div>
+
+</body>
+
+</html>

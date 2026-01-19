@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Jumping Ball</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+  background:rgb(195, 89, 89);
+  
+}
+
+.ball{
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  background:red;
+  animation:jump 1.2s infinite linear;
+}
+
+/* Jump + color + rotate */
+@keyframes jump{
+  0%{
+    transform:translateY(0) rotate(0deg);
+    background:red;
+  }
+  50%{
+    transform:translateY(-60vh) rotate(180deg);
+    background:yellow;
+  }
+  100%{
+    transform:translateY(0) rotate(360deg);
+    background:cyan;
+  }
+}
+</style>
+
+</head>
+<body>
+
+<div class="ball"></div>
+
+</body>
+</html>

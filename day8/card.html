@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Card Flip</title>
+    <style>
+        body{
+            perspective: 900px;
+        }
+
+        #main{
+            height: 500px;
+            position: relative;
+            width: 300px;
+            margin: 40px auto;
+         
+            transform-style: preserve-3d;
+            transition: 3s;
+             /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
+        }
+        #main:hover{
+            transform: rotateY(180deg);
+
+        }
+        #card_a{
+            height: 50%;
+            position: absolute;
+            width: 100%;
+            z-index: 7;
+            backface-visibility: hidden;
+            box-shadow: rgba(238, 5, 5, 0.904) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        
+        }
+        img{
+            height: 100%;
+            width: 100%;
+
+        }
+        #card_b{
+            height: 50%;
+            width: 100%;
+            z-index: 3;
+            transform: rotateY(180deg);
+            position: absolute;
+            background-color: rgb(15, 52, 237);
+            text-align: center;
+
+        }
+    </style>
+</head>
+<body>
+    <div id = main>
+        <div id="card_a">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEheoazzjq6QRDbmrpHWbqNYbe3pwdNl_5ZDI2SDU1WIPOV3fCuzuiw_kK_0ZL5TlPVwZleLnpmyzwywgyGtYw27GsJuKgdJz3G5vxED63oZX74ius3PB-6fBXrNpMuMzwa2ZkKu3Z4fZYw/w1200-h630-p-k-no-nu/jarvis_india.jpg" alt="Front Image">
+            </div>
+            <div id="card_b">
+                <h1>HI! I AM SUPERMAN  ._.</h1>
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+ 
