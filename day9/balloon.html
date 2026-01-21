@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            background-color: rgb(202, 46, 72);
+            height: 100px;
+            width: 100px;
+            margin: 10px auto;
+            border-radius: 50%;
+            border: 2px solid rgb(28, 26, 26);
+            animation-name: any;
+            animation-duration: 400ms;
+            animation-timing-function: ease-in;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+
+
+        }
+   
+         @keyframes any{
+            0%{
+                transform: translateY(500px);
+            }
+            50%{
+                background-color:rgb(16, 247, 185);
+                 transform: translateX(300px); 
+                rotate:(360deg);
+            }
+            100%{
+                background-color: rgb(49, 24, 237);
+                 transform: translateZ(300px);
+                rotate(360deg); 
+            }
+        } 
+    </style>
+</head>
+
+<body>
+    <h2>Animation</h2>
+    <div>
+        
+    </div>
+        
+    
+</body>
+
+</html>

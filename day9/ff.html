@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FF Esports Leaderboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Arial", sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at top, #0f3d1d, #000);
+    min-height: 100vh;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.leaderboard {
+    width: 90%;
+    max-width: 1100px;
+    background: linear-gradient(180deg, #0b1f14, #000);
+    border: 2px solid #3cff00;
+    box-shadow: 0 0 30px rgba(60, 255, 0, 0.4);
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    color: #3cff00;
+    font-size: 42px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 15px #3cff00;
+}
+
+.header h2 {
+    margin-top: 5px;
+    font-size: 18px;
+    opacity: 0.8;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: #3cff00;
+    color: #000;
+}
+
+thead th {
+    padding: 12px;
+    font-size: 14px;
+}
+
+tbody tr {
+    border-bottom: 1px solid rgba(60, 255, 0, 0.3);
+}
+
+tbody tr:nth-child(odd) {
+    background: rgba(60, 255, 0, 0.05);
+}
+
+tbody tr:hover {
+    background: rgba(60, 255, 0, 0.15);
+}
+
+td {
+    padding: 12px;
+    text-align: center;
+    font-size: 14px;
+}
+
+td.team {
+    text-align: left;
+    font-weight: bold;
+}
+
+.rank {
+    color: #3cff00;
+    font-weight: bold;
+}
+
+.footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 22px;
+    color: #3cff00;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px #3cff00;
+}
+
+@media (max-width: 700px) {
+    .header h1 {
+        font-size: 28px;
+    }
+
+    td, th {
+        font-size: 12px;
+        padding: 8px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="leaderboard">
+
+    <div class="header">
+        <h1>LEADERBOARD</h1>
+        <h2>National M-Pro League • Group B</h2>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>TEAM NAME</th>
+                <th>BOOYAH</th>
+                <th>PLACE</th>
+                <th>KILLS</th>
+                <th>TOTAL</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="rank">1</td>
+                <td class="team">VERDICT ESPORTS</td>
+                <td>1</td>
+                <td>29</td>
+                <td>44</td>
+                <td>73</td>
+            </tr>
+            <tr>
+                <td class="rank">2</td>
+                <td class="team">PG ESPORTS</td>
+                <td>1</td>
+                <td>30</td>
+                <td>35</td>
+                <td>65</td>
+            </tr>
+            <tr>
+                <td class="rank">3</td>
+                <td class="team">VORTEX ESPORTS</td>
+                <td>0</td>
+                <td>22</td>
+                <td>10</td>
+                <td>32</td>
+            </tr>
+            <tr>
+                <td class="rank">4</td>
+                <td class="team">QUANTUM FALCON</td>
+                <td>0</td>
+                <td>19</td>
+                <td>4</td>
+                <td>23</td>
+            </tr>
+            <tr>
+                <td class="rank">5</td>
+                <td class="team">VICCRUZ SQUAD</td>
+                <td>1</td>
+                <td>18</td>
+                <td>3</td>
+                <td>21</td>
+            </tr>
+            <tr>
+                <td class="rank">6</td>
+                <td class="team">M2B ESPORTS</td>
+                <td>0</td>
+                <td>18</td>
+                <td>2</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td class="rank">7</td>
+                <td class="team">BAD PING ESPORTS</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td class="rank">8</td>
+                <td class="team">CRAZY KINGS ESPORTS</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td class="rank">9</td>
+                <td class="team">INFERNO ESPORTS</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td class="rank">10</td>
+                <td class="team">NEXT RAIDERS ESPORTS</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="footer">
+        FREE FIRE
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday, Abhishek!</title>
+    <!-- Google Font-->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        background: linear-gradient(to bottom, #ff9a9e, #fecfef); /* Aesthetic pink gradient */
+      }
+      .card {
+        width: 640px;
+        height: 400px;
+        position: absolute;
+        margin: auto;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        -webkit-perspective: 1200px;
+        perspective: 1200px;
+        transition: 1s;
+      }
+      .card:hover {
+        transform: rotate(-5deg);
+      }
+      .card:hover .outside {
+        transform: rotateY(-130deg);
+      }
+      .outside,
+      .inside {
+        height: 100%;
+        width: 50%;
+        position: absolute;
+        left: 50.1%;
+      }
+      .inside {
+        background: linear-gradient(to right, #ffe4e1, #fff0f5 30%); /* Soft pastel */
+        line-height: 3;
+        padding: 0 20px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        left: 50%;
+      }
+      .outside {
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        z-index: 1;
+        transform-origin: left;
+        transition: 2s;
+        cursor: pointer;
+      }
+      .front,
+      .back {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        transform: rotateX(0deg);
+        overflow: hidden; /* Ensure content doesn't overflow */
+      }
+      .front {
+        background-color: #fff5ee; /* Seashell for realism */
+      }
+      .back {
+        transform: rotateY(180deg);
+        background: linear-gradient(to left, #ffe4e1, #fff0f5 30%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+      .back img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain; /* Fit image nicely without distortion */
+        border-radius: 50%; /* Changed to 50% for a circular frame to match the photo's aesthetic */
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Shadow for depth and realism */
+        border: 5px solid #ff69b4; /* Pink border to match theme */
+      }
+      .cake {
+        width: 100%;
+        position: absolute;
+        bottom: 30px;
+      }
+      .top-layer,
+      .middle-layer,
+      .bottom-layer {
+        height: 80px;
+        width: 240px;
+        background-repeat: repeat;
+        background-size: 60px 100px;
+        background-position: 28px 0;
+        background-image: linear-gradient(
+            transparent 50px,
+            #fedbab 50px,
+            #fedbab 60px,
+            transparent 60px
+          ),
+          radial-gradient(circle at 30px 5px, #994c10 30px, #fcbf29 31px);
+        border-radius: 10px 10px 0 0;
+        position: relative;
+        margin: auto;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Added shadow for realism */
+      }
+      .middle-layer {
+        transform: scale(0.85);
+        top: 6px;
+      }
+      .top-layer {
+        transform: scale(0.7);
+        top: 26px;
+      }
+      .candle {
+        height: 45px;
+        width: 15px;
+        background: repeating-linear-gradient(
+          45deg,
+          #fd3018 0,
+          #fd3018 5px,
+          #ffa89e 5px,
+          #ffa89e 10px
+        );
+        position: absolute;
+        margin: auto;
+        left: 0;
+        right: 0;
+        bottom: 202px;
+      }
+      .candle:before {
+        content: "";
+        position: absolute;
+        height: 16px;
+        width: 16px;
+        background-color: #ffa500;
+        border-radius: 0 50% 50% 50%;
+        bottom: 48px;
+        transform: rotate(45deg);
+        left: -1px;
+        animation: flicker 1s infinite alternate; /* Flame animation */
+      }
+      .outside p {
+        font-size: 23px;
+        text-transform: uppercase;
+        margin-top: 30px;
+        text-align: center;
+        letter-spacing: 6px;
+        color: #ff69b4; /* Pink for aesthetic */
+      }
+      .inside p {
+        color: #ff1493; /* Deep pink */
+      }
+      .inside h1 {
+        font-size: 120px;
+        line-height: 120px;
+      }
+
+      /* Confetti for celebration on hover */
+      .confetti {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: red;
+        opacity: 0;
+        top: -100vh;
+        animation: confetti-fall 5s linear infinite;
+      }
+      .confetti:nth-child(2) { background: blue; animation-delay: 0.5s; left: 10%; }
+      .confetti:nth-child(3) { background: green; animation-delay: 1s; left: 20%; }
+      .confetti:nth-child(4) { background: yellow; animation-delay: 1.5s; left: 30%; }
+      .confetti:nth-child(5) { background: purple; animation-delay: 2s; left: 40%; }
+      .confetti:nth-child(6) { background: orange; animation-delay: 2.5s; left: 50%; }
+      .confetti:nth-child(7) { background: pink; animation-delay: 3s; left: 60%; }
+      .confetti:nth-child(8) { background: cyan; animation-delay: 3.5s; left: 70%; }
+      .confetti:nth-child(9) { background: magenta; animation-delay: 4s; left: 80%; }
+      .confetti:nth-child(10) { background: lime; animation-delay: 4.5s; left: 90%; }
+
+      .card:hover .confetti {
+        opacity: 1;
+      }
+
+      /* Keyframes */
+      @keyframes flicker {
+        0% { transform: rotate(45deg) scale(1); }
+        100% { transform: rotate(45deg) scale(1.2); }
+      }
+
+      @keyframes confetti-fall {
+        0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+        100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="outside">
+        <div class="front">
+          <p>Happy Birthday Abhishek!</p>
+          <div class="cake">
+            <div class="top-layer"></div>
+            <div class="middle-layer"></div>
+            <div class="bottom-layer"></div>
+            <div class="candle"></div>
+          </div>
+        </div>
+        <div class="back">
+          <img src="YOUR_PHOTO_LINK_HERE" alt="Special Birthday Photo">
+        </div>
+      </div>
+      <div class="inside">
+        <p>May your birthday be filled with love, joy, and countless blessings. You deserve every bit of it!</p>
+        <h1>🎉</h1>
+      </div>
+    </div>
+    <!-- Confetti elements -->
+    <div class="confetti" style="left: 0%;"></div>
+    <div class="confetti" style="left: 10%;"></div>
+    <div class="confetti" style="left: 20%;"></div>
+    <div class="confetti" style="left: 30%;"></div>
+    <div class="confetti" style="left: 40%;"></div>
+    <div class="confetti" style="left: 50%;"></div>
+    <div class="confetti" style="left: 60%;"></div>
+    <div class="confetti" style="left: 70%;"></div>
+    <div class="confetti" style="left: 80%;"></div>
+    <div class="confetti" style="left: 90%;"></div>
+  </body>
+</html>
