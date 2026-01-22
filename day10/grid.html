@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .parent {
+            height: 900px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+
+           
+        }
+
+        .child {
+    
+            /* border: 2px solid red; */
+            height: 400px;
+            width: 400px;
+            display: grid;
+            gap: 5px;
+            justify-content:center;
+            align-items:center;
+            overflow: hidden;
+        }
+          .child img {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+            display: block;
+
+        }
+        
+        .child:hover{
+              transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 30px #ff002b;
+        }
+
+        .child-item.show {
+            opacity: 1;
+          transform: translateY(0);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.8s;
+            
+        }
+
+    
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="child" id="one"><img height="200px" width="200px" src="https://media.hswstatic.com/eyJidWNrZXQiOiJjb250ZW50Lmhzd3N0YXRpYy5jb20iLCJrZXkiOiJnaWZcL3NodXR0ZXJzdG9jay0yMzgyMTczMjE3LmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6ODI4fX19">
+         </div>
+        <div class="child" id="two"><img height="200px" width="200px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTiBkhKr9VCFGaOqtxjb1oO4DmoYbZjuikmw&s"></div>
+        <div class="child" id="three"><img height="200px" width="200px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9uxhHOb0K0BNa5jYi0IdZ7SJ4fu40t_szTQ&s"></div>
+        <div class="child" id="four"><img height="200px" width="200px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDmJQt7NzmWUPOkBP9jHJaq20Kqe3Uj02sbQ&s"></div>
+        <div class="child" id="five"><img height="200px" width="200px" src="https://img.freepik.com/free-photo/vividly-colored-hummingbird-nature_23-2151495435.jpg?w=360"></div>
+        <div class="child" id="six"><img height="200px" width="200px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjdr3agxuZY1smNbx6p9T_lpVMNHmTbeQgwQ&s"></div>
+        <div class="child" id="seven"><img height="200px" width="200px" src="https://t4.ftcdn.net/jpg/06/45/24/99/360_F_645249959_uhr8W9H1XFOPMGECjgsAttfIC6r0MFxQ.jpg"></div>
+        <div class="child" id="eight"><img height="200px" width="200px" src="https://oshiprint.in/image/cache/catalog/poster/new/mqp1138-1100x733.jpeg.webp"></div>
+        <div class="child" id="nine"><img height="200px" width="200px" src="https://i.natgeofe.com/n/cfac8328-cccb-4f11-b21e-8f7fb9153179/7481546_uploadsmember586882yourshot-586882-7481546jpg_olm2z27kl7lbrtlb3pimwfia33p3eflutfvvbpyjwjhzlmh4iziq_2000x1333.jpg"></div>
+       
+
+
+
+    </div>
+</body>
+
+</html>

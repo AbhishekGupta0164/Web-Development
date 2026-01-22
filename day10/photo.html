@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+        #photography {
+            padding: 100px 40px 140px;
+            background: #01183a;
+            font-size: 1.2rem;
+        }
+
+        #photography h2 {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 5.8rem;
+            margin-bottom: 30px;
+            color: var(--accent);
+        }
+
+        /* Gallery Grid */
+        .gallery {                        
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 30px;
+            max-width: 1500px;
+            margin: 0 auto;
+        
+        }
+
+        .photo-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            cursor: pointer;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            height: auto;
+            /*allow natural image height */
+            /* aspect-ratio: 16 / 9; /* Force 16:9 landscape ratio */
+            width: 100%;
+            touch-action: manipulation;
+            /* Fill grid cell */
+        }
+        .photo-item:hover{
+              transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px #ff002b;
+        }
+
+        .photo-item.show {
+            opacity: 1;
+          transform: translateY(0);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Cover to fill 16:9 without distortion, crop if needed */
+            display: block;
+            /*Remove any inline spacing */
+            transition: transform 0.8s;
+            
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+            padding: 40px 20px 20px;
+            transform: translateY(30px);
+            opacity: 0;
+            font-style: italic;
+            font-size: 25px;
+            transition: all 0.5s;
+        }
+
+        .photo-item:hover .caption {
+            opacity: 1;;
+            transform: translateY(0);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.97);
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        /* Lightbox - Preserve Original Ratio */
+        .lightbox img {
+            max-width: 94%;
+            max-height: 94vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            /* Full image visible, no distortion */
+            border: 10px solid white;
+            box-shadow: 0 0 80px rgba(0, 0, 0, 0.9);
+        }
+
+        /* .lightbox img {
+            max-width: 94%;
+            max-height: 94vh;
+            border: 10px solid white;
+            box-shadow: 0 0 80px rgba(0, 0, 0, 0.9);
+        } */
+
+        .close {
+            position: absolute;
+            top: 30px;
+            right: 45px;
+            color: white;
+            font-size: 60px;
+            cursor: pointer;
+            font-weight: 100;
+        }
+
+        footer {
+            text-align: center;
+            padding: 60px;
+            background: #0a0a12;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 3.5rem;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .filters {
+                overflow-x: auto;
+                white-space: nowrap;
+                padding-bottom: 10px;
+            }
+
+            .filter-btn {
+                margin: 0 6px 10px;
+            }
+        }
+    </style>
+</head>
+<head><link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+    
+
+    <section id="photography">
+        <h2>Gallery</h2>
+    
+        <!-- Gallery -->
+        <div class="gallery" id="gallery">
+            <!-- Your photos here - replace links as before -->
+            <div class="photo-item  show " data-category="nature" onclick="openLightbox('https://iili.io/f7172Vef.jpg')">
+                <img src="https://iili.io/f7172Ve.md.jpg" alt="Lion VS Eagle in Sky">
+                <div class="caption">
+                    <h3>Golden Magical Fight</h3>
+                </div>
+            </div>
+
+
+            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7VEaaI.jpg')">
+                <img src="https://iili.io/f7VEaaI.md.jpg" alt="Mountains view">
+                <div class="caption">
+                    <h3>Mountains View</h3>
+                </div>
+            </div>
+
+            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7VEB3B.jpg')">
+                <img src="https://iili.io/f7VEB3B.md.jpg" alt="Sunrise in Mountains">
+                <div class="caption">
+                    <h3>Sunrise from Mountains- Like 7 Horses of Sun Entering In The Earth</h3>
+                </div>
+            </div>
+
+            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7VE2Qj.jpg')">
+                <img src="https://iili.io/f7VE2Qj.md.jpg" alt="Sunset">
+                <div class="caption">
+                    <h3>Sunset view </h3>
+                </div>
+            </div>
+
+            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7VEACv.jpg')">
+                <img src="https://iili.io/f7VEACv.md.jpg" alt="Tree Beyond Sunset">
+                <div class="caption">
+                    <h3>Asthetic view of Tree Beyond Sunset</h3>
+                </div>
+            </div>
+
+            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7VEjF2.jpg')">
+                <img src="https://iili.io/f7VEjF2.md.jpg" alt="Red Sun">
+                <div class="caption">
+                    <h3>Sun looks like Red Tommato </h3>
+                </div>
+            </div>
+
+            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7VEvwu.jpg')">
+                <img src="https://iili.io/f7VEvwu.md.jpg" alt="Tower in Sky">
+                <div class="caption">
+                    <h3> Tower in alone Sky</h3>
+                </div>
+            </div>
+
+            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7VEi8P.jpg')">
+                <img src="https://iili.io/f7VEi8P.md.jpg" alt="Owl">
+                <div class="caption">
+                    <h3>Owl Finded Peace</h3>
+                </div>
+            </div>
+
+            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7VEmMv.jpg')">
+                <img src="https://iili.io/f7VEmMv.md.jpg" alt="Alone Tree ">
+                <div class="caption">
+                    <h3>A Tree with An Owl </h3>
+                </div>
+            </div>
+            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7XzDDN.jpg')">
+                <img src="https://iili.io/f7XzDDN.md.jpg" alt="Red Sunset">
+                <div class="caption">
+                    <h3>Red Sunset</h3>
+                </div>
+            </div>
+
+            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7XxBkl.jpg')">
+                <img src="https://iili.io/f7XxBkl.md.jpg" alt="Scattered Red Clouds">
+                <div class="caption">
+                    <h3>Scattered Red Clouds</h3>
+                </div>
+            </div>
+
+            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7Xz7Pn.jpg')">
+                <img src="https://iili.io/f7Xz7Pn.md.jpg" alt="Mirror Sunset">
+                <div class="caption">
+                    <h3>Mirror Sunset</h3>
+                </div>
+            </div>
+
+            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7XIKOl.jpg')">
+                <img src="https://iili.io/f7XIKOl.md.jpg" alt="FlashBack Clouds">
+                <div class="caption">
+                    <h3>FlashBack of Red Rays from Clouds</h3>
+                </div>
+            </div>
+
+            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7XI6I2.jpg')">
+                <img src="https://iili.io/f7XI6I2.md.jpg" alt="Railways">
+                <div class="caption">
+                    <h3>Railways </h3>
+                </div>
+            </div>
+
+            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7XIEga.jpg')">
+                <img src="https://iili.io/f7XIEga.md.jpg" alt="Behind Tree Sunset">
+                <div class="caption">
+                    <h3>Behind Tree Sunset</h3>
+                </div>
+            </div>
+            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7XZbcb.jpg')">
+                <img src="https://iili.io/f7XZbcb.md.jpg" alt="Tower Decors The Sky ">
+                <div class="caption">
+                    <h3>Tower Decors The Sky </h3>
+                </div>
+            </div>
+
+            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7XQumN.jpg')">
+                <img src="https://iili.io/f7XQumN.md.jpg" alt="Sky with Flower">
+                <div class="caption">
+                    <h3>Sky with Flower</h3>
+                </div>
+            </div>
+
+
+            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7XQhQ9.jpg')">
+                <img src="https://iili.io/f7XQhQ9.md.jpg" alt="Colourfull MetroStation">
+                <div class="caption">
+                    <h3>Colourfull MetroStation</h3>
+                </div>
+            </div>
+
+            <div class="photo-item show" data-category="portrait" onclick="openLightbox('https://iili.io/f7XQ8kQ.jpg')">
+                <img src="https://iili.io/f7XQ8kQ.md.jpg" alt="Pushpa ">
+                <div class="caption">
+                    <h3>Pushpa The Rise</h3>
+                </div>
+            </div>
+
+            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7XZJGn.jpg')">
+                <img src="https://iili.io/f7XZJGn.md.jpg" alt="Birds Flock">
+                <div class="caption">
+                    <h3>With Bird Flock</h3>
+                </div>
+            </div>
+
+
+            <div class="photo-item show" data-category="architecture"
+                onclick="openLightbox('https://iili.io/f7172Vef.jpg')">
+                <img src="https://iili.io/f7GjnVa.md.jpg" alt="Lotus Temple, Delhi">
+                <div class="caption">
+                    <h3>Structure of Lotus</h3>
+                </div>
+            </div>
+            <div class="photo-item show" data-category="architecture"
+                onclick="openLightbox('https://iili.io/f7172Vef.jpg')">
+                <img src="https://iili.io/f7GQyp1.md.jpg" alt="Lotus Temple, Delhi">
+                <div class="caption">
+                    <h3> Lotus</h3>
+                </div>
+            </div>
+            <div class="photo-item show" data-category="architecture"
+                onclick="openLightbox('https://iili.io/f7172Vef.jpg')">
+                <img src="https://iili.io/f7Gp8rb.md.jpg" alt="Taj Mahal, Agra">
+                <div class="caption">
+                    <h3> Taj Mahal</h3>
+                </div>
+            </div>
+            <div class="photo-item show" data-category="architecture"
+                onclick="openLightbox('https://iili.io/f7172Vef.jpg')">
+                <img src="https://iili.io/f7M2EE7.md.jpg" alt="Taj Mahal, Agra">
+                <div class="caption">
+                    <h3>Taj</h3>
+                </div>
+            </div>
+            <div class="photo-item show" data-category="architecture"
+                onclick="openLightbox('https://iili.io/f7172Vef.jpg')">
+                <img src="https://iili.io/f7MVRsf.md.jpg" alt="Taj Mahal, Agra">
+                <div class="caption">
+                    <h3>Door Inside Door</h3>
+                </div>
+            </div>
+            <div class="photo-item show" data-category="architecture"
+                onclick="openLightbox('https://iili.io/f7172Vef.jpg')">
+                <img src="https://iili.io/f7Mhj1f.md.jpg" alt="Taj Mahal, Agra">
+                <div class="caption">
+                    <h3>Taj Front Side</h3>
+                </div>
+            </div>
+            <div class="photo-item show" data-category="architecture"
+                onclick="openLightbox('https://iili.io/f7172Vef.jpg')">
+                <img src="https://iili.io/f7MtP6J.md.jpg" alt="Taj Mahal, Agra">
+                <div class="caption">
+                    <h3>The White Taj Door</h3>
+                </div>
+            </div>
+            <div class="photo-item show" data-category="architecture"
+                onclick="openLightbox('https://iili.io/f7172Vef.jpg')">
+                <img src="https://iili.io/f7VnVwX.md.jpg" alt="Taj Mahal, Agra">
+                <div class="caption">
+                    <h3>Taj in Black Cover</h3>
+                </div>
+            </div>
+            <div class="photo-item show" data-category="architecture"
+                onclick="openLightbox('https://iili.io/f7172Vef.jpg')">
+                <img src="https://iili.io/f7VIhe2.md.jpg" alt="Star in architecture">
+                <div class="caption">
+                    <h3>Star in Architecture</h3>
+                </div>
+            </div>
+
+
+            <!-- Add more... -->
+        </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="close" onclick="closeLightbox()">×</span>
+        <img src="" id="lightbox-img" alt="Full view">
+    </div>
+
+</body>
+</html>
