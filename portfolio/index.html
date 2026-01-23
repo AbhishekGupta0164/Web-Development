@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Abhishek Gupta's Nature Photography Portfolio for IIT Bombay 2025 Contest - Capturing the beauty of skies, sunsets, wildlife, and landscapes.">
+    <meta name="description"
+        content="Abhishek Gupta's Nature Photography Portfolio for IIT Bombay 2025 Contest - Capturing the beauty of skies, sunsets, wildlife, and landscapes.">
     <title>Abhishek Gupta - Nature Photography Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!-- Add a favicon if available -->
@@ -14,6 +16,46 @@
             --accent: #e94560;
             --light: #f8f9fa;
         }
+
+        /* ===== MODERN UI ENHANCEMENTS ===== */
+
+        section {
+            border-radius: 24px;
+            margin: 4rem auto;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+        }
+
+        /* Glass Card Effect (resume preview style) */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(18px);
+            border-radius: 20px;
+            padding: 2.5rem;
+        }
+
+        /* Section Headings */
+        .section-title {
+            font-size: 3rem;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Paragraph polish */
+        section p {
+            color: #e2e2e2;
+            line-height: 1.75;
+        }
+
+        /* Divider line like resume preview */
+        .divider {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff4d6d, #8a2be2);
+            margin: 1.5rem auto;
+            border-radius: 10px;
+        }
+
 
         * {
             margin: 0;
@@ -71,12 +113,10 @@
         .hero-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(
-                120deg,
-                rgba(233, 69, 96, 0.35),
-                rgba(15, 15, 26, 0.8),
-                rgba(233, 69, 96, 0.35)
-            );
+            background: linear-gradient(120deg,
+                    rgba(233, 69, 96, 0.35),
+                    rgba(15, 15, 26, 0.8),
+                    rgba(233, 69, 96, 0.35));
             background-size: 200% 200%;
             animation: gradientMove 10s ease infinite;
             z-index: 1;
@@ -95,6 +135,7 @@
             animation: fadeUp 1.2s ease forwards;
             font-size: 4rem;
             margin-bottom: 0.5rem;
+            letter-spacing: 4px;
         }
 
         .hero-content p {
@@ -102,19 +143,35 @@
             animation: fadeUp 1.6s ease forwards;
             animation-delay: 0.3s;
             font-size: 1.5rem;
+            color: #ddd;
+            font-weight: 300;
+            letter-spacing: 1px;
         }
 
         /* ===== KEYFRAMES ===== */
 
         @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         @keyframes floatParticles {
-            from { transform: translateY(0); }
-            to { transform: translateY(-200px); }
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-200px);
+            }
         }
 
         @keyframes fadeUp {
@@ -122,6 +179,7 @@
                 opacity: 0;
                 transform: translateY(40px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -137,7 +195,7 @@
             background:
                 radial-gradient(circle at top, rgba(130, 8, 28, 0.219), transparent 100%),
                 linear-gradient(#8b0d46, #43004f);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px); 
         }
 
         #about h2 {
@@ -163,11 +221,9 @@
 
         .about-intro {
             padding: 6rem 1.2rem;
-            background: radial-gradient(
-                circle at top,
-                rgba(123, 2, 22, 0.12),
-                #232367 60%
-            );
+            background: radial-gradient(circle at top,
+                    rgba(123, 2, 22, 0.12),
+                    #232367 60%);
             text-align: center;
         }
 
@@ -212,6 +268,10 @@
             max-width: 100%;
         }
 
+        #submission a:hover {
+            text-decoration: underline;
+        }
+
         #submission h2 {
             color: var(--accent);
             font-family: 'Playfair Display', serif;
@@ -219,21 +279,26 @@
             margin-bottom: 1rem;
         }
 
-        #submission ul {
+        #submission ul li {
             text-align: left;
             max-width: 100%;
             margin: 1rem auto;
             padding-left: 1.2rem;
             list-style-type: none;
+            padding: 0.4rem 0;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.25);
         }
 
+        /* 
         #submission li {
             margin-bottom: 0.5rem;
-        }
+        } */
 
         #photography {
             padding: 5rem 2rem 7rem;
-            background: #01183a;
+            /* background: #01183a; */
+            background: linear-gradient(180deg, #020024, #01183a);
+            ;
             font-size: 1.2rem;
         }
 
@@ -268,6 +333,7 @@
             position: relative;
             overflow: hidden;
             border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
             cursor: pointer;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
             opacity: 0;
@@ -276,12 +342,15 @@
             height: auto;
             width: 100%;
             touch-action: manipulation;
+            background: rgba(255, 255, 255, 0.08);
         }
 
         .photo-item:hover {
             transform: translateY(-10px);
             border-color: var(--accent);
-            box-shadow: 0 20px 40px #ff002b;
+            /* box-shadow: 0 20px 40px #ff002b; */
+            box-shadow: 0 30px 70px rgba(233, 69, 96, 0.6);
+        
         }
 
         .photo-item.show {
@@ -369,6 +438,7 @@
         }
 
         @media (max-width: 768px) {
+
             /* NAVBAR */
             nav ul {
                 gap: 1.2rem;
@@ -437,26 +507,57 @@
             .lightbox {
                 padding: 20px;
             }
-        }
+        
 
-        /* Hero Section */
-        .hero {
+          /* Hero Section */
+         .hero {
             position: relative;
             height: 60vh;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-        }
+         }
 
-        .hero-particles {
+         .hero-particles {
             position: absolute;
             inset: 0;
-            z-index: 2;
+            z-index: 5;
             pointer-events: none;
-        }
+         }
+
+         /* MOBILE IMAGE FIX */
+         .photo-item {
+            height: auto;
+            /* stop forced height */
+            max-height: 320px;
+            /* keeps images normal-sized */
+            transform: none;
+            /* disable lift effect */
+           }
+
+           .photo-item img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+         }
+
+           /* Caption should not overlap image on mobile */
+          .caption {
+            position: relative;
+            opacity: 1;
+            transform: none;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.75);
+           }
+
+         .photo-item:hover img {
+            transform: none;
+          }
+         }
     </style>
 </head>
+
 <body>
 
     <nav>
@@ -478,16 +579,19 @@
 
     <section id="about" class="about-intro">
         <div class="intro-container">
-            <h2>About Me & My Work</h2>
+            <h2 class="section-title">About Me & My Work</h2>
+            <div class="divider"></div>
+
             <p class="intro-highlight">
-                I’m <span><strong>Abhishek Gupta</strong></span>, A student of B.tech CS 2nd year student & A passionate photographer and visual storyteller, Vlogger,
+                I’m <span><strong>Abhishek Gupta</strong></span>, A student of B.tech CS 2nd year student & A passionate
+                photographer and visual storyteller, Vlogger,
                 capturing moments where <strong>technology, nature, and human emotion</strong> intersect.
             </p>
             <p class="intro-text">
                 My journey in photography began with curiosity — observing light, shadows,
                 and storytelling through images.
                 Through sky, street, nature, architecture, and experimental photography,
-                I aim to freeze moments that feel alive, meaningful, and 
+                I aim to freeze moments that feel alive, meaningful, and
                 futuristic.
             </p>
             <h3>Each image reflects my passion for visual storytelling and technical excellence.</h3>
@@ -496,10 +600,12 @@
 
     <section id="photography">
         <h2>Gallery</h2>
-        <p class="gallery-intro">Explore my curated selection of nature-inspired captures, blending light, emotion, and the raw beauty of the world.</p>
+        <p class="gallery-intro">Explore my curated selection of nature-inspired captures, blending light, emotion, and
+            the raw beauty of the world.</p>
         <div class="gallery" id="gallery">
             <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7172Ve.jpg')">
-                <img src="https://iili.io/f7172Ve.md.jpg" alt="Dramatic sky scene with lion and eagle shapes in clouds during golden hour">
+                <img src="https://iili.io/f7172Ve.md.jpg"
+                    alt="Dramatic sky scene with lion and eagle shapes in clouds during golden hour">
                 <div class="caption">
                     <h3>Golden Magical Fight</h3>
                 </div>
@@ -511,7 +617,8 @@
                 </div>
             </div>
             <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7VEB3B.jpg')">
-                <img src="https://iili.io/f7VEB3B.md.jpg" alt="Vibrant sunrise over mountain peaks resembling mythical horses">
+                <img src="https://iili.io/f7VEB3B.md.jpg"
+                    alt="Vibrant sunrise over mountain peaks resembling mythical horses">
                 <div class="caption">
                     <h3>Sunrise from Mountains - Like 7 Horses of Sun Entering The Earth</h3>
                 </div>
@@ -523,7 +630,8 @@
                 </div>
             </div>
             <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7VEACv.jpg')">
-                <img src="https://iili.io/f7VEACv.md.jpg" alt="Aesthetic silhouette of a tree against a colorful sunset sky">
+                <img src="https://iili.io/f7VEACv.md.jpg"
+                    alt="Aesthetic silhouette of a tree against a colorful sunset sky">
                 <div class="caption">
                     <h3>Aesthetic View of Tree Beyond Sunset</h3>
                 </div>
@@ -582,7 +690,7 @@
                     <h3>With Bird Flock</h3>
                 </div>
             </div>
-                          <div class="photo-item show" data-category="architecture"
+            <div class="photo-item show" data-category="architecture"
                 onclick="openLightbox('https://iili.io/f7172Vef.jpg')">
                 <img src="https://iili.io/f7MVRsf.md.jpg" alt="Taj Mahal, Agra">
                 <div class="caption">
@@ -592,20 +700,23 @@
         </div>
     </section>
 
-    <section id="submission">
+    <section id="submission" class="glass-card">
         <h2>For Photography Judges</h2>
         <p>IITB 2025 Photography Contest</p>
         <ul>
             <li><strong>Artist:</strong> Abhishek Gupta</li>
-            <li><strong>Category:</strong> Nature Photography & Vlogger</li>
+            <li><strong>Category:</strong> Nature Photography </li>
             <li><strong>Bio:</strong> Blending photography with the beauty of nature’s creations, capturing moments
                 that feel alive, meaningful, expressive imagery”.</li>
-            <li><strong><i class="fa-brands fa-linkedin"></i> LinkedIn:</strong> <a href="https://www.linkedin.com/in/abhishek-gupta-43a9a437b" target="_blank" rel="noopener">
-                linkedin.com/in/abhishek-gupta</a></li>
-            <li><strong><i class="fa-brands fa-instagram"></i> Instagram:</strong> <a href="https://www.instagram.com/abhishek._.016" target="_blank" rel="noopener">
-                instagram.com/abhishek._.016</a></li>
-            <li><strong><i class="fa-solid fa-envelope"></i> Contact Email:</strong><a href="mailto:abhishekgupta0164@gmail.com" target="_blank" rel="noopener">
-                 abhishekgupta0164@gmail.com</a></li>
+            <li><strong><i class="fa-brands fa-linkedin"></i> LinkedIn:</strong> <a
+                    href="https://www.linkedin.com/in/abhishek-gupta-43a9a437b" target="_blank" rel="noopener">
+                    linkedin.com/in/abhishek-gupta</a></li>
+            <li><strong><i class="fa-brands fa-instagram"></i> Instagram:</strong> <a
+                    href="https://www.instagram.com/abhishek._.016" target="_blank" rel="noopener">
+                    instagram.com/abhishek._.016</a></li>
+            <li><strong><i class="fa-solid fa-envelope"></i> Contact Email:</strong><a
+                    href="mailto:abhishekgupta0164@gmail.com" target="_blank" rel="noopener">
+                    abhishekgupta0164@gmail.com</a></li>
         </ul>
         <p style="font-style: italic;">High-res photographs files, Excited to showcase my skills at Techfest!</p>
     </section>
@@ -642,4 +753,5 @@
     </script>
 
 </body>
+
 </html>

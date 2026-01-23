@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Abhishek Gupta | Photography Portfolio</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body class="bg-[#0f0f1a] text-gray-100">
+
+<!-- NAVBAR -->
+<nav class="fixed top-0 w-full bg-black/90 backdrop-blur z-50">
+  <ul class="flex justify-center gap-8 py-4 text-lg">
+    <li><a href="#about" class="hover:text-pink-500">About</a></li>
+    <li><a href="#gallery" class="hover:text-pink-500">Gallery</a></li>
+    <li><a href="#submission" class="hover:text-pink-500">Submission</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<header class="h-[60vh] flex items-center justify-center text-center relative mt-16">
+  <div class="absolute inset-0 bg-gradient-to-r from-pink-600/30 via-black to-pink-600/30"></div>
+  <div class="relative z-10">
+    <h1 class="text-5xl font-bold tracking-wide">ABHISHEK GUPTA</h1>
+    <p class="text-xl mt-2 text-gray-300">Photography – 2025</p>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section id="about" class="py-20 px-6 text-center bg-gradient-to-b from-purple-900 to-indigo-900">
+  <h2 class="text-4xl font-bold text-pink-500 mb-6">About Me & My Work</h2>
+
+  <p class="max-w-3xl mx-auto text-lg mb-4">
+    I’m <span class="text-pink-400 font-semibold">Abhishek Gupta</span>, a B.Tech CSE 2nd year student,
+    photographer, and visual storyteller.
+  </p>
+
+  <p class="max-w-3xl mx-auto text-gray-300">
+    I explore nature, skies, sunsets, wildlife, and architecture —
+    capturing moments where technology and emotion meet visual storytelling.
+  </p>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="py-20 px-6 bg-[#01183a]">
+  <h2 class="text-4xl text-center text-pink-500 font-bold mb-6">Gallery</h2>
+  <p class="text-center text-gray-300 max-w-xl mx-auto mb-10">
+    A curated collection of nature-inspired photography.
+  </p>
+
+  <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+    
+    <!-- Image Card -->
+    <div onclick="openLightbox('https://iili.io/f7172Ve.jpg')" 
+         class="cursor-pointer rounded-xl overflow-hidden shadow-lg hover:scale-105 transition">
+      <img src="https://iili.io/f7172Ve.md.jpg" alt="Golden Magical Fight">
+      <p class="p-3 text-center italic bg-black/70">Golden Magical Fight</p>
+    </div>
+
+    <div onclick="openLightbox('https://iili.io/f7VEaaI.jpg')" 
+         class="cursor-pointer rounded-xl overflow-hidden shadow-lg hover:scale-105 transition">
+      <img src="https://iili.io/f7VEaaI.md.jpg" alt="Mountains View">
+      <p class="p-3 text-center italic bg-black/70">Mountains View</p>
+    </div>
+
+    <div onclick="openLightbox('https://iili.io/f7VE2Qj.jpg')" 
+         class="cursor-pointer rounded-xl overflow-hidden shadow-lg hover:scale-105 transition">
+      <img src="https://iili.io/f7VE2Qj.md.jpg" alt="Sunset View">
+      <p class="p-3 text-center italic bg-black/70">Sunset View</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- SUBMISSION -->
+<section id="submission" class="py-16 px-6 text-center bg-pink-900">
+  <h2 class="text-3xl font-bold text-white mb-4">For Photography Judges</h2>
+
+  <ul class="max-w-xl mx-auto text-left space-y-2">
+    <li><strong>Artist:</strong> Abhishek Gupta</li>
+    <li><strong>Category:</strong> Nature Photography</li>
+    <li><strong>Email:</strong> abhishekgupta0164@gmail.com</li>
+    <li><strong>Instagram:</strong> @abhishek._.016</li>
+    <li><strong>LinkedIn:</strong> Abhishek Gupta</li>
+  </ul>
+
+  <p class="italic mt-6">High-resolution photographs available on request.</p>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-6 text-center bg-black text-gray-400">
+  © 2025 Abhishek Gupta. All rights reserved.
+</footer>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="hidden fixed inset-0 bg-black/95 flex items-center justify-center z-50">
+  <span onclick="closeLightbox()" class="absolute top-6 right-8 text-5xl cursor-pointer">×</span>
+  <img id="lightboxImg" class="max-h-[90vh] border-4 border-white">
+</div>
+
+<script>
+function openLightbox(src){
+  document.getElementById("lightboxImg").src = src;
+  document.getElementById("lightbox").classList.remove("hidden");
+}
+function closeLightbox(){
+  document.getElementById("lightbox").classList.add("hidden");
+}
+</script>
+
+</body>
+</html>
