@@ -3,13 +3,236 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-
+    <meta name="description" content="Abhishek Gupta's Nature Photography Portfolio for IIT Bombay 2025 Contest - Capturing the beauty of skies, sunsets, wildlife, and landscapes.">
+    <title>Abhishek Gupta - Nature Photography Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Add a favicon if available -->
+    <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"> -->
     <style>
+        :root {
+            --primary: #0f0f1a;
+            --accent: #e94560;
+            --light: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary);
+            color: var(--light);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 15, 26, 0.95);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            padding: 1.2rem 0;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Highlight glow */
+        .focus-text.focus-active h1 {
+            text-shadow: 0 0 25px rgba(233, 69, 96, 0.6);
+        }
+
+        .focus-text.focus-active p {
+            color: #ffffff;
+        }
+
+        /* Animated gradient overlay */
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                120deg,
+                rgba(233, 69, 96, 0.35),
+                rgba(15, 15, 26, 0.8),
+                rgba(233, 69, 96, 0.35)
+            );
+            background-size: 200% 200%;
+            animation: gradientMove 10s ease infinite;
+            z-index: 1;
+        }
+
+        /* Text animation */
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            animation: fadeUp 1.6s ease forwards;
+        }
+
+        .hero-content h1 {
+            opacity: 0;
+            animation: fadeUp 1.2s ease forwards;
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-content p {
+            opacity: 0;
+            animation: fadeUp 1.6s ease forwards;
+            animation-delay: 0.3s;
+            font-size: 1.5rem;
+        }
+
+        /* ===== KEYFRAMES ===== */
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes floatParticles {
+            from { transform: translateY(0); }
+            to { transform: translateY(-200px); }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* About Section */
+        #about {
+            padding: 6rem 1.2rem;
+            text-align: center;
+            max-width: 100%;
+            margin: 0 auto;
+            background:
+                radial-gradient(circle at top, rgba(130, 8, 28, 0.219), transparent 100%),
+                linear-gradient(#8b0d46, #43004f);
+            backdrop-filter: blur(10px);
+        }
+
+        #about h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        #about p {
+            font-size: 1.2rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        #about h3 {
+            max-width: 100%;
+            margin: 0 auto;
+            font-size: 1.4rem;
+        }
+
+        /* ===== ABOUT INTRO SECTION ===== */
+
+        .about-intro {
+            padding: 6rem 1.2rem;
+            background: radial-gradient(
+                circle at top,
+                rgba(123, 2, 22, 0.12),
+                #232367 60%
+            );
+            text-align: center;
+        }
+
+        .intro-container {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .about-intro h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--accent);
+            margin-bottom: 2rem;
+        }
+
+        .intro-highlight {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            margin-bottom: 1.8rem;
+            color: #f1f1f1;
+        }
+
+        .intro-highlight span {
+            color: var(--accent);
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #cfcfcf;
+            margin-bottom: 1.2rem;
+        }
+
+        /* Submission Section */
+        #submission {
+            text-align: center;
+            padding: 3rem 1.2rem;
+            background: rgba(112, 3, 70, 0.654);
+            border-radius: 15px;
+            margin: 2rem auto;
+            font-size: 1.2rem;
+            max-width: 100%;
+        }
+
+        #submission h2 {
+            color: var(--accent);
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        #submission ul {
+            text-align: left;
+            max-width: 100%;
+            margin: 1rem auto;
+            padding-left: 1.2rem;
+            list-style-type: none;
+        }
+
+        #submission li {
+            margin-bottom: 0.5rem;
+        }
+
         #photography {
-            padding: 100px 40px 140px;
+            padding: 5rem 2rem 7rem;
             background: #01183a;
             font-size: 1.2rem;
         }
@@ -17,19 +240,28 @@
         #photography h2 {
             text-align: center;
             font-family: 'Playfair Display', serif;
-            font-size: 5.8rem;
-            margin-bottom: 30px;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
             color: var(--accent);
         }
 
+        #photography .gallery-intro {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #cfcfcf;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         /* Gallery Grid */
-        .gallery {                        
+        .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-            gap: 30px;
-            max-width: 1500px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 100%;
             margin: 0 auto;
-        
         }
 
         .photo-item {
@@ -42,32 +274,27 @@
             transform: translateY(40px);
             transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
             height: auto;
-            /*allow natural image height */
-            /* aspect-ratio: 16 / 9; /* Force 16:9 landscape ratio */
             width: 100%;
             touch-action: manipulation;
-            /* Fill grid cell */
         }
-        .photo-item:hover{
-              transform: translateY(-10px);
+
+        .photo-item:hover {
+            transform: translateY(-10px);
             border-color: var(--accent);
             box-shadow: 0 20px 40px #ff002b;
         }
 
         .photo-item.show {
             opacity: 1;
-          transform: translateY(0);
+            transform: translateY(0);
         }
 
         .photo-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            /* Cover to fill 16:9 without distortion, crop if needed */
             display: block;
-            /*Remove any inline spacing */
             transition: transform 0.8s;
-            
         }
 
         .photo-item:hover img {
@@ -80,17 +307,23 @@
             left: 0;
             width: 100%;
             background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
-            padding: 40px 20px 20px;
+            padding: 2rem 1rem 1rem;
             transform: translateY(30px);
             opacity: 0;
             font-style: italic;
-            font-size: 25px;
+            font-size: 1.2rem;
             transition: all 0.5s;
+            color: var(--light);
         }
 
         .photo-item:hover .caption {
-            opacity: 1;;
+            opacity: 1;
             transform: translateY(0);
+        }
+
+        .caption h3 {
+            margin: 0;
+            font-size: 1.2rem;
         }
 
         /* Lightbox */
@@ -108,24 +341,15 @@
             padding: 40px;
         }
 
-        /* Lightbox - Preserve Original Ratio */
         .lightbox img {
             max-width: 94%;
             max-height: 94vh;
             width: auto;
             height: auto;
             object-fit: contain;
-            /* Full image visible, no distortion */
             border: 10px solid white;
             box-shadow: 0 0 80px rgba(0, 0, 0, 0.9);
         }
-
-        /* .lightbox img {
-            max-width: 94%;
-            max-height: 94vh;
-            border: 10px solid white;
-            box-shadow: 0 0 80px rgba(0, 0, 0, 0.9);
-        } */
 
         .close {
             position: absolute;
@@ -139,258 +363,283 @@
 
         footer {
             text-align: center;
-            padding: 60px;
+            padding: 3rem;
             background: #0a0a12;
             font-size: 0.95rem;
         }
 
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 3.5rem;
+            /* NAVBAR */
+            nav ul {
+                gap: 1.2rem;
+                flex-wrap: wrap;
+            }
+
+            nav a {
+                font-size: 1rem;
+            }
+
+            /* HEADER */
+            .hero {
+                height: 50vh;
+                padding: 0 1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            /* ABOUT */
+            #about {
+                padding: 4rem 1rem;
+            }
+
+            #about h2 {
+                font-size: 2rem;
+            }
+
+            #about h3 {
+                font-size: 1.1rem;
+            }
+
+            /* GALLERY */
+            #photography {
+                padding: 4rem 1rem;
+            }
+
+            #photography h2 {
+                font-size: 2.2rem;
             }
 
             .gallery {
                 grid-template-columns: 1fr;
             }
 
-            .filters {
-                overflow-x: auto;
-                white-space: nowrap;
-                padding-bottom: 10px;
+            /* SUBMISSION */
+            #submission {
+                padding: 2rem 1rem;
             }
 
-            .filter-btn {
-                margin: 0 6px 10px;
+            #submission h2 {
+                font-size: 1.8rem;
             }
+
+            .close {
+                font-size: 40px;
+                top: 20px;
+                right: 30px;
+            }
+
+            .lightbox {
+                padding: 20px;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-particles {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            pointer-events: none;
         }
     </style>
 </head>
-<head><link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-</head>
+<body>
 
-    
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#photography">Gallery</a></li>
+            <li><a href="#submission">Submission</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-particles"></div>
+        <div class="hero-content focus-text">
+            <h1>ABHISHEK GUPTA</h1>
+            <p>Photography-2025</p>
+        </div>
+    </header>
+
+    <section id="about" class="about-intro">
+        <div class="intro-container">
+            <h2>About Me & My Work</h2>
+            <p class="intro-highlight">
+                I’m <span><strong>Abhishek Gupta</strong></span>, A student of B.tech CS 2nd year student & A passionate photographer and visual storyteller, Vlogger,
+                capturing moments where <strong>technology, nature, and human emotion</strong> intersect.
+            </p>
+            <p class="intro-text">
+                My journey in photography began with curiosity — observing light, shadows,
+                and storytelling through images.
+                Through sky, street, nature, architecture, and experimental photography,
+                I aim to freeze moments that feel alive, meaningful, and 
+                futuristic.
+            </p>
+            <h3>Each image reflects my passion for visual storytelling and technical excellence.</h3>
+        </div>
+    </section>
 
     <section id="photography">
         <h2>Gallery</h2>
-    
-        <!-- Gallery -->
+        <p class="gallery-intro">Explore my curated selection of nature-inspired captures, blending light, emotion, and the raw beauty of the world.</p>
         <div class="gallery" id="gallery">
-            <!-- Your photos here - replace links as before -->
-            <div class="photo-item  show " data-category="nature" onclick="openLightbox('https://iili.io/f7172Vef.jpg')">
-                <img src="https://iili.io/f7172Ve.md.jpg" alt="Lion VS Eagle in Sky">
+            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7172Ve.jpg')">
+                <img src="https://iili.io/f7172Ve.md.jpg" alt="Dramatic sky scene with lion and eagle shapes in clouds during golden hour">
                 <div class="caption">
                     <h3>Golden Magical Fight</h3>
                 </div>
             </div>
-
-
             <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7VEaaI.jpg')">
-                <img src="https://iili.io/f7VEaaI.md.jpg" alt="Mountains view">
+                <img src="https://iili.io/f7VEaaI.md.jpg" alt="Majestic mountain landscape view under clear skies">
                 <div class="caption">
                     <h3>Mountains View</h3>
                 </div>
             </div>
-
             <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7VEB3B.jpg')">
-                <img src="https://iili.io/f7VEB3B.md.jpg" alt="Sunrise in Mountains">
+                <img src="https://iili.io/f7VEB3B.md.jpg" alt="Vibrant sunrise over mountain peaks resembling mythical horses">
                 <div class="caption">
-                    <h3>Sunrise from Mountains- Like 7 Horses of Sun Entering In The Earth</h3>
+                    <h3>Sunrise from Mountains - Like 7 Horses of Sun Entering The Earth</h3>
                 </div>
             </div>
-
             <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7VE2Qj.jpg')">
-                <img src="https://iili.io/f7VE2Qj.md.jpg" alt="Sunset">
+                <img src="https://iili.io/f7VE2Qj.md.jpg" alt="Serene sunset landscape with warm hues">
                 <div class="caption">
-                    <h3>Sunset view </h3>
+                    <h3>Sunset View</h3>
                 </div>
             </div>
-
             <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7VEACv.jpg')">
-                <img src="https://iili.io/f7VEACv.md.jpg" alt="Tree Beyond Sunset">
+                <img src="https://iili.io/f7VEACv.md.jpg" alt="Aesthetic silhouette of a tree against a colorful sunset sky">
                 <div class="caption">
-                    <h3>Asthetic view of Tree Beyond Sunset</h3>
+                    <h3>Aesthetic View of Tree Beyond Sunset</h3>
                 </div>
             </div>
-
             <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7VEjF2.jpg')">
-                <img src="https://iili.io/f7VEjF2.md.jpg" alt="Red Sun">
+                <img src="https://iili.io/f7VEjF2.md.jpg" alt="Intense red sun during sunset resembling a ripe tomato">
                 <div class="caption">
-                    <h3>Sun looks like Red Tommato </h3>
+                    <h3>Crimson Sun: A Fiery Orb at Dusk</h3>
                 </div>
             </div>
-
             <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7VEvwu.jpg')">
-                <img src="https://iili.io/f7VEvwu.md.jpg" alt="Tower in Sky">
+                <img src="https://iili.io/f7VEvwu.md.jpg" alt="Solitary tower silhouetted against a vast sky">
                 <div class="caption">
-                    <h3> Tower in alone Sky</h3>
+                    <h3>Tower in Alone Sky</h3>
                 </div>
             </div>
-
             <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7VEi8P.jpg')">
-                <img src="https://iili.io/f7VEi8P.md.jpg" alt="Owl">
+                <img src="https://iili.io/f7VEi8P.md.jpg" alt="Owl perched peacefully in natural habitat">
                 <div class="caption">
-                    <h3>Owl Finded Peace</h3>
+                    <h3>Owl Found Peace</h3>
                 </div>
             </div>
-
             <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7VEmMv.jpg')">
-                <img src="https://iili.io/f7VEmMv.md.jpg" alt="Alone Tree ">
+                <img src="https://iili.io/f7VEmMv.md.jpg" alt="Lone tree with an owl in serene surroundings">
                 <div class="caption">
-                    <h3>A Tree with An Owl </h3>
+                    <h3>A Tree with An Owl</h3>
                 </div>
             </div>
-            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7XzDDN.jpg')">
-                <img src="https://iili.io/f7XzDDN.md.jpg" alt="Red Sunset">
-                <div class="caption">
-                    <h3>Red Sunset</h3>
-                </div>
-            </div>
-
-            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7XxBkl.jpg')">
-                <img src="https://iili.io/f7XxBkl.md.jpg" alt="Scattered Red Clouds">
-                <div class="caption">
-                    <h3>Scattered Red Clouds</h3>
-                </div>
-            </div>
-
             <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7Xz7Pn.jpg')">
-                <img src="https://iili.io/f7Xz7Pn.md.jpg" alt="Mirror Sunset">
+                <img src="https://iili.io/f7Xz7Pn.md.jpg" alt="Reflective sunset mirrored in water">
                 <div class="caption">
                     <h3>Mirror Sunset</h3>
                 </div>
             </div>
-
-            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7XIKOl.jpg')">
-                <img src="https://iili.io/f7XIKOl.md.jpg" alt="FlashBack Clouds">
-                <div class="caption">
-                    <h3>FlashBack of Red Rays from Clouds</h3>
-                </div>
-            </div>
-
-            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7XI6I2.jpg')">
-                <img src="https://iili.io/f7XI6I2.md.jpg" alt="Railways">
-                <div class="caption">
-                    <h3>Railways </h3>
-                </div>
-            </div>
-
             <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7XIEga.jpg')">
-                <img src="https://iili.io/f7XIEga.md.jpg" alt="Behind Tree Sunset">
+                <img src="https://iili.io/f7XIEga.md.jpg" alt="Sunset viewed through tree branches">
                 <div class="caption">
                     <h3>Behind Tree Sunset</h3>
                 </div>
             </div>
             <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7XZbcb.jpg')">
-                <img src="https://iili.io/f7XZbcb.md.jpg" alt="Tower Decors The Sky ">
+                <img src="https://iili.io/f7XZbcb.md.jpg" alt="Tower enhancing the beauty of the sky landscape">
                 <div class="caption">
-                    <h3>Tower Decors The Sky </h3>
+                    <h3>Tower Decors The Sky</h3>
                 </div>
             </div>
-
             <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7XQumN.jpg')">
-                <img src="https://iili.io/f7XQumN.md.jpg" alt="Sky with Flower">
+                <img src="https://iili.io/f7XQumN.md.jpg" alt="Vibrant sky framed by flowers">
                 <div class="caption">
                     <h3>Sky with Flower</h3>
                 </div>
             </div>
-
-
-            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7XQhQ9.jpg')">
-                <img src="https://iili.io/f7XQhQ9.md.jpg" alt="Colourfull MetroStation">
-                <div class="caption">
-                    <h3>Colourfull MetroStation</h3>
-                </div>
-            </div>
-
-            <div class="photo-item show" data-category="portrait" onclick="openLightbox('https://iili.io/f7XQ8kQ.jpg')">
-                <img src="https://iili.io/f7XQ8kQ.md.jpg" alt="Pushpa ">
-                <div class="caption">
-                    <h3>Pushpa The Rise</h3>
-                </div>
-            </div>
-
             <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7XZJGn.jpg')">
-                <img src="https://iili.io/f7XZJGn.md.jpg" alt="Birds Flock">
+                <img src="https://iili.io/f7XZJGn.md.jpg" alt="Flock of birds soaring in the sky">
                 <div class="caption">
                     <h3>With Bird Flock</h3>
                 </div>
             </div>
-
-
-            <div class="photo-item show" data-category="architecture"
-                onclick="openLightbox('https://iili.io/f7172Vef.jpg')">
-                <img src="https://iili.io/f7GjnVa.md.jpg" alt="Lotus Temple, Delhi">
-                <div class="caption">
-                    <h3>Structure of Lotus</h3>
-                </div>
-            </div>
-            <div class="photo-item show" data-category="architecture"
-                onclick="openLightbox('https://iili.io/f7172Vef.jpg')">
-                <img src="https://iili.io/f7GQyp1.md.jpg" alt="Lotus Temple, Delhi">
-                <div class="caption">
-                    <h3> Lotus</h3>
-                </div>
-            </div>
-            <div class="photo-item show" data-category="architecture"
-                onclick="openLightbox('https://iili.io/f7172Vef.jpg')">
-                <img src="https://iili.io/f7Gp8rb.md.jpg" alt="Taj Mahal, Agra">
-                <div class="caption">
-                    <h3> Taj Mahal</h3>
-                </div>
-            </div>
-            <div class="photo-item show" data-category="architecture"
-                onclick="openLightbox('https://iili.io/f7172Vef.jpg')">
-                <img src="https://iili.io/f7M2EE7.md.jpg" alt="Taj Mahal, Agra">
-                <div class="caption">
-                    <h3>Taj</h3>
-                </div>
-            </div>
-            <div class="photo-item show" data-category="architecture"
+                          <div class="photo-item show" data-category="architecture"
                 onclick="openLightbox('https://iili.io/f7172Vef.jpg')">
                 <img src="https://iili.io/f7MVRsf.md.jpg" alt="Taj Mahal, Agra">
                 <div class="caption">
                     <h3>Door Inside Door</h3>
                 </div>
             </div>
-            <div class="photo-item show" data-category="architecture"
-                onclick="openLightbox('https://iili.io/f7172Vef.jpg')">
-                <img src="https://iili.io/f7Mhj1f.md.jpg" alt="Taj Mahal, Agra">
-                <div class="caption">
-                    <h3>Taj Front Side</h3>
-                </div>
-            </div>
-            <div class="photo-item show" data-category="architecture"
-                onclick="openLightbox('https://iili.io/f7172Vef.jpg')">
-                <img src="https://iili.io/f7MtP6J.md.jpg" alt="Taj Mahal, Agra">
-                <div class="caption">
-                    <h3>The White Taj Door</h3>
-                </div>
-            </div>
-            <div class="photo-item show" data-category="architecture"
-                onclick="openLightbox('https://iili.io/f7172Vef.jpg')">
-                <img src="https://iili.io/f7VnVwX.md.jpg" alt="Taj Mahal, Agra">
-                <div class="caption">
-                    <h3>Taj in Black Cover</h3>
-                </div>
-            </div>
-            <div class="photo-item show" data-category="architecture"
-                onclick="openLightbox('https://iili.io/f7172Vef.jpg')">
-                <img src="https://iili.io/f7VIhe2.md.jpg" alt="Star in architecture">
-                <div class="caption">
-                    <h3>Star in Architecture</h3>
-                </div>
-            </div>
-
-
-            <!-- Add more... -->
         </div>
+    </section>
+
+    <section id="submission">
+        <h2>For Photography Judges</h2>
+        <p>IITB 2025 Photography Contest</p>
+        <ul>
+            <li><strong>Artist:</strong> Abhishek Gupta</li>
+            <li><strong>Category:</strong> Nature Photography & Vlogger</li>
+            <li><strong>Bio:</strong> Blending photography with the beauty of nature’s creations, capturing moments
+                that feel alive, meaningful, expressive imagery”.</li>
+            <li><strong><i class="fa-brands fa-linkedin"></i> LinkedIn:</strong> <a href="https://www.linkedin.com/in/abhishek-gupta-43a9a437b" target="_blank" rel="noopener">
+                linkedin.com/in/abhishek-gupta</a></li>
+            <li><strong><i class="fa-brands fa-instagram"></i> Instagram:</strong> <a href="https://www.instagram.com/abhishek._.016" target="_blank" rel="noopener">
+                instagram.com/abhishek._.016</a></li>
+            <li><strong><i class="fa-solid fa-envelope"></i> Contact Email:</strong><a href="mailto:abhishekgupta0164@gmail.com" target="_blank" rel="noopener">
+                 abhishekgupta0164@gmail.com</a></li>
+        </ul>
+        <p style="font-style: italic;">High-res photographs files, Excited to showcase my skills at Techfest!</p>
+    </section>
 
     <!-- Lightbox -->
-    <div class="lightbox" id="lightbox">
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
         <span class="close" onclick="closeLightbox()">×</span>
-        <img src="" id="lightbox-img" alt="Full view">
+        <img src="" id="lightbox-img" alt="Full view of selected nature photograph">
     </div>
+
+    <footer>
+        &copy; 2025 Abhishek Gupta. All rights reserved.
+    </footer>
+
+    <script>
+        function openLightbox(src) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox').style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        // Animate photo items on load
+        window.addEventListener('load', () => {
+            const photos = document.querySelectorAll('.photo-item');
+            photos.forEach((photo, index) => {
+                setTimeout(() => {
+                    photo.classList.add('show');
+                }, index * 150);
+            });
+        });
+    </script>
 
 </body>
 </html>
