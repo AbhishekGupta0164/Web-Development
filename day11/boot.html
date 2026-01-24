@@ -1,45 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
 </head>
-<body>
 
+<body class="bg-black text-gray-300">
 
-    <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid">
-            <ul class="nav justify-content-center">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">HOME</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-              
-                <li class="nav-item">
-                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                </li>
-                 <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            </ul>
-            <!-- <a class="navbar-brand">HOME</a> -->
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-        </div>
+<!-- ================= NAVBAR ================= -->
+<header class="fixed w-full top-0 z-50 bg-black/80 backdrop-blur border-b border-gray-800">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+    <h1 class="text-xl font-bold text-white">Portfolio</h1>
+    <nav class="space-x-6 text-sm">
+      <a href="#home" class="hover:text-orange-400">Home</a>
+      <a href="#about" class="hover:text-orange-400">About</a>
+      <a href="#work" class="hover:text-orange-400">Work</a>
+      <a href="#skills" class="hover:text-orange-400">Skills</a>
+      <a href="#contact" class="hover:text-orange-400">Contact</a>
     </nav>
-</body>
+    <button class="bg-white text-black px-4 py-2 rounded-full text-sm">Let's Talk</button>
+  </div>
+</header>
 
+<!-- ================= HERO ================= -->
+<section id="home" class="min-h-screen flex items-center pt-20">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 px-6">
+    <div>
+      <p class="text-orange-500 text-sm tracking-widest mb-3">WELCOME TO MY PORTFOLIO</p>
+      <h1 class="text-5xl md:text-6xl font-bold text-white">
+        Hi, I'm <span class="italic text-purple-400">ABHISHEK</span>
+      </h1>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-400 mt-2">
+        WEB DEVELOPER
+      </h1>
+      <p class="mt-6 max-w-md text-gray-400">
+        I create beautiful digital experiences that combine stunning design with clean, efficient code.
+      </p>
+    </div>
+
+    <!-- Profile -->
+    <div class="flex justify-center">
+      <div class="relative">
+        <img src="https://img.sanishtech.com/u/7470e9c3cc344090509c9454f3969d7b.jpg" 
+             class="w-72 h-72 object-cover rounded-full border-4 border-gray-800"/>
+        <span class="absolute top-4 -right-4 bg-gray-900 px-4 py-2 rounded-xl text-orange-400 text-sm">
+          1+ Years Exp.
+        </span>
+        <span class="absolute bottom-4 -left-4 bg-gray-900 px-4 py-2 rounded-xl text-teal-400 text-sm">
+          8+ Projects
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about" class="py-24 bg-gradient-to-b from-black to-gray-900">
+  <div class="max-w-7xl mx-auto px-6">
+    <p class="text-orange-500 text-sm tracking-widest mb-3">ABOUT ME</p>
+    <h2 class="text-5xl font-bold text-white mb-12">
+      Passionate about creating, innovating <span class="italic">digital magic</span>
+    </h2>
+
+    <div class="grid md:grid-cols-2 gap-12">
+      <p class="text-gray-400">
+        I'm a creative designer and developer with over 1 years of experience on building my development skills.
+        I believe great design is about solving problems while creating delightful experiences.
+      </p>
+
+      <div class="grid grid-cols-2 gap-6">
+        <div class="bg-gray-800/50 p-6 rounded-xl text-center">
+          <h3 class="text-3xl text-orange-400 font-bold">8+</h3>
+          <p class="text-sm mt-1">Projects</p>
+        </div>
+        <div class="bg-gray-800/50 p-6 rounded-xl text-center">
+          <h3 class="text-3xl text-teal-400 font-bold">5+</h3>
+          <p class="text-sm mt-1">Clients</p>
+        </div>
+        <div class="bg-gray-800/50 p-6 rounded-xl text-center">
+          <h3 class="text-3xl text-white font-bold">1+</h3>
+          <p class="text-sm mt-1">Years</p>
+        </div>
+        <div class="bg-gray-800/50 p-6 rounded-xl text-center">
+          <h3 class="text-3xl text-white font-bold">5+</h3>
+          <p class="text-sm mt-1">Awards</+p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section id="work" class="py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <p class="text-orange-500 text-sm tracking-widest mb-3">MY WORK</p>
+    <h2 class="text-4xl font-bold text-white mb-12">Featured Projects</h2>
+
+    <div class="grid md:grid-cols-2 gap-10">
+      <div class="bg-gray-800/40 rounded-xl overflow-hidden">
+        <img src="https://i.imgur.com/v6hVfKp.png" class="w-full"/>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-white">Analytics Dashboard</h3>
+          <p class="text-gray-400 mt-2">C++, JAVA, Python, HTML, CSS, JavaScript, TypeScript, Tailwind</p>
+        </div>
+      </div>
+
+      <div class="bg-gray-800/40 rounded-xl overflow-hidden">
+        <img src="https://i.imgur.com/RnF2Y4F.png" class="w-full"/>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-white">Birthday Wishing Card</h3>
+          <p class="text-gray-400 mt-2">UI, HTML, CSS</p>
+        </div>
+      </div>
+
+       <div class="bg-gray-800/40 rounded-xl overflow-hidden">
+        <img src="https://i.imgur.com/RnF2Y4F.png" class="w-full"/>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-white">Chatbot- Capable of remember your thoughts</h3>
+          <p class="text-gray-400 mt-2">C++, HTML, CSS</p>
+        </div>
+      </div>
+
+       <div class="bg-gray-800/40 rounded-xl overflow-hidden">
+        <img src="https://i.imgur.com/RnF2Y4F.png" class="w-full"/>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-white">KidLearn Website-Frontend</h3>
+          <p class="text-gray-400 mt-2">HTML, CSS</p>
+        </div>
+      </div>
+
+       <div class="bg-gray-800/40 rounded-xl overflow-hidden">
+        <img src="https://i.imgur.com/RnF2Y4F.png" class="w-full"/>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-white">Profile ID-Card</h3>
+          <p class="text-gray-400 mt-2">UI, HTML, CSS</p>
+        </div>
+      </div>
+
+      
+       <div class="bg-gray-800/40 rounded-xl overflow-hidden">
+        <img src="https://i.imgur.com/RnF2Y4F.png" class="w-full"/>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-white">Photography Portfolio</h3>
+          <p class="text-gray-400 mt-2">JavaScript, HTML, CSS</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section id="skills" class="py-24 bg-gray-900">
+  <div class="max-w-7xl mx-auto px-6">
+    <p class="text-orange-500 text-sm tracking-widest mb-3">MY SKILLS</p>
+    <h2 class="text-4xl font-bold text-white mb-10">Tools & Technologies</h2>
+
+    <div class="space-y-6">
+      <div>
+        <p></p>
+        <div class="w-full bg-gray-700 rounded-full h-2">
+          <div class="bg-orange-500 h-2 rounded-full w-[95%]"></div>
+        </div>
+      </div>
+
+      <div>
+        <p>UI Design</p>
+        <div class="w-full bg-gray-700 rounded-full h-2">
+          <div class="bg-orange-500 h-2 rounded-full w-[92%]"></div>
+        </div>
+      </div>
+
+      <div>
+        <p>Tailwind CSS</p>
+        <div class="w-full bg-gray-700 rounded-full h-2">
+          <div class="bg-orange-500 h-2 rounded-full w-[90%]"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="py-24">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <p class="text-orange-500 text-sm tracking-widest mb-3">GET IN TOUCH</p>
+    <h2 class="text-4xl font-bold text-white mb-6">Let's Work Together in a Team</h2>
+    <p class="text-gray-400 mb-10">Have a project in mind? Let’s build something amazing & new.</p>
+
+    <form class="max-w-xl mx-auto space-y-4">
+      <input type="text" placeholder="Abhishek Gupta" class="w-full p-3 bg-gray-800 rounded"/>
+      <input type="email" placeholder="abhishekgupta0164@gmail.com" class="w-full p-3 bg-gray-800 rounded"/>
+      <textarea placeholder="Your Message" class="w-full p-3 bg-gray-800 rounded h-32"></textarea>
+      <button class="bg-orange-500 text-black px-6 py-3 rounded-full font-semibold">
+        Send Message
+      </button>
+    </form>
+  </div>
+</section>
+
+<footer class="text-center py-6 text-gray-500">
+  © 2026 Abhishek Portfolio
+</footer>
+
+</body>
 </html>
