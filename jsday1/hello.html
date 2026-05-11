@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ============================================================
+//  CLASS 1 — Intro to JavaScript
+//  Topics: Data Types | Operators | == vs === | Type Casting
+// ============================================================
+
+
+// ─────────────────────────────────────────────
+//  1. VARIABLES — var, let, const
+// ─────────────────────────────────────────────
+
+var name = "Rahul";       // old way — avoid using var
+let age = 20;             // block-scoped, can be reassigned
+const PI = 3.14;          // block-scoped, cannot be reassigned
+
+console.log(name, age, PI);
+
+
+// ─────────────────────────────────────────────
+//  2. DATA TYPES (7 Primitive + 1 Non-Primitive)
+// ─────────────────────────────────────────────
+
+// --- PRIMITIVE TYPES ---
+
+// 1. String
+let firstName = "Ankit";
+let greeting = 'Hello, World!';
+let templateStr = `My name is ${firstName}`; // Template literal
+console.log(typeof firstName);               // "string"
+
+// 2. Number (integer aur float dono same type hai JS mein)
+let num1 = 42;
+let num2 = 3.14;
+let negative = -10;
+console.log(typeof num1);   // "number"
+
+// Special Number values
+console.log(10 / 0);        // Infinity
+console.log(-10 / 0);       // -Infinity
+console.log("abc" * 2);     // NaN (Not a Number)
+console.log(isNaN("abc"));  // true
+
+// 3. Boolean
+let isLoggedIn = true;
+let isAdmin = false;
+console.log(typeof isLoggedIn); // "boolean"
+
+// 4. Undefined — variable declare hua but value assign nahi
+let city;
+console.log(city);          // undefined
+console.log(typeof city);   // "undefined"
+
+// 5. Null — intentionally khaali value
+let user = null;
+console.log(user);          // null
+console.log(typeof user);   // "object" ← JS ka ek famous bug hai yeh!
+
+// 6. BigInt — bahut bade numbers ke liye
+let bigNumber = 9007199254740991n;
+console.log(typeof bigNumber); // "bigint"
+
+// 7. Symbol — unique identifier
+let sym1 = Symbol("id");
+let sym2 = Symbol("id");
+console.log(sym1 === sym2); // false — har Symbol unique hota hai
+console.log(typeof sym1);   // "symbol"
+
+// --- NON-PRIMITIVE TYPE ---
+
+// 8. Object (Arrays, Functions bhi objects hain)
+let person = { name: "Priya", age: 22 };
+let colors = ["red", "green", "blue"];  // Array (Object ka type)
+console.log(typeof person); // "object"
+console.log(typeof colors); // "object"
+
+
+// ─────────────────────────────────────────────
+//  3. OPERATORS
+// ─────────────────────────────────────────────
+
+// --- Arithmetic Operators ---
+let a = 10, b = 3;
+
+console.log(a + b);   // 13  → Addition
+console.log(a - b);   // 7   → Subtraction
+console.log(a * b);   // 30  → Multiplication
+console.log(a / b);   // 3.33 → Division
+console.log(a % b);   // 1   → Modulus (remainder)
+console.log(a ** b);  // 1000 → Exponentiation (10^3)
+
+// Increment / Decrement
+let x = 5;
+console.log(x++);  // 5  → pehle print, phir badhao (post-increment)
+console.log(x);    // 6
+console.log(++x);  // 7  → pehle badhao, phir print (pre-increment)
+console.log(x--);  // 7  → pehle print, phir ghataao (post-decrement)
+
+
+// --- Assignment Operators ---
+let score = 10;
+score += 5;   // score = score + 5 → 15
+score -= 3;   // score = score - 3 → 12
+score *= 2;   // score = score * 2 → 24
+score /= 4;   // score = score / 4 → 6
+score %= 4;   // score = score % 4 → 2
+console.log(score); // 2
+
+
+// --- Comparison Operators ---
+console.log(5 > 3);    // true
+console.log(5 < 3);    // false
+console.log(5 >= 5);   // true
+console.log(5 <= 4);   // false
+
+
+// --- Logical Operators ---
+console.log(true && false);  // false  → AND (dono true ho tabhi true)
+console.log(true || false);  // true   → OR  (ek bhi true ho toh true)
+console.log(!true);          // false  → NOT (ulta kar deta hai)
+
+
+// --- String Operator ---
+let str1 = "Hello";
+let str2 = "World";
+console.log(str1 + " " + str2); // "Hello World" → Concatenation
+
+
+// ─────────────────────────────────────────────
+//  4. == vs === (Loose vs Strict Equality)
+// ─────────────────────────────────────────────
+
+/*
+  == (Loose Equality)
+     → Sirf VALUES compare karta hai
+     → Type conversion (coercion) karta hai automatically
+  
+  === (Strict Equality)
+     → VALUE aur TYPE dono compare karta hai
+     → Koi type conversion nahi hoti
+     → ALWAYS prefer === in real code!
+*/
+
+// Examples of == (loose)
+console.log(5 == "5");      // true  ← string "5" ko number 5 mein convert kiya
+console.log(0 == false);    // true  ← false ko 0 mein convert kiya
+console.log(null == undefined); // true ← special case
+console.log("" == false);   // true  ← dono 0 mein convert hote hain
+
+// Examples of === (strict)
+console.log(5 === "5");     // false ← types alag hain (number vs string)
+console.log(0 === false);   // false ← types alag hain (number vs boolean)
+console.log(null === undefined); // false ← types alag hain
+console.log("" === false);  // false ← types alag hain
+
+// != vs !==
+console.log(5 != "5");      // false  ← loose, types ignore
+console.log(5 !== "5");     // true   ← strict, types different
+
+
+// ─────────────────────────────────────────────
+//  5. TYPE CASTING (Type Conversion)
+// ─────────────────────────────────────────────
+
+/*
+  Do tarah ki type conversion hoti hai JavaScript mein:
+  
+  A) Implicit (Automatic) — JS khud karta hai
+  B) Explicit (Manual)    — Hum khud karte hain built-in methods se
+*/
+
+// --- A) Implicit Type Conversion (Coercion) ---
+
+// Number + String = String (+ concatenation karta hai)
+console.log(10 + "5");     // "105" ← number string mein convert ho gaya
+
+// String - Number = Number (-, *, / math karte hain toh string number ban jata hai)
+console.log("10" - 5);    // 5
+console.log("10" * 2);    // 20
+console.log("10" / 2);    // 5
+
+// Boolean arithmetic mein
+console.log(true + 1);    // 2  ← true = 1
+console.log(false + 1);   // 1  ← false = 0
+
+// Undefined operations
+console.log(undefined + 1);    // NaN
+console.log(undefined + "hi"); // "undefinedhi" ← string mein convert
+
+
+// --- B) Explicit Type Conversion ---
+
+// String → Number
+console.log(Number("42"));       // 42
+console.log(Number("3.14"));     // 3.14
+console.log(Number(""));         // 0
+console.log(Number("abc"));      // NaN
+console.log(Number(true));       // 1
+console.log(Number(false));      // 0
+console.log(Number(null));       // 0
+console.log(Number(undefined));  // NaN
+
+// parseInt aur parseFloat (strings se number nikalne ke liye)
+console.log(parseInt("42px"));   // 42   ← number part le leta hai
+console.log(parseInt("3.9"));    // 3    ← decimal ignore karta hai
+console.log(parseFloat("3.9")); // 3.9  ← decimal bhi leta hai
+console.log(parseInt("abc"));   // NaN
+
+// Number → String
+console.log(String(42));        // "42"
+console.log(String(true));      // "true"
+console.log(String(null));      // "null"
+console.log((42).toString());   // "42"
+
+// Any → Boolean
+// Falsy values: 0, "", null, undefined, NaN, false
+// Truthy values: baaki sab
+
+console.log(Boolean(0));          // false
+console.log(Boolean(""));         // false
+console.log(Boolean(null));       // false
+console.log(Boolean(undefined));  // false
+console.log(Boolean(NaN));        // false
+
+console.log(Boolean(1));          // true
+console.log(Boolean("hello"));    // true
+console.log(Boolean([]));         // true  ← empty array bhi truthy hai!
+console.log(Boolean({}));         // true  ← empty object bhi truthy hai!
+
+// Double NOT (!!) — quick way to convert to boolean
+console.log(!!0);       // false
+console.log(!!"hello"); // true
+console.log(!!null);    // false
+
+
+// ─────────────────────────────────────────────
+//  6. typeof OPERATOR — data type check karo
+// ─────────────────────────────────────────────
+
+console.log(typeof 42);          // "number"
+console.log(typeof "hello");     // "string"
+console.log(typeof true);        // "boolean"
+console.log(typeof undefined);   // "undefined"
+console.log(typeof null);        // "object"  ← JS bug (null object nahi hai!)
+console.log(typeof {});          // "object"
+console.log(typeof []);          // "object"  ← array bhi object hai
+console.log(typeof function(){}); // "function"
+console.log(typeof Symbol());    // "symbol"
+
+
+// ─────────────────────────────────────────────
+//  QUICK SUMMARY
+// ─────────────────────────────────────────────
+/*
+  ✅ Data Types    → String, Number, Boolean, Undefined, Null, BigInt, Symbol, Object
+  ✅ Operators     → Arithmetic (+,-,*,/,%), Assignment (+=,-=), Comparison, Logical
+  ✅ == vs ===     → == sirf value, === value + type (always use ===)
+  ✅ Type Casting  → Implicit (auto) aur Explicit (Number(), String(), Boolean())
+  ✅ typeof        → kisi bhi variable ka type check karne ke liye
+*/
+    </script>
+</body>
+</html>

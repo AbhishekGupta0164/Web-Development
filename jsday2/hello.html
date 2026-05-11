@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ============================================================
+//  CLASS 2 — JavaScript Deep Dive
+//  Topics: if/else | Non-Primitive Types (Array, Object, Function)
+//          | Execution Context (Call Stack, GEC, FEC)
+// ============================================================
+
+
+// ─────────────────────────────────────────────
+//  1. CONDITIONALS — if / else if / else
+// ─────────────────────────────────────────────
+
+// Basic if-else
+let age = 18;
+
+if (age >= 18) {
+  console.log("Adult hai — vote de sakta hai");
+} else {
+  console.log("Minor hai — vote nahi de sakta");
+}
+
+// if - else if - else (multiple conditions)
+let marks = 75;
+
+if (marks >= 90) {
+  console.log("Grade: A+");
+} else if (marks >= 75) {
+  console.log("Grade: A");   // ← yeh chalega
+} else if (marks >= 60) {
+  console.log("Grade: B");
+} else if (marks >= 40) {
+  console.log("Grade: C");
+} else {
+  console.log("Grade: Fail");
+}
+
+// Nested if-else
+let isLoggedIn = true;
+let isAdmin = false;
+
+if (isLoggedIn) {
+  if (isAdmin) {
+    console.log("Admin Dashboard");
+  } else {
+    console.log("User Dashboard");  // ← yeh chalega
+  }
+} else {
+  console.log("Please Login First");
+}
+
+// Ternary Operator — if-else ka short form
+// Syntax: condition ? valueIfTrue : valueIfFalse
+let num = 10;
+let result = num % 2 === 0 ? "Even" : "Odd";
+console.log(result); // "Even"
+
+// Switch Statement — ek value pe multiple cases check karna
+let day = "Monday";
+
+switch (day) {
+  case "Monday":
+    console.log("Week ka pehla din");
+    break;
+  case "Friday":
+    console.log("TGIF!");
+    break;
+  case "Saturday":
+  case "Sunday":
+    console.log("Weekend hai!");
+    break;
+  default:
+    console.log("Normal weekday");
+}
+// NOTE: break bhulo mat — warna "fall-through" ho jaata hai
+
+
+// ─────────────────────────────────────────────
+//  2. NON-PRIMITIVE DATA TYPES
+//  (Reference Types — Memory mein heap pe store hote hain)
+// ─────────────────────────────────────────────
+
+/*
+  Primitive   → Stack mein store hota hai (value copy hoti hai)
+  Non-Primitive → Heap mein store hota hai (reference/address copy hoti hai)
+
+  Non-Primitive types:
+    1. Object
+    2. Array
+    3. Function
+*/
+
+
+// ─────────────────────────────────────────────
+//  2A. OBJECT
+// ─────────────────────────────────────────────
+
+let person = {
+  name: "Ankit",
+  age: 22,
+  isStudent: true,
+  address: {            // Nested Object
+    city: "Indore",
+    state: "MP"
+  }
+};
+
+// Property Access — 2 tarike
+console.log(person.name);           // Dot notation → "Ankit"
+console.log(person["age"]);         // Bracket notation → 22
+console.log(person.address.city);   // Nested access → "Indore"
+
+// Property add karna
+person.email = "ankit@gmail.com";
+console.log(person.email);  // "ankit@gmail.com"
+
+// Property update karna
+person.age = 23;
+console.log(person.age);    // 23
+
+// Property delete karna
+delete person.isStudent;
+console.log(person.isStudent); // undefined
+
+// Property check karna
+console.log("name" in person);   // true
+console.log("salary" in person); // false
+
+// Object methods (functions inside object)
+let calculator = {
+  num1: 10,
+  num2: 5,
+  add: function() {
+    return this.num1 + this.num2;  // 'this' = current object
+  },
+  subtract() {    // Shorthand method syntax
+    return this.num1 - this.num2;
+  }
+};
+console.log(calculator.add());       // 15
+console.log(calculator.subtract());  // 5
+
+// Object loop — for...in
+for (let key in person) {
+  console.log(key, ":", person[key]);
+}
+
+// Reference trap — direct assign karne pe same object point hota hai!
+let obj1 = { val: 10 };
+let obj2 = obj1;         // obj2 same object ko point kar raha hai
+obj2.val = 99;
+console.log(obj1.val);   // 99 ← obj1 bhi change ho gaya! (reference copy)
+
+// Spread Operator — shallow copy banana
+let original = { x: 1, y: 2 };
+let copy = { ...original };
+copy.x = 99;
+console.log(original.x); // 1 — original safe hai
+console.log(copy.x);     // 99
+
+
+// ─────────────────────────────────────────────
+//  2B. ARRAY
+// ─────────────────────────────────────────────
+
+// Array — ordered list of values (mixed types allowed)
+let fruits = ["apple", "banana", "mango"];
+
+// Access
+console.log(fruits[0]);  // "apple"
+console.log(fruits[2]);  // "mango"
+console.log(fruits[10]); // undefined
+
+// Length
+console.log(fruits.length); // 3
+
+// Array update
+fruits[1] = "kiwi";
+console.log(fruits); // ["apple", "kiwi", "mango"]
+
+// ── Array Loops ──
+
+// 1. for loop — classic, index ke saath
+for (let i = 0; i < fruits.length; i++) {
+  console.log(i, fruits[i]);
+}
+
+// 2. for...of — clean syntax, directly element milta hai
+for (let fruit of fruits) {
+  console.log(fruit);
+}
+
+// NOTE: Array methods (push, pop, map, filter, reduce etc.)
+//       → Next Class mein cover karenge
+
+
+// ─────────────────────────────────────────────
+//  2C. FUNCTION
+// ─────────────────────────────────────────────
+
+// Functions bhi Objects hain JS mein — "First Class Citizens"
+// Matlab: variable mein store ho sakte hain, argument pass ho sakte hain,
+// return bhi ho sakte hain
+
+// ── 1. Function Declaration (Hoisted)
+greet("Priya");  // ← Hoist ho gaya, kaam karega!
+
+function greet(name) {
+  console.log("Hello, " + name + "!");
+}
+
+// ── 2. Function Expression (Variable mein store)
+// NOT hoisted — define karne ke baad hi call karo
+const square = function(n) {
+  return n * n;
+};
+console.log(square(5)); // 25
+
+// ── 3. Arrow Function (ES6)
+const add = (a, b) => a + b;  // single line — return implicit
+console.log(add(3, 4)); // 7
+
+const multiply = (a, b) => {
+  let result = a * b;   // multiple lines — curly braces + return chahiye
+  return result;
+};
+console.log(multiply(3, 4)); // 12
+
+// Single parameter — parentheses optional
+const double = n => n * 2;
+console.log(double(7)); // 14
+
+// No parameters — empty parentheses
+const sayHello = () => console.log("Hello!");
+sayHello();
+
+// ── 4. Default Parameters
+function createUser(name, role = "user", active = true) {
+  return { name, role, active };
+}
+console.log(createUser("Ankit"));          // {name:"Ankit", role:"user", active:true}
+console.log(createUser("Admin", "admin")); // {name:"Admin", role:"admin", active:true}
+
+// ── 5. Rest Parameters (...)
+function sumAll(...numbers) {
+  let total = 0;
+  for (let n of numbers) total += n;
+  return total;
+}
+console.log(sumAll(1, 2, 3));        // 6
+console.log(sumAll(1, 2, 3, 4, 5)); // 15
+
+
+// ─────────────────────────────────────────────
+//  3. EXECUTION CONTEXT & CALL STACK
+// ─────────────────────────────────────────────
+
+/*
+  ╔════════════════════════════════════════════════════════╗
+  ║           EXECUTION CONTEXT KYA HOTA HAI?             ║
+  ╚════════════════════════════════════════════════════════╝
+
+  Jab bhi JavaScript code run hota hai, JS Engine ek
+  "Execution Context" banata hai — ek environment
+  jisme code execute hota hai.
+
+  Execution Context ke 2 PHASES hote hain:
+  ─────────────────────────────────────────
+  Phase 1: CREATION / MEMORY PHASE
+    → Saari variables ko 'undefined' assign hota hai
+    → Function declarations ko pura store kiya jaata hai
+    → 'this' create hota hai
+
+  Phase 2: EXECUTION PHASE
+    → Code line by line execute hota hai
+    → Variables ko actual values assign hoti hain
+
+  ─────────────────────────────────────────
+  2 TYPES OF EXECUTION CONTEXT:
+  ─────────────────────────────────────────
+  1. Global Execution Context (GEC)
+     → Sabse pehle banta hai
+     → Browser mein 'this' === window object
+     → Sirf EK GEC hota hai
+
+  2. Function Execution Context (FEC)
+     → Har function CALL pe naya banta hai
+     → Apna khud ka Variables Environment hota hai
+     → Multiple FEC ho sakte hain
+
+  ─────────────────────────────────────────
+  CALL STACK — LIFO (Last In, First Out)
+  ─────────────────────────────────────────
+  JS Engine ek CALL STACK maintain karta hai
+  → Naya context push hota hai jab function call ho
+  → Context pop hota hai jab function return kare
+  → GEC sabse neeche (base) rehta hai
+*/
+
+function first() {
+  console.log("first() start");
+  second();
+  console.log("first() end");
+}
+
+function second() {
+  console.log("second() start");
+  third();
+  console.log("second() end");
+}
+
+function third() {
+  console.log("third() — bottom of the stack");
+}
+
+first();
+
+/*
+  Call Stack — Step by Step:
+  ──────────────────────────
+  Step 1: [GEC]
+  Step 2: [GEC] [first()]                    → first() call hua
+  Step 3: [GEC] [first()] [second()]         → second() call hua
+  Step 4: [GEC] [first()] [second()] [third()]  → third() call hua
+
+  Step 5: [GEC] [first()] [second()]         → third() return (pop)
+  Step 6: [GEC] [first()]                    → second() return (pop)
+  Step 7: [GEC]                              → first() return (pop)
+  Step 8: []                                 → GEC bhi khatam
+
+  Output:
+  first() start
+  second() start
+  third() — bottom of the stack
+  second() end
+  first() end
+*/
+
+
+// ── Hoisting (Creation Phase ki wajah se hota hai) ──
+
+console.log(hoistedVar);  // undefined (var hoisted hai par value nahi)
+var hoistedVar = "I am hoisted";
+console.log(hoistedVar);  // "I am hoisted"
+
+hoistedFunction();        // kaam karega — puri definition save thi
+
+function hoistedFunction() {
+  console.log("Hoisted function!");
+}
+
+// Function Expression hoisted nahi hoti
+// hoistedExpr();         // ← TypeError: hoistedExpr is not a function
+var hoistedExpr = function() {
+  console.log("Not hoisted");
+};
+
+
+// ── SCOPE ──
+
+/*
+  3 types of scope:
+  1. Global Scope    → Poore program mein accessible
+  2. Function Scope  → Sirf us function ke andar
+  3. Block Scope     → Sirf us {} block ke andar (let/const)
+*/
+
+let globalVar = "I am global";
+
+function scopeDemo() {
+  let funcVar = "I am function scoped";
+  console.log(globalVar);  // ✅ accessible
+
+  if (true) {
+    let blockVar = "I am block scoped";
+    var varInBlock = "var ignores blocks"; // var is function scoped!
+    console.log(blockVar); // ✅ accessible
+  }
+
+  // console.log(blockVar); // ❌ ReferenceError
+  console.log(varInBlock);  // ✅ var function scoped hai
+}
+
+scopeDemo();
+// console.log(funcVar); // ❌ ReferenceError
+console.log(globalVar);   // ✅ accessible
+
+
+// ─────────────────────────────────────────────
+//  QUICK SUMMARY
+// ─────────────────────────────────────────────
+/*
+  ✅ if/else/switch   → Conditions handle karna
+  ✅ Ternary (?:)     → Short if-else
+  ✅ Object           → Key-value pairs, methods, for...in, reference trap
+  ✅ Array            → Ordered list, for loop / for...of loop
+  ✅ Function         → Declaration, Expression, Arrow, Default/Rest params
+  ✅ Execution Context→ GEC + FEC, 2 phases (Creation + Execution)
+  ✅ Call Stack       → LIFO — push on call, pop on return
+  ✅ Hoisting         → var + function declarations upar jaate hain
+  ✅ Scope            → Global / Function / Block
+
+  ⏭️  Next Class: Array methods (push, pop, map, filter, reduce etc.)
+*/
+    </script>
+</body>
+</html>
