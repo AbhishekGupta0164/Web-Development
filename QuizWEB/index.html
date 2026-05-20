@@ -32,7 +32,6 @@
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
   }
 
-  
   h1 {
     text-align: center;
     color: #1e3c72;
@@ -256,12 +255,12 @@
     loadQuestion();
   };
 
-  function loadQuestion(){
-    answered=false
-    timeLeft=15
+  // function loadQuestion(){
+  //   answered=false
+  //   timeLeft=15
   
-  }
-  loadQuestion()
+  // }
+  // loadQuestion()
 
 
   function loadQuestion() {
@@ -276,19 +275,23 @@
     document.getElementById('question').textContent = q.question;
 
 
+
+
+
     const optionsDiv = document.getElementById('options');
     optionsDiv.innerHTML = '';
 
     q.options.forEach((option, index) => {
       const btn = document.createElement('button');
       btn.className = 'option';
-    startTimer();
       btn.textContent = option;
       btn.onclick = () => checkAnswer(index, btn);
       optionsDiv.appendChild(btn);
     });
 
+    startTimer();
   }
+
 
   function startTimer() {
     clearInterval(timerInterval);
@@ -329,10 +332,53 @@
   }
 
 
+  function timeUp() {
+    answered = true;
+    const correctIndex = questions[currentQuestion].answer;
+    const allOptions = document.querySelectorAll('.option');
+
+    allOptions.forEach(o => o.disabled = true);
+    allOptions[correctIndex].classList.add('correct');
+    document.getElementById('nextBtn').disabled = false;
+  }
 
 
+  function nextQuestion() {
+    currentQuestion++;
+    if (currentQuestion < questions.length) {
+      loadQuestion();
+    } else {
+      showResult();
+    }
+  }
 
 
+  function showResult() {
+    document.getElementById('quizScreen').classList.add('hide');
+    document.getElementById('resultScreen').classList.remove('hide');
+
+    document.getElementById('finalScore').textContent = `${score} / ${questions.length}`;
+
+
+    let msg = '';
+    const percent = (score / questions.length) * 100;
+    if (percent === 100) msg = "Perfect score! 🏆 Tu toh genius hai!";
+    else if (percent >= 60) msg = "Great job! 👏 Acchhi performance.";
+    else if (percent >= 40) msg = "Not bad! Thoda aur practice kar. 💪";
+    else msg = "Don't worry, agli baar better karega! 📚";
+
+    document.getElementById('resultMsg').textContent = msg;
+  }
+
+
+  function restartQuiz() {
+    currentQuestion = 0;
+    score = 0;
+    document.getElementById('score').textContent = 0;
+    document.getElementById('resultScreen').classList.add('hide');
+    document.getElementById('quizScreen').classList.remove('hide');
+    loadQuestion();
+  }
 </script>
 
 </body>
