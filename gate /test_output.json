@@ -1,0 +1,1747 @@
+{
+  "SCH": [
+    {
+      "d": "Jun-23",
+      "ph": "B",
+      "s": "COA",
+      "u": "An Applied Introduction",
+      "t": "Why COA, Memory organisation, Addressability, CPU-Memory interfacing, System Bus, Instruction Cycle, Stack/Accumulator/General Register CPU, PSW-I",
+      "h": 13,
+      "type": "study"
+    },
+    {
+      "d": "Jun-24",
+      "ph": "B",
+      "s": "COA",
+      "u": "An Applied Introduction",
+      "t": "PSW-II, Solved problems, Revision",
+      "h": 13,
+      "type": "study"
+    },
+    {
+      "d": "Jun-25",
+      "ph": "B",
+      "s": "COA",
+      "u": "Addressing Modes",
+      "t": "Intro, Indirect, Indexed & AutoIndexed Modes, Based & Relative modes, Solved problems",
+      "h": 13,
+      "type": "study"
+    },
+    {
+      "d": "Jun-26",
+      "ph": "B",
+      "s": "COA",
+      "u": "Instruction Set",
+      "t": "Instruction Set intro, Transfer-of-control, Instruction Cycle with Interrupts, Types of Interrupts, RISC, Solved problems",
+      "h": 12,
+      "type": "study"
+    },
+    {
+      "d": "Jun-27",
+      "ph": "B",
+      "s": "COA",
+      "u": "Performance of CPU \u2013 Part 1",
+      "t": "Micro-ops, Hardwired & Microprogrammed Control Unit, Amdahl\\'s Law, CPU time calc, SISD/SIMD/MISD/MIMD",
+      "h": 12,
+      "type": "study"
+    },
+    {
+      "d": "Jun-28",
+      "ph": "B",
+      "s": "COA",
+      "u": "Performance of CPU \u2013 Part 2",
+      "t": "Pipelining, Types of Pipelines, RISC Pipelining, Pipeline Hazards I & II, Solved problems",
+      "h": 14,
+      "type": "study"
+    },
+    {
+      "d": "Jun-29",
+      "ph": "B",
+      "s": "COA",
+      "u": "Memory Organization",
+      "t": "Sequential & Hierarchical access, Cache, Direct Mapping, Associative & Set-Associative, Replacement, Update, Multi-level Cache, Solved problems",
+      "h": 13,
+      "type": "study"
+    },
+    {
+      "d": "Jun-30",
+      "ph": "B",
+      "s": "COA",
+      "u": "I/O Organization + Full Revision",
+      "t": "I/O Intro, DMA, GATE 2016 problem, Full COA revision",
+      "h": 14,
+      "type": "study"
+    },
+    {
+      "d": "Jul-01",
+      "ph": "B",
+      "s": "CPRO",
+      "u": "Introduction to C",
+      "t": "What/Why/How, Computer model, Tools, I/O, Conditionals, Loops, Reuse, Data Types, Variables, Constants, Formatting, Keywords",
+      "h": 12,
+      "type": "study"
+    },
+    {
+      "d": "Jul-02",
+      "ph": "B",
+      "s": "CPRO",
+      "u": "Operators & Expressions",
+      "t": "Arithmetic, Assignment, Increment/Decrement, Relational, Logical, Comma, Ternary, Sizeof, Precedence, Type Casting, Bitwise, GATE 2017/2008",
+      "h": 12,
+      "type": "study"
+    },
+    {
+      "d": "Jul-03",
+      "ph": "B",
+      "s": "CPRO",
+      "u": "Control Statements",
+      "t": "If-else, while, do-while, for, Nested/Infinite loops, break/continue, goto, switch-case, GATE 2016/2015/2014/2012/2004",
+      "h": 12,
+      "type": "study"
+    },
+    {
+      "d": "Jul-04",
+      "ph": "B",
+      "s": "CPRO",
+      "u": "Functions & Pointers \u2013 Part 1",
+      "t": "Intro to Functions, Local/Global/Static Variables, Recursion basics, Towers of Hanoi, Storage classes, GATE 2019/2018",
+      "h": 13,
+      "type": "study"
+    },
+    {
+      "d": "Jul-05",
+      "ph": "B",
+      "s": "CPRO",
+      "u": "Functions & Pointers \u2013 Part 2",
+      "t": "Pointers intro, Dereferencing, Pointers & Arrays, 2D arrays, Pointers & Functions, Array of pointers, Void pointers, Dynamic memory, Revision",
+      "h": 12,
+      "type": "study"
+    },
+    {
+      "d": "Jul-06",
+      "ph": "B",
+      "s": "CPRO",
+      "u": "Strings, Structures & Unions",
+      "t": "Strings in C, Library Functions, Pointers+Arrays+Strings, Structures intro, Unions, typedef, Revision",
+      "h": 13,
+      "type": "study"
+    },
+    {
+      "d": "Jul-07",
+      "ph": "B",
+      "s": "CPRO",
+      "u": "Files & Miscellaneous + Revision",
+      "t": "File I/O, Enumerators, Function-pointers, Static & Dynamic Scoping, Solved problems, Full C revision",
+      "h": 13,
+      "type": "study"
+    },
+    {
+      "d": "Jul-08",
+      "ph": "B",
+      "s": "DSA",
+      "u": "Merge Sort",
+      "t": "Intuition, Pseudo Code, Time & Space complexity, Recursion tree, External Merge Sort, GATE 2007/2015",
+      "h": 13,
+      "type": "study"
+    },
+    {
+      "d": "Jul-09",
+      "ph": "B",
+      "s": "DSA",
+      "u": "Recurrences & Recursion",
+      "t": "Recursion tree, Master Theorem, Extended MT, Inadmissible cases, Substitution method, Tail recursion, GATE 2011/2007/2006/2004/2009/2008/2003/2016",
+      "h": 13,
+      "type": "study"
+    },
+    {
+      "d": "Jul-10",
+      "ph": "B",
+      "s": "DSA",
+      "u": "Sorting \u2013 Bubble, Quick, Selection, Linear-time",
+      "t": "Bubble Sort, QuickSort (partition, recursion, randomised), Selection Sort, Lower bounds, Counting Sort, Radix Sort, GATE 2000-2019",
+      "h": 13,
+      "type": "study"
+    },
+    {
+      "d": "Jul-11",
+      "ph": "B",
+      "s": "DSA",
+      "u": "Linked Lists",
+      "t": "What/Why, SLL/DLL structure & ops, Circular lists, GATE 2002/2010/2016",
+      "h": 12,
+      "type": "study"
+    },
+    {
+      "d": "Jul-12",
+      "ph": "B",
+      "s": "DSA",
+      "u": "Stacks",
+      "t": "Push/Pop, Implementation, Parenthesis check, Infix/Prefix/Postfix, Evaluation, Applications, GATE 2004/2007/1997",
+      "h": 13,
+      "type": "study"
+    },
+    {
+      "d": "Jul-13",
+      "ph": "B",
+      "s": "DSA",
+      "u": "Queues",
+      "t": "Enqueue/Dequeue, Linear & Circular Queue, GATE 2004/2016/2013/2012/2018/1996/2007/2014",
+      "h": 12,
+      "type": "study"
+    },
+    {
+      "d": "Jul-14",
+      "ph": "B",
+      "s": "DSA",
+      "u": "Arrays",
+      "t": "1D/2D arrays, Special matrices (Symmetric, Triangular, Diagonal, Toeplitz), Dynamic arrays, Array vs Linked Lists, GATE 2000-2015",
+      "h": 12,
+      "type": "study"
+    },
+    {
+      "d": "Jul-15",
+      "ph": "B",
+      "s": "DSA",
+      "u": "Trees \u2013 Part 1",
+      "t": "Structure, Terminology, Traversals, Types of Binary Trees, Properties, Applications, GATE 2004/2010/2017/2013/2006",
+      "h": 13,
+      "type": "study"
+    },
+    {
+      "d": "Jul-16",
+      "ph": "B",
+      "s": "DSA",
+      "u": "Trees \u2013 Part 2 + BST",
+      "t": "BST build, Search/Insert/Delete, Traversals, Randomised BST, GATE 2003/2018/2017/2013/2015/2011/1994/2014",
+      "h": 13,
+      "type": "study"
+    },
+    {
+      "d": "Jul-17",
+      "ph": "B",
+      "s": "DSA",
+      "u": "Heap Sort",
+      "t": "Heap/Heapify, Build-Heap O(n), HeapSort, Priority Queues, Sorting comparison, GATE 2006/2005/2003/2018/2016/2004/2014",
+      "h": 14,
+      "type": "study"
+    },
+    {
+      "d": "Jul-18",
+      "ph": "B",
+      "s": "DSA",
+      "u": "AVL Trees",
+      "t": "Why AVL, Height, Search, LL/RR/RL/LR rotations, Insertion, Delete, GATE 2009/2008",
+      "h": 13,
+      "type": "study"
+    },
+    {
+      "d": "Jul-19",
+      "ph": "B",
+      "s": "DSA",
+      "u": "Hashing",
+      "t": "Hash Tables, Direct access, Hash functions, Chaining, Division/Multiplication method, Open Addressing, Linear probing, Double hashing, GATE 2004-2015",
+      "h": 12,
+      "type": "study"
+    },
+    {
+      "d": "Jul-20",
+      "ph": "B",
+      "s": "DSA",
+      "u": "Graphs \u2013 I",
+      "t": "Basics, Adjacency Matrix/List, Connectivity, BFS, DFS, Edge types, Cycle detection, SCC, Topological Sort, GATE 2003-2016",
+      "h": 13,
+      "type": "study"
+    },
+    {
+      "d": "Jul-21",
+      "ph": "B",
+      "s": "DSA",
+      "u": "Spanning Trees & Shortest Paths",
+      "t": "MST, Kruskal\\'s, Prim\\'s, MST properties, Dijkstra, Bellman-Ford, Floyd-Warshall, DAG shortest paths, GATE 2004-2016",
+      "h": 14,
+      "type": "study"
+    },
+    {
+      "d": "Jul-22",
+      "ph": "B",
+      "s": "DSA",
+      "u": "Dynamic Programming",
+      "t": "Fibonacci, LCS, 0/1 Knapsack, Matrix Chain Multiplication, Subset-sum, TSP, Floyd-Warshall as DP, GATE 2008-2016",
+      "h": 14,
+      "type": "study"
+    },
+    {
+      "d": "Jul-23",
+      "ph": "B",
+      "s": "DSA",
+      "u": "Greedy Algorithms",
+      "t": "Fractional Knapsack, Huffman Coding, Job Sequencing, Optimal Merge Pattern, Prim\\'s/Kruskal\\'s/Dijkstra as Greedy, GATE 1999-2018",
+      "h": 14,
+      "type": "study"
+    },
+    {
+      "d": "Jul-24",
+      "ph": "B",
+      "s": "TOC",
+      "u": "Applied Intro + Mathematical Foundations",
+      "t": "Why TOC, Alphabets, Strings, Languages, Grammars, Mathematical recap",
+      "h": 13,
+      "type": "study"
+    },
+    {
+      "d": "Jul-25",
+      "ph": "B",
+      "s": "TOC",
+      "u": "Finite Automata \u2013 Part 1",
+      "t": "FA intro, Language of FA, DFA construction (finite/non-finite), DFAs on binary/decimal, Complement/Union/Intersection, NFA + solved problems",
+      "h": 13,
+      "type": "study"
+    },
+    {
+      "d": "Jul-26",
+      "ph": "B",
+      "s": "TOC",
+      "u": "Finite Automata \u2013 Part 2",
+      "t": "NFA to DFA conversion, \u03b5-NFA, DFA Minimisation, Moore & Mealy Machines, Conversions",
+      "h": 13,
+      "type": "study"
+    },
+    {
+      "d": "Jul-27",
+      "ph": "B",
+      "s": "TOC",
+      "u": "Regular Languages",
+      "t": "Regular Languages properties, Regular Expressions, RE solved problems, FA\u2192RE (Arden\\'s Lemma & Elimination), RE\u2192FA, Pumping Lemma for RL",
+      "h": 14,
+      "type": "study"
+    },
+    {
+      "d": "Jul-28",
+      "ph": "B",
+      "s": "TOC",
+      "u": "Grammars & Languages",
+      "t": "Grammar intro, Designing grammars, Chomsky\\'s hierarchy, Regular Grammars, RLG\u2194eNFA equivalences",
+      "h": 14,
+      "type": "study"
+    },
+    {
+      "d": "Jul-29",
+      "ph": "B",
+      "s": "TOC",
+      "u": "CFG & PDAs",
+      "t": "CFG intro/optimisation, CNF, GNF, CYK algorithm, PDA intro/examples, CFG\u2192PDA, Pumping Lemma for CFLs, Closure properties",
+      "h": 13,
+      "type": "study"
+    },
+    {
+      "d": "Jul-30",
+      "ph": "B",
+      "s": "TOC",
+      "u": "Turing Machines",
+      "t": "TM intro, More TM examples, TM properties & types, Languages of TM, Closure properties, Linear Bounded Automata",
+      "h": 14,
+      "type": "study"
+    },
+    {
+      "d": "Jul-31",
+      "ph": "B",
+      "s": "TOC",
+      "u": "Undecidability & Computational Classes",
+      "t": "Encoding TM, Non-REL, UTM, Halting Problem, Rice\\'s Theorem, PCP, Decidability, P/NP/NPC/NPH classes",
+      "h": 14,
+      "type": "study"
+    },
+    {
+      "d": "Aug-01",
+      "ph": "B",
+      "s": "CD",
+      "u": "Syntax Analysis / Parser \u2013 Part 1",
+      "t": "Compiler phases, Lexical Analysis, CFG recap, Ambiguous Grammars, Left factoring, Dangling-else, LL(1): FIRST, FOLLOW, Parse Table",
+      "h": 13,
+      "type": "study"
+    },
+    {
+      "d": "Aug-02",
+      "ph": "B",
+      "s": "CD",
+      "u": "Syntax Analysis / Parser \u2013 Part 2",
+      "t": "LR(0) parsing, SLR(1), CLR(1), LALR(1), Operator Precedence Parser, Revision",
+      "h": 14,
+      "type": "study"
+    },
+    {
+      "d": "Aug-03",
+      "ph": "B",
+      "s": "CD",
+      "u": "Intermediate Code Generation",
+      "t": "Syntax Directed Translation (SDT), SDT with examples, Types of SDTs, ICG + 3-address codes, Revision",
+      "h": 13,
+      "type": "study"
+    },
+    {
+      "d": "Aug-04",
+      "ph": "B",
+      "s": "DL",
+      "u": "Intro + Number System \u2013 Part 1",
+      "t": "DL intro, Applications, Number system conversions, BCD/Gray/Excess-3 codes, 1\\'s & 2\\'s complement, IEEE 754 float, Booth\\'s Algorithm",
+      "h": 13,
+      "type": "study"
+    },
+    {
+      "d": "Aug-05",
+      "ph": "B",
+      "s": "DL",
+      "u": "Boolean Expressions",
+      "t": "Canonical/Standard form, Minterms/Maxterms, Duality, Self-duality, De Morgan, Boolean laws (Identity/Commutative/Distributive/Compensation), Shannon\\'s Expansion, Gate questions",
+      "h": 13,
+      "type": "study"
+    },
+    {
+      "d": "Aug-06",
+      "ph": "B",
+      "s": "DL",
+      "u": "Logic Gates",
+      "t": "AND/OR/NOT, NAND/NOR universal gates, NAND-NAND & NOR-NOR realisations, XOR/XNOR properties, Interconversion",
+      "h": 13,
+      "type": "study"
+    },
+    {
+      "d": "Aug-07",
+      "ph": "B",
+      "s": "DL",
+      "u": "K-Maps",
+      "t": "K-Map basics (2,3,4 var), Incompletely specified K-maps, Functional K-maps, 5-var K-map, VEM K-maps, GATE PYQs",
+      "h": 13,
+      "type": "study"
+    },
+    {
+      "d": "Aug-08",
+      "ph": "B",
+      "s": "DL",
+      "u": "Combinational Circuits",
+      "t": "Half/Full Adder, Subtractor, Parallel Adder/Subtractor, BCD Adder, Comparator, MUX/DEMUX/Decoder/Encoder, Functional realisation, ROM/PAL/PLA, GATE PYQs",
+      "h": 13,
+      "type": "study"
+    },
+    {
+      "d": "Aug-09",
+      "ph": "B",
+      "s": "DL",
+      "u": "Sequential Circuits",
+      "t": "Intro, SR/JK/D/T Flip-Flops, Characteristic equations, Excitation tables, FF interconversion, Memory construction, GATE PYQs",
+      "h": 14,
+      "type": "study"
+    },
+    {
+      "d": "Aug-10",
+      "ph": "B",
+      "s": "DL",
+      "u": "Counters + Revision",
+      "t": "Synchronous (Shift/Ring/Johnson counter), Asynchronous/Ripple counters, Sequence detector, Serial Adder, GATE questions, Full DL revision",
+      "h": 15,
+      "type": "study"
+    },
+    {
+      "d": "Aug-11",
+      "ph": "B",
+      "s": "MATH",
+      "u": "Linear Algebra \u2013 Part 1",
+      "t": "Why/How, Vectors, Matrices as linear transforms, Matrix mult/addition, Transpose, Dot product, Types of matrices, Determinant, Minor/Cofactor/Adjoint/Inverse",
+      "h": 14,
+      "type": "study"
+    },
+    {
+      "d": "Aug-12",
+      "ph": "B",
+      "s": "MATH",
+      "u": "Linear Algebra \u2013 Part 2",
+      "t": "Trace, Rank, System of Linear Equations, Eigenvalues & Eigenvectors, Cayley-Hamilton, LU Decomposition, GATE 2017/2014/2015/2005/2004",
+      "h": 15,
+      "type": "study"
+    },
+    {
+      "d": "Aug-13",
+      "ph": "B",
+      "s": "MATH",
+      "u": "Calculus",
+      "t": "Limits (properties, indeterminate forms, L\\'Hopital), Continuity, Discontinuities, Differentiability, MVT, Maxima/Minima, Integration (substitution, parts, partial fractions), Solved problems",
+      "h": 13,
+      "type": "study"
+    },
+    {
+      "d": "Aug-14",
+      "ph": "B",
+      "s": "MATH",
+      "u": "Sets, Relations, Functions, Lattices \u2013 Part 1",
+      "t": "Sets intro, Operations, Properties, Cartesian Product, Relations: Reflexive/Irreflexive/Symmetric/Antisymmetric/Transitive/Equivalence, Partial Order, Hasse diagrams",
+      "h": 13,
+      "type": "study"
+    },
+    {
+      "d": "Aug-15",
+      "ph": "B",
+      "s": "MATH",
+      "u": "Sets, Relations, Functions, Lattices \u2013 Part 2",
+      "t": "Functions (types, number of functions, inverse, composition), POSET/TOSET, Lattice properties, Group theory I & II, Cyclic groups, Subgroups",
+      "h": 13,
+      "type": "study"
+    },
+    {
+      "d": "Aug-16",
+      "ph": "B",
+      "s": "MATH",
+      "u": "Logic: Propositional & Predicate \u2013 Part 1",
+      "t": "Why logic, Propositional Logic I & II, Tautology/Contradiction/Contingency, Normal Forms (PDNF/PCNF), Arguments & Rules of Inference",
+      "h": 13,
+      "type": "study"
+    },
+    {
+      "d": "Aug-17",
+      "ph": "B",
+      "s": "MATH",
+      "u": "Logic: Propositional & Predicate \u2013 Part 2",
+      "t": "Predicate Logic intro, Properties, English \u2194 Predicate Logic translation, More examples & Revision",
+      "h": 13,
+      "type": "study"
+    },
+    {
+      "d": "Aug-18",
+      "ph": "B",
+      "s": "MATH",
+      "u": "Counting & Combinatorics \u2013 Part 1",
+      "t": "Permutations & Combinations, Sum/Product rule, Inclusion-Exclusion, Derangements, Pigeonhole, Binomial Coefficients",
+      "h": 13,
+      "type": "study"
+    },
+    {
+      "d": "Aug-19",
+      "ph": "B",
+      "s": "MATH",
+      "u": "Counting & Combinatorics \u2013 Part 2",
+      "t": "Recurrence Relations (intro, solving), Generating functions, Revision",
+      "h": 13,
+      "type": "study"
+    },
+    {
+      "d": "Aug-20",
+      "ph": "B",
+      "s": "MATH",
+      "u": "Probability \u2013 Part 1",
+      "t": "Axioms, Properties, Conditional Probability, Multiplication theorem, Independent events, Law of Total Probability, Bayes\\' Theorem, PMF/CDF/PDF, Expectation, Bernoulli/Binomial/Poisson Distributions",
+      "h": 14,
+      "type": "study"
+    },
+    {
+      "d": "Aug-21",
+      "ph": "B",
+      "s": "MATH",
+      "u": "Probability \u2013 Part 2",
+      "t": "Uniform/Exponential/Normal distributions, Mean/Median/Mode, GATE PYQs, Revision",
+      "h": 14,
+      "type": "study"
+    },
+    {
+      "d": "Aug-22",
+      "ph": "B",
+      "s": "MATH",
+      "u": "Graph Theory \u2013 Part 1",
+      "t": "Why Graph Theory, Types, Handshaking theorem, Havell-Hakimi, Special graphs, Subgraphs, Bipartite, Representation, Isomorphism, Connectivity, Eulerian & Hamiltonian",
+      "h": 14,
+      "type": "study"
+    },
+    {
+      "d": "Aug-23",
+      "ph": "B",
+      "s": "MATH",
+      "u": "Graph Theory \u2013 Part 2 + Full Math Revision",
+      "t": "Planar Graphs, Trees, Graph Coloring, Independence/Dominating Sets, Matchings, GATE PYQs, Full Math revision",
+      "h": 15,
+      "type": "study"
+    },
+    {
+      "d": "Aug-24",
+      "ph": "B",
+      "s": "APT",
+      "u": "Number System",
+      "t": "Number intro, Fractions, Rational/Irrational, Factors, Divisibility rules, Remainder theorem, Unit digit, Base system, Indices/Surds, Progressions, GATE 2010/2013/2014/2018",
+      "h": 12,
+      "type": "study"
+    },
+    {
+      "d": "Aug-25",
+      "ph": "B",
+      "s": "APT",
+      "u": "LCM, HCF & Ratio & Proportion",
+      "t": "LCM/HCF intro, LCM/HCF of decimals, Ratio intro, Proportion, Variation, Solved problems 1-15, GATE PYQs",
+      "h": 12,
+      "type": "study"
+    },
+    {
+      "d": "Aug-26",
+      "ph": "B",
+      "s": "APT",
+      "u": "Averages, Partnership & Percentages",
+      "t": "Averages (intro + solved + GATE PYQs), Partnership problems, Percentages (intro + problems + successive % + GATE PYQs)",
+      "h": 12,
+      "type": "study"
+    },
+    {
+      "d": "Aug-27",
+      "ph": "B",
+      "s": "APT",
+      "u": "Profit & Loss + SI & CI + Alligation",
+      "t": "Profit & Loss intro + problems + GATE PYQs, Simple & Compound Interest + installments + GATE PYQs, Alligation + mixture + replacement + GATE PYQs",
+      "h": 12,
+      "type": "study"
+    },
+    {
+      "d": "Aug-28",
+      "ph": "B",
+      "s": "APT",
+      "u": "Time-Work, Speed-Distance & Number Series",
+      "t": "Speed/Time/Distance + trains + boats, Time & Work + pipes & cisterns, GATE PYQs, Number series patterns + GATE PYQs",
+      "h": 12,
+      "type": "study"
+    },
+    {
+      "d": "Aug-29",
+      "ph": "B",
+      "s": "APT",
+      "u": "Geometry + Mensuration 3D",
+      "t": "Geometry basics, angles, triangles (theorems/similarity), quadrilaterals, circles, GATE PYQs, Mensuration 3D (solid figures), combination problems",
+      "h": 12,
+      "type": "study"
+    },
+    {
+      "d": "Aug-30",
+      "ph": "B",
+      "s": "APT",
+      "u": "Data Interpretation + Full Aptitude Revision",
+      "t": "DI intro, bar/line/pie chart problems, GATE PYQs, Full Aptitude Revision",
+      "h": 12,
+      "type": "study"
+    },
+    {
+      "d": "Aug-31",
+      "ph": "B",
+      "s": "DBMS",
+      "u": "Intro to Relational Models & ER Diagrams",
+      "t": "Files vs DBMS, Tables & Keys, Integrity Constraints, ER diagrams (cardinality, weak/strong entities, self-referential), ER\u2192Relational mapping, GATE PYQs",
+      "h": 13,
+      "type": "study"
+    },
+    {
+      "d": "Sep-01",
+      "ph": "B",
+      "s": "DBMS",
+      "u": "Relational Algebra & SQL",
+      "t": "Relational Algebra (basic ops, joins, division), TRC, DRC, SQL (SELECT, WHERE, GROUP BY, HAVING, Joins, Nested queries, INSERT/UPDATE/DELETE, DDL, DCL), Solved problems",
+      "h": 13,
+      "type": "study"
+    },
+    {
+      "d": "Sep-02",
+      "ph": "B",
+      "s": "DBMS",
+      "u": "Functional Dependencies & Normalisation",
+      "t": "Functional Dependencies, Attribute Closure, Canonical cover, Decomposition, Dependency preservation, 1NF/2NF/3NF/BCNF/4NF, Lossless join, GATE PYQs",
+      "h": 14,
+      "type": "study"
+    },
+    {
+      "d": "Sep-03",
+      "ph": "B",
+      "s": "DBMS",
+      "u": "Transactions, Concurrency & Indexing",
+      "t": "ACID, Concurrency problems, Recoverability, Conflict/View Serializability, 2PL, Timestamp protocols, Thomas write rule, B/B+ Trees indexing, Dense/Sparse index, GATE PYQs",
+      "h": 14,
+      "type": "study"
+    },
+    {
+      "d": "Sep-04",
+      "ph": "B",
+      "s": "CN",
+      "u": "Applied Intro + Physical & Data Link Layer",
+      "t": "OSI Model I&II, TCP/IP Model, Physical Layer (encoding, transmission media, topologies), DLL (flow control: Stop-and-Wait ARQ, GBN, SR), CRC, Hamming code",
+      "h": 14,
+      "type": "study"
+    },
+    {
+      "d": "Sep-05",
+      "ph": "B",
+      "s": "CN",
+      "u": "Data Link Layer \u2013 Part 2",
+      "t": "Multiple Access (FDMA/TDMA/CDMA/ALOHA/CSMA/CD), Error control, Framing, Ethernet, Token Ring, IEEE 802.11, Network Devices, Spanning Tree Protocol, GATE PYQs",
+      "h": 14,
+      "type": "study"
+    },
+    {
+      "d": "Sep-06",
+      "ph": "B",
+      "s": "CN",
+      "u": "Network Layer",
+      "t": "IP addressing (classful), Subnetting, CIDR, Supernetting, IPv4 packet/fragmentation, ARP/RARP/DHCP/ICMP, Routing (Distance-Vector, Link State), IPv6, GATE PYQs",
+      "h": 14,
+      "type": "study"
+    },
+    {
+      "d": "Sep-07",
+      "ph": "B",
+      "s": "CN",
+      "u": "Transport Layer + Application Layer",
+      "t": "TCP (3-way handshake, flow control, congestion control, Silly Window Syndrome), UDP, NAT, DNS, HTTP, FTP, SMTP, GATE PYQs, Network Security basics",
+      "h": 14,
+      "type": "study"
+    }
+  ],
+  "GS": [
+    {
+      "d": "Sep-08",
+      "ph": "R1",
+      "s": "OS",
+      "t": "Week 1 \u2014 OS Already Done + ADA PYQs. OS: Full PYQ set 2014-2024 (scheduling + memory + deadlock numericals). ADA: Remaining PYQ sets for all chapters.",
+      "h": 12,
+      "type": "revision"
+    },
+    {
+      "d": "Sep-09",
+      "ph": "R1",
+      "s": "COA",
+      "t": "Week 1 \u2014 COA + C Programming PYQs. COA: All pipeline/cache numericals from 2014-2024. C Programming: pointer + recursion trace questions.",
+      "h": 12,
+      "type": "revision"
+    },
+    {
+      "d": "Sep-10",
+      "ph": "R1",
+      "s": "DSA",
+      "t": "Week 1 \u2014 DSA Deep Revision. DSA: Trees (AVL/Heap/BST), Graph algorithms, DP patterns, Sorting complexities. Full PYQ drill.",
+      "h": 13,
+      "type": "revision"
+    },
+    {
+      "d": "Sep-11",
+      "ph": "R1",
+      "s": "TOC",
+      "t": "Week 1 \u2014 TOC + CD PYQs. TOC: DFA construction, Pumping lemma, Decidability. CD: FIRST/FOLLOW, LL(1), SLR(1) tables. All GATE PYQs.",
+      "h": 12,
+      "type": "revision"
+    },
+    {
+      "d": "Sep-12",
+      "ph": "R1",
+      "s": "DL",
+      "t": "Week 2 \u2014 Digital Logic + Math. DL: K-map, flip-flop, counters PYQs. Math: Linear Algebra + Probability deep PYQ drill.",
+      "h": 12,
+      "type": "revision"
+    },
+    {
+      "d": "Sep-13",
+      "ph": "R1",
+      "s": "DBMS",
+      "t": "Week 2 \u2014 DBMS + CN PYQs. DBMS: SQL joins + normalisation + concurrency. CN: Subnetting + TCP/UDP + OSI layer questions.",
+      "h": 12,
+      "type": "revision"
+    },
+    {
+      "d": "Sep-14",
+      "ph": "M",
+      "s": "MOCK",
+      "t": "Week 2 \u2014 Mock Test #1 (Full Syllabus, 3 hrs). 65-question full mock under timed conditions. Review every wrong answer.",
+      "h": 5,
+      "type": "mock"
+    },
+    {
+      "d": "Sep-15",
+      "ph": "R2",
+      "s": "MATH",
+      "t": "Week 3 \u2014 Error Log Review: Math + COA. Fix weaknesses from Mock #1. Redo wrong COA/Math PYQs.",
+      "h": 12,
+      "type": "revision"
+    },
+    {
+      "d": "Sep-16",
+      "ph": "R2",
+      "s": "DSA",
+      "t": "Week 3 \u2014 Error Log Review: DSA + OS. Redo all wrong DSA + OS PYQs. Reinforce scheduling traces and DP tables.",
+      "h": 12,
+      "type": "revision"
+    },
+    {
+      "d": "Sep-17",
+      "ph": "R2",
+      "s": "TOC",
+      "t": "Week 3 \u2014 Error Log Review: TOC + DBMS. Fix all wrong TOC automaton and DBMS normalisation answers.",
+      "h": 12,
+      "type": "revision"
+    },
+    {
+      "d": "Sep-18",
+      "ph": "M",
+      "s": "MOCK",
+      "t": "Week 3 \u2014 Mock Test #2 + GA Full Practice. Full mock test #2. GA: 10-year PYQ set timed (12 min). Log all errors.",
+      "h": 5,
+      "type": "mock"
+    },
+    {
+      "d": "Sep-19",
+      "ph": "R2",
+      "s": "PYQ",
+      "t": "Week 4 \u2014 Mixed PYQ Sprint: All Subjects. Shuffle all subjects. 50 PYQs picked randomly from 2019-2024 GATE papers.",
+      "h": 10,
+      "type": "pyq"
+    },
+    {
+      "d": "Sep-20",
+      "ph": "M",
+      "s": "MOCK",
+      "t": "Week 4 \u2014 Mock Test #3. 65-question full mock. Compare with Mock #1 & #2. Track improvement.",
+      "h": 5,
+      "type": "mock"
+    },
+    {
+      "d": "Sep-21",
+      "ph": "R2",
+      "s": "ERROR",
+      "t": "Week 4 \u2014 Mock #3 Error Log Review. Resolve incorrect questions and record mistakes.",
+      "h": 12,
+      "type": "error"
+    },
+    {
+      "d": "Sep-22",
+      "ph": "R2",
+      "s": "PYQ",
+      "t": "Week 4 \u2014 PYQ Sprint: GATE 2023 CS Paper (3h timed).",
+      "h": 8,
+      "type": "pyq"
+    },
+    {
+      "d": "Sep-23",
+      "ph": "R2",
+      "s": "COA",
+      "t": "Week 4 \u2014 Weak Areas: Advanced Pipelining & Cache Mapping.",
+      "h": 10,
+      "type": "revision"
+    },
+    {
+      "d": "Sep-24",
+      "ph": "R2",
+      "s": "MATH",
+      "t": "Week 4 \u2014 Weak Areas: Discrete Math Logic, Set Theory & Graphs.",
+      "h": 10,
+      "type": "revision"
+    },
+    {
+      "d": "Sep-25",
+      "ph": "R2",
+      "s": "PYQ",
+      "t": "Week 4 \u2014 PYQ Sprint: GATE 2022 CS Paper (3h timed).",
+      "h": 8,
+      "type": "pyq"
+    },
+    {
+      "d": "Sep-26",
+      "ph": "R2",
+      "s": "DSA",
+      "t": "Week 4 \u2014 Weak Areas: Dynamic Programming & Greedy Algorithms.",
+      "h": 10,
+      "type": "revision"
+    },
+    {
+      "d": "Sep-27",
+      "ph": "R2",
+      "s": "CD",
+      "t": "Week 4 \u2014 Weak Areas: Compiler syntax analysis & parsing tables.",
+      "h": 10,
+      "type": "revision"
+    },
+    {
+      "d": "Sep-28",
+      "ph": "R2",
+      "s": "PYQ",
+      "t": "Week 4 \u2014 PYQ Sprint: GATE 2021 CS Paper (3h timed).",
+      "h": 8,
+      "type": "pyq"
+    },
+    {
+      "d": "Sep-29",
+      "ph": "R2",
+      "s": "FORMULAS",
+      "t": "Week 4 \u2014 Consolidated formula cards & short notes compilation.",
+      "h": 8,
+      "type": "revision"
+    },
+    {
+      "d": "Sep-30",
+      "ph": "R2",
+      "s": "BUFFER",
+      "t": "Week 4 \u2014 Month-end self-assessment and weak topics revision planning.",
+      "h": 6,
+      "type": "buffer"
+    },
+    {
+      "d": "Oct-01",
+      "ph": "R2",
+      "s": "WEAK",
+      "t": "Oct Week 1 \u2014 Weakest Subject Deep Dive. Pick worst-performing subject from Sep mocks. Redo ALL PYQs.",
+      "h": 12,
+      "type": "revision"
+    },
+    {
+      "d": "Oct-02",
+      "ph": "M",
+      "s": "MOCK",
+      "t": "Oct Week 1 \u2014 Mock Test #4. Full 3-hour mock. Focus on speed + accuracy.",
+      "h": 5,
+      "type": "mock"
+    },
+    {
+      "d": "Oct-03",
+      "ph": "R2",
+      "s": "COA",
+      "t": "Oct Week 1 \u2014 Theory Gaps: COA + DL. Revisit any COA pipeline/cache or DL flip-flop/counter concept still unclear.",
+      "h": 12,
+      "type": "revision"
+    },
+    {
+      "d": "Oct-04",
+      "ph": "R2",
+      "s": "APT",
+      "t": "Oct Week 1 \u2014 GA Weekly Mock. 10-year GA PYQ set timed. Verbal + Quant + Analytical.",
+      "h": 8,
+      "type": "revision"
+    },
+    {
+      "d": "Oct-05",
+      "ph": "R2",
+      "s": "TOC",
+      "t": "Oct Week 2 \u2014 TOC + CD Speed Round. 50 TOC + 20 CD PYQs timed. Build automata construction speed.",
+      "h": 12,
+      "type": "revision"
+    },
+    {
+      "d": "Oct-06",
+      "ph": "M",
+      "s": "MOCK",
+      "t": "Oct Week 2 \u2014 Mock Test #5. Full 3-hour mock.",
+      "h": 5,
+      "type": "mock"
+    },
+    {
+      "d": "Oct-07",
+      "ph": "R2",
+      "s": "DBMS",
+      "t": "Oct Week 2 \u2014 DBMS + CN Sprint. All DBMS SQL + concurrency PYQs. All CN subnetting + TCP PYQs.",
+      "h": 12,
+      "type": "revision"
+    },
+    {
+      "d": "Oct-08",
+      "ph": "R2",
+      "s": "OS",
+      "t": "Oct Week 2 \u2014 OS Deep Dive (already done). OS: scheduling algorithms comparison + Banker's algorithm + page replacement.",
+      "h": 6,
+      "type": "revision"
+    },
+    {
+      "d": "Oct-09",
+      "ph": "M",
+      "s": "MOCK",
+      "t": "Oct Week 3 \u2014 Mock Test #6. Full 3-hour mock. Track score trend from Mock #1-6.",
+      "h": 5,
+      "type": "mock"
+    },
+    {
+      "d": "Oct-10",
+      "ph": "R2",
+      "s": "ERROR",
+      "t": "Oct Week 3 \u2014 Error Patterns Analysis. Compile all 6 mock error logs. Find top 3 mistake patterns. Drill those concepts.",
+      "h": 8,
+      "type": "error"
+    },
+    {
+      "d": "Oct-11",
+      "ph": "R2",
+      "s": "MATH",
+      "t": "Oct Week 3 \u2014 Math + DSA Numericals. All numerical PYQs: Linear Algebra, Probability, Sorting complexity, Graph algorithms.",
+      "h": 12,
+      "type": "revision"
+    },
+    {
+      "d": "Oct-12",
+      "ph": "M",
+      "s": "MOCK",
+      "t": "Oct Week 3 \u2014 Mock Test #7. Full 3-hour mock.",
+      "h": 5,
+      "type": "mock"
+    },
+    {
+      "d": "Oct-13",
+      "ph": "R2",
+      "s": "FORMULAS",
+      "t": "Oct Week 4 \u2014 Formula Sheet + Anki Sprint. Review all GATE formula flashcards. Spot any remaining gaps.",
+      "h": 6,
+      "type": "revision"
+    },
+    {
+      "d": "Oct-14",
+      "ph": "M",
+      "s": "MOCK",
+      "t": "Oct Week 4 \u2014 Mock Test #8. Full 3-hour mock. Target: 70+/100.",
+      "h": 5,
+      "type": "mock"
+    },
+    {
+      "d": "Oct-15",
+      "ph": "R2",
+      "s": "PYQ",
+      "t": "Oct Week 4 \u2014 All PYQ 2020-2024 Review. Go through full 2020, 2021, 2022, 2023, 2024 GATE CS papers. All questions.",
+      "h": 8,
+      "type": "pyq"
+    },
+    {
+      "d": "Oct-16",
+      "ph": "R2",
+      "s": "BUFFER",
+      "t": "Oct Week 4 \u2014 Revision Complete Checkpoint. Score check: if Mock avg is 65+, maintain pace. If below, identify gaps.",
+      "h": 6,
+      "type": "buffer"
+    },
+    {
+      "d": "Oct-17",
+      "ph": "TS",
+      "s": "WEAK",
+      "t": "Weak subject revision: Re-solve all PYQs of weakest subject.",
+      "h": 14,
+      "type": "revision"
+    },
+    {
+      "d": "Oct-18",
+      "ph": "M",
+      "s": "MOCK",
+      "t": "\ud83c\udfaf MOCK TEST #9 \u2014 Full 65Q. Target: 72+.",
+      "h": 5,
+      "type": "mock"
+    },
+    {
+      "d": "Oct-19",
+      "ph": "M",
+      "s": "ANALYSIS",
+      "t": "Mock #9 analysis. Compare with Mock 8.",
+      "h": 8,
+      "type": "analysis"
+    },
+    {
+      "d": "Oct-20",
+      "ph": "TS",
+      "s": "ERROR",
+      "t": "Fix Mock #9 mistakes. Log questions in error book.",
+      "h": 12,
+      "type": "error"
+    },
+    {
+      "d": "Oct-21",
+      "ph": "TS",
+      "s": "OS",
+      "t": "OS: Disk scheduling. COA: Interrupt latency calculations.",
+      "h": 12,
+      "type": "revision"
+    },
+    {
+      "d": "Oct-22",
+      "ph": "TS",
+      "s": "BUFFER",
+      "t": "Rest day. Check progress against syllabus.",
+      "h": 6,
+      "type": "buffer"
+    },
+    {
+      "d": "Oct-23",
+      "ph": "M",
+      "s": "MOCK",
+      "t": "\ud83c\udfaf MOCK TEST #10 \u2014 Full 65Q. Target: 74+.",
+      "h": 5,
+      "type": "mock"
+    },
+    {
+      "d": "Oct-24",
+      "ph": "M",
+      "s": "ANALYSIS",
+      "t": "Mock #10 analysis. Check if ready for AIR 1.",
+      "h": 8,
+      "type": "analysis"
+    },
+    {
+      "d": "Oct-25",
+      "ph": "TS",
+      "s": "ERROR",
+      "t": "Fix Mock #10 mistakes. Re-study weak topics.",
+      "h": 12,
+      "type": "error"
+    },
+    {
+      "d": "Oct-26",
+      "ph": "TS",
+      "s": "PYQ",
+      "t": "PYQ Sprint: Solve GATE 2017 CS paper.",
+      "h": 8,
+      "type": "pyq"
+    },
+    {
+      "d": "Oct-27",
+      "ph": "TS",
+      "s": "BUFFER",
+      "t": "Formula cards writing from memory.",
+      "h": 6,
+      "type": "buffer"
+    },
+    {
+      "d": "Oct-28",
+      "ph": "M",
+      "s": "MOCK",
+      "t": "\ud83c\udfaf MOCK TEST #11 \u2014 Full 65Q. Target: 75+.",
+      "h": 5,
+      "type": "mock"
+    },
+    {
+      "d": "Oct-29",
+      "ph": "M",
+      "s": "ANALYSIS",
+      "t": "Mock #11 analysis and error logs.",
+      "h": 8,
+      "type": "analysis"
+    },
+    {
+      "d": "Oct-30",
+      "ph": "TS",
+      "s": "ERROR",
+      "t": "Fix Mock #11 mistakes.",
+      "h": 12,
+      "type": "error"
+    },
+    {
+      "d": "Oct-31",
+      "ph": "TS",
+      "s": "DSA",
+      "t": "DSA: Hash functions collisions. TOC: Undecidability.",
+      "h": 13,
+      "type": "revision"
+    },
+    {
+      "d": "Nov-01",
+      "ph": "TS",
+      "s": "BUFFER",
+      "t": "Review notes. Physical rest.",
+      "h": 6,
+      "type": "buffer"
+    },
+    {
+      "d": "Nov-02",
+      "ph": "M",
+      "s": "MOCK",
+      "t": "\ud83c\udfaf MOCK TEST #12 \u2014 Full 65Q. Target: 76+.",
+      "h": 5,
+      "type": "mock"
+    },
+    {
+      "d": "Nov-03",
+      "ph": "M",
+      "s": "ANALYSIS",
+      "t": "Mock #12 analysis.",
+      "h": 8,
+      "type": "analysis"
+    },
+    {
+      "d": "Nov-04",
+      "ph": "TS",
+      "s": "ERROR",
+      "t": "Fix Mock #12 errors.",
+      "h": 12,
+      "type": "error"
+    },
+    {
+      "d": "Nov-05",
+      "ph": "TS",
+      "s": "PYQ",
+      "t": "PYQ Sprint: Solve GATE 2016 CS paper.",
+      "h": 8,
+      "type": "pyq"
+    },
+    {
+      "d": "Nov-06",
+      "ph": "TS",
+      "s": "DBMS",
+      "t": "DBMS: Concurrency serializability. CN: Routing algorithms.",
+      "h": 13,
+      "type": "revision"
+    },
+    {
+      "d": "Nov-07",
+      "ph": "TS",
+      "s": "BUFFER",
+      "t": "Rest day. Check error log tracker.",
+      "h": 6,
+      "type": "buffer"
+    },
+    {
+      "d": "Nov-08",
+      "ph": "M",
+      "s": "MOCK",
+      "t": "\ud83c\udfaf MOCK TEST #13 \u2014 Full 65Q. Target: 78+.",
+      "h": 5,
+      "type": "mock"
+    },
+    {
+      "d": "Nov-09",
+      "ph": "M",
+      "s": "ANALYSIS",
+      "t": "Mock #13 analysis.",
+      "h": 8,
+      "type": "analysis"
+    },
+    {
+      "d": "Nov-10",
+      "ph": "TS",
+      "s": "ERROR",
+      "t": "Fix Mock #13 errors.",
+      "h": 12,
+      "type": "error"
+    },
+    {
+      "d": "Nov-11",
+      "ph": "TS",
+      "s": "PYQ",
+      "t": "PYQ Sprint: Solve GATE 2015 CS paper.",
+      "h": 8,
+      "type": "pyq"
+    },
+    {
+      "d": "Nov-12",
+      "ph": "TS",
+      "s": "MATH",
+      "t": "Math: Eigenvalues, Bayes theorem, combinatorics.",
+      "h": 12,
+      "type": "revision"
+    },
+    {
+      "d": "Nov-13",
+      "ph": "TS",
+      "s": "BUFFER",
+      "t": "Formula cards writing. Plan December.",
+      "h": 6,
+      "type": "buffer"
+    },
+    {
+      "d": "Nov-14",
+      "ph": "TS",
+      "s": "SPEED",
+      "t": "Speed test: 60 random numericals in 120 min.",
+      "h": 5,
+      "type": "revision"
+    },
+    {
+      "d": "Nov-15",
+      "ph": "TS",
+      "s": "BUFFER",
+      "t": "Month assessment: Identify weak subjects.",
+      "h": 7,
+      "type": "buffer"
+    },
+    {
+      "d": "Nov-16",
+      "ph": "P",
+      "s": "WEAK",
+      "t": "Revise weak areas from Mocks 1-13.",
+      "h": 13,
+      "type": "revision"
+    },
+    {
+      "d": "Nov-17",
+      "ph": "M",
+      "s": "MOCK",
+      "t": "\ud83c\udfaf MOCK TEST #14 \u2014 Full 65Q. Target: 80+.",
+      "h": 5,
+      "type": "mock"
+    },
+    {
+      "d": "Nov-18",
+      "ph": "M",
+      "s": "ANALYSIS",
+      "t": "Mock #14 analysis.",
+      "h": 8,
+      "type": "analysis"
+    },
+    {
+      "d": "Nov-19",
+      "ph": "P",
+      "s": "ERROR",
+      "t": "Fix Mock #14 mistakes.",
+      "h": 12,
+      "type": "error"
+    },
+    {
+      "d": "Nov-20",
+      "ph": "P",
+      "s": "OS",
+      "t": "Revise OS page replacement + COA pipeline stalls.",
+      "h": 12,
+      "type": "revision"
+    },
+    {
+      "d": "Nov-21",
+      "ph": "P",
+      "s": "BUFFER",
+      "t": "Rest day. Re-verify formula cards.",
+      "h": 6,
+      "type": "buffer"
+    },
+    {
+      "d": "Nov-22",
+      "ph": "M",
+      "s": "MOCK",
+      "t": "\ud83c\udfaf MOCK TEST #15 \u2014 Final 65Q test. Target: 80+.",
+      "h": 5,
+      "type": "mock"
+    },
+    {
+      "d": "Nov-23",
+      "ph": "M",
+      "s": "ANALYSIS",
+      "t": "Mock #15 analysis and 15-mock review.",
+      "h": 8,
+      "type": "analysis"
+    },
+    {
+      "d": "Nov-24",
+      "ph": "P",
+      "s": "ERROR",
+      "t": "Fix Mock #15 mistakes.",
+      "h": 12,
+      "type": "error"
+    },
+    {
+      "d": "Nov-25",
+      "ph": "P",
+      "s": "PYQ",
+      "t": "PYQ Sprint: Solve GATE 2014 CS paper.",
+      "h": 8,
+      "type": "pyq"
+    },
+    {
+      "d": "Nov-26",
+      "ph": "P",
+      "s": "DSA",
+      "t": "Revise DSA BST/AVL + TOC DFA construction.",
+      "h": 12,
+      "type": "revision"
+    },
+    {
+      "d": "Nov-27",
+      "ph": "P",
+      "s": "BUFFER",
+      "t": "Rest day. Check error book.",
+      "h": 6,
+      "type": "buffer"
+    },
+    {
+      "d": "Nov-28",
+      "ph": "P",
+      "s": "DBMS",
+      "t": "Revise DBMS normalization + CN subnetting.",
+      "h": 12,
+      "type": "revision"
+    },
+    {
+      "d": "Nov-29",
+      "ph": "P",
+      "s": "PYQ",
+      "t": "PYQ Sprint: Solve GATE 2013 CS paper.",
+      "h": 8,
+      "type": "pyq"
+    },
+    {
+      "d": "Nov-30",
+      "ph": "P",
+      "s": "MATH",
+      "t": "Math & Aptitude final review.",
+      "h": 12,
+      "type": "revision"
+    },
+    {
+      "d": "Dec-01",
+      "ph": "P",
+      "s": "BUFFER",
+      "t": "Rest day.",
+      "h": 6,
+      "type": "buffer"
+    },
+    {
+      "d": "Dec-02",
+      "ph": "P",
+      "s": "OS",
+      "t": "OS/COA advanced problem solving.",
+      "h": 12,
+      "type": "revision"
+    },
+    {
+      "d": "Dec-03",
+      "ph": "P",
+      "s": "TOC",
+      "t": "TOC/CD advanced parsing & decidability.",
+      "h": 12,
+      "type": "revision"
+    },
+    {
+      "d": "Dec-04",
+      "ph": "P",
+      "s": "DSA",
+      "t": "DSA/C programming pointers traces.",
+      "h": 12,
+      "type": "revision"
+    },
+    {
+      "d": "Dec-05",
+      "ph": "P",
+      "s": "BUFFER",
+      "t": "Rest day.",
+      "h": 6,
+      "type": "buffer"
+    },
+    {
+      "d": "Dec-06",
+      "ph": "P",
+      "s": "DBMS",
+      "t": "DBMS/CN concurrency & routing protocols.",
+      "h": 12,
+      "type": "revision"
+    },
+    {
+      "d": "Dec-07",
+      "ph": "P",
+      "s": "MATH",
+      "t": "Math linear algebra & probability.",
+      "h": 12,
+      "type": "revision"
+    },
+    {
+      "d": "Dec-08",
+      "ph": "P",
+      "s": "APT",
+      "t": "Aptitude timed practice.",
+      "h": 8,
+      "type": "revision"
+    },
+    {
+      "d": "Dec-09",
+      "ph": "P",
+      "s": "BUFFER",
+      "t": "Rest day.",
+      "h": 6,
+      "type": "buffer"
+    },
+    {
+      "d": "Dec-10",
+      "ph": "P",
+      "s": "REVISION",
+      "t": "First pass revision: OS, COA notes.",
+      "h": 12,
+      "type": "revision"
+    },
+    {
+      "d": "Dec-11",
+      "ph": "P",
+      "s": "REVISION",
+      "t": "First pass revision: DSA, C notes.",
+      "h": 12,
+      "type": "revision"
+    },
+    {
+      "d": "Dec-12",
+      "ph": "P",
+      "s": "REVISION",
+      "t": "First pass revision: TOC, CD notes.",
+      "h": 12,
+      "type": "revision"
+    },
+    {
+      "d": "Dec-13",
+      "ph": "P",
+      "s": "BUFFER",
+      "t": "Rest day.",
+      "h": 6,
+      "type": "buffer"
+    },
+    {
+      "d": "Dec-14",
+      "ph": "P",
+      "s": "REVISION",
+      "t": "First pass revision: DBMS, CN notes.",
+      "h": 12,
+      "type": "revision"
+    },
+    {
+      "d": "Dec-15",
+      "ph": "P",
+      "s": "REVISION",
+      "t": "First pass revision: Math, DL notes.",
+      "h": 12,
+      "type": "revision"
+    },
+    {
+      "d": "Dec-16",
+      "ph": "P",
+      "s": "BUFFER",
+      "t": "Rest day. Strategy check for Jan.",
+      "h": 6,
+      "type": "buffer"
+    },
+    {
+      "d": "Dec-17",
+      "ph": "P",
+      "s": "MOCK",
+      "t": "Simulated Exam #1: 65Q full test.",
+      "h": 5,
+      "type": "mock"
+    },
+    {
+      "d": "Dec-18",
+      "ph": "P",
+      "s": "ANALYSIS",
+      "t": "Simulated Exam #1 analysis & error log.",
+      "h": 8,
+      "type": "analysis"
+    },
+    {
+      "d": "Dec-19",
+      "ph": "P",
+      "s": "REVISION",
+      "t": "OS: Revise CPU scheduling & page replacement.",
+      "h": 10,
+      "type": "revision"
+    },
+    {
+      "d": "Dec-20",
+      "ph": "P",
+      "s": "REVISION",
+      "t": "COA: Revise Cache and Pipeline stall cycles.",
+      "h": 10,
+      "type": "revision"
+    },
+    {
+      "d": "Dec-21",
+      "ph": "P",
+      "s": "REVISION",
+      "t": "DSA: Revise Trees & Graph algorithms.",
+      "h": 10,
+      "type": "revision"
+    },
+    {
+      "d": "Dec-22",
+      "ph": "P",
+      "s": "BUFFER",
+      "t": "Rest day.",
+      "h": 4,
+      "type": "buffer"
+    },
+    {
+      "d": "Dec-23",
+      "ph": "P",
+      "s": "MOCK",
+      "t": "Simulated Exam #2: 65Q full test.",
+      "h": 5,
+      "type": "mock"
+    },
+    {
+      "d": "Dec-24",
+      "ph": "P",
+      "s": "ANALYSIS",
+      "t": "Simulated Exam #2 analysis.",
+      "h": 8,
+      "type": "analysis"
+    },
+    {
+      "d": "Dec-25",
+      "ph": "P",
+      "s": "REVISION",
+      "t": "TOC: Revise regular languages & decidability table.",
+      "h": 10,
+      "type": "revision"
+    },
+    {
+      "d": "Dec-26",
+      "ph": "P",
+      "s": "REVISION",
+      "t": "CD: Revise parsing SLR/LALR conflicts.",
+      "h": 10,
+      "type": "revision"
+    },
+    {
+      "d": "Dec-27",
+      "ph": "P",
+      "s": "REVISION",
+      "t": "DBMS: Revise normalization & serializability checks.",
+      "h": 10,
+      "type": "revision"
+    },
+    {
+      "d": "Dec-28",
+      "ph": "P",
+      "s": "BUFFER",
+      "t": "Rest day.",
+      "h": 4,
+      "type": "buffer"
+    },
+    {
+      "d": "Dec-29",
+      "ph": "P",
+      "s": "MOCK",
+      "t": "Simulated Exam #3: 65Q test.",
+      "h": 5,
+      "type": "mock"
+    },
+    {
+      "d": "Dec-30",
+      "ph": "P",
+      "s": "ANALYSIS",
+      "t": "Simulated Exam #3 analysis.",
+      "h": 8,
+      "type": "analysis"
+    },
+    {
+      "d": "Dec-31",
+      "ph": "P",
+      "s": "REVISION",
+      "t": "CN: Revise subnetting, sliding window efficiency.",
+      "h": 10,
+      "type": "revision"
+    },
+    {
+      "d": "Jan-01",
+      "ph": "P",
+      "s": "REVISION",
+      "t": "C Prog: Pointer structures, recursion output.",
+      "h": 10,
+      "type": "revision"
+    },
+    {
+      "d": "Jan-02",
+      "ph": "P",
+      "s": "MATH",
+      "t": "Math: Eigenvalues, conditional probability.",
+      "h": 10,
+      "type": "revision"
+    },
+    {
+      "d": "Jan-03",
+      "ph": "P",
+      "s": "BUFFER",
+      "t": "Rest day.",
+      "h": 4,
+      "type": "buffer"
+    },
+    {
+      "d": "Jan-04",
+      "ph": "P",
+      "s": "MOCK",
+      "t": "Simulated Exam #4: 65Q test.",
+      "h": 5,
+      "type": "mock"
+    },
+    {
+      "d": "Jan-05",
+      "ph": "P",
+      "s": "ANALYSIS",
+      "t": "Simulated Exam #4 analysis.",
+      "h": 8,
+      "type": "analysis"
+    },
+    {
+      "d": "Jan-06",
+      "ph": "P",
+      "s": "REVISION",
+      "t": "Second pass notes: OS, COA, DSA (2h each).",
+      "h": 6,
+      "type": "revision"
+    },
+    {
+      "d": "Jan-07",
+      "ph": "P",
+      "s": "REVISION",
+      "t": "Second pass notes: TOC, CD, C Prog (2h each).",
+      "h": 6,
+      "type": "revision"
+    },
+    {
+      "d": "Jan-08",
+      "ph": "P",
+      "s": "REVISION",
+      "t": "Second pass notes: DBMS, CN, Math (2h each).",
+      "h": 6,
+      "type": "revision"
+    },
+    {
+      "d": "Jan-09",
+      "ph": "P",
+      "s": "BUFFER",
+      "t": "Rest day.",
+      "h": 4,
+      "type": "buffer"
+    },
+    {
+      "d": "Jan-10",
+      "ph": "P",
+      "s": "FORMULAS",
+      "t": "Write all formulas from memory (full set).",
+      "h": 5,
+      "type": "revision"
+    },
+    {
+      "d": "Jan-11",
+      "ph": "P",
+      "s": "APT",
+      "t": "GA 10-year PYQ review (speed run).",
+      "h": 4,
+      "type": "revision"
+    },
+    {
+      "d": "Jan-12",
+      "ph": "P",
+      "s": "REVISION",
+      "t": "Weak subject final brush-up.",
+      "h": 6,
+      "type": "revision"
+    },
+    {
+      "d": "Jan-13",
+      "ph": "P",
+      "s": "BUFFER",
+      "t": "Rest day.",
+      "h": 4,
+      "type": "buffer"
+    },
+    {
+      "d": "Jan-14",
+      "ph": "P",
+      "s": "FORMULAS",
+      "t": "Write all formulas from memory (second pass).",
+      "h": 4,
+      "type": "revision"
+    },
+    {
+      "d": "Jan-15",
+      "ph": "P",
+      "s": "LIGHT",
+      "t": "Light reading, no heavy problem solving.",
+      "h": 3,
+      "type": "revision"
+    },
+    {
+      "d": "Jan-16",
+      "ph": "P",
+      "s": "BUFFER",
+      "t": "Rest day. Check center card printout.",
+      "h": 2,
+      "type": "buffer"
+    }
+  ]
+}

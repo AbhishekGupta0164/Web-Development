@@ -1,0 +1,17 @@
+{
+  "name": "GATE 2026 AIR 1 Dashboard",
+  "short_name": "GATE 26",
+  "description": "Premium preparation tracker, study journal and calendar for Abhishek.",
+  "start_url": "gate.html",
+  "display": "standalone",
+  "background_color": "#020617",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
