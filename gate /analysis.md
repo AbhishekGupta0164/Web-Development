@@ -2,27 +2,27 @@
 Auto-generated on your local machine.
 
 ## 🏆 Current Progress & Rank Summary
-- **Rank Badge**: `📜 PYQ Warrior`
-- **Total XP**: `1500 XP`
+- **Rank Badge**: `🔥 AIR 1 Contender`
+- **Total XP**: `10000 XP`
 - **Total Study Hours Logged**: `0.0h`
-- **Syllabus Completion**: `15%` (37/240 topics done)
+- **Syllabus Completion**: `100%` (240/240 topics done)
 - **Mock Tests**: `0/15 completed` (Avg: `0%` | Best: `0%`) 
 - **Current Backlog Alert**: `1 missed days`
 
 ## 📚 Subject-wise Performance
 | Subject | Weight | Progress % | Done/Total | Hours Spent |
 | --- | --- | --- | --- | --- |
-| **OS** (Operating Systems) | 8% | `79%` | 27/34 | 0.0h |
-| **COA** (Computer Organisation) | 7% | `16%` | 4/25 | 0.0h |
-| **C Prog** (C Programming) | 5% | `0%` | 0/16 | 0.0h |
-| **DSA** (Data Structures & Algorithms) | 10% | `15%` | 6/39 | 0.0h |
-| **TOC** (Theory of Computation) | 8% | `0%` | 0/22 | 0.0h |
-| **CD** (Compiler Design) | 6% | `0%` | 0/11 | 0.0h |
-| **DL** (Digital Logic) | 8% | `0%` | 0/13 | 0.0h |
-| **Math** (Engineering Mathematics) | 13% | `0%` | 0/30 | 0.0h |
-| **Apt** (General Aptitude) | 15% | `0%` | 0/11 | 0.0h |
-| **DBMS** (Database Management) | 8% | `0%` | 0/21 | 0.0h |
-| **CN** (Computer Networks) | 8% | `0%` | 0/18 | 0.0h |
+| **OS** (Operating Systems) | 8% | `100%` | 34/34 | 0.0h |
+| **COA** (Computer Organisation) | 7% | `100%` | 25/25 | 0.0h |
+| **C Prog** (C Programming) | 5% | `100%` | 16/16 | 0.0h |
+| **DSA** (Data Structures & Algorithms) | 10% | `100%` | 39/39 | 0.0h |
+| **TOC** (Theory of Computation) | 8% | `100%` | 22/22 | 0.0h |
+| **CD** (Compiler Design) | 6% | `100%` | 11/11 | 0.0h |
+| **DL** (Digital Logic) | 8% | `100%` | 13/13 | 0.0h |
+| **Math** (Engineering Mathematics) | 13% | `100%` | 30/30 | 0.0h |
+| **Apt** (General Aptitude) | 15% | `100%` | 11/11 | 0.0h |
+| **DBMS** (Database Management) | 8% | `100%` | 21/21 | 0.0h |
+| **CN** (Computer Networks) | 8% | `100%` | 18/18 | 0.0h |
 
 ## 🎯 Mock Performance Tracker
 *No mock scores logged yet. Start testing yourself!*
@@ -31,6 +31,4 @@ Auto-generated on your local machine.
 *No focus sessions recorded yet. Turn on Focus Timer to log sessions!*
 
 ## 📝 Daily Study Journal (Last 15 Entries)
-| Date | Hours | Comp % | Mood | Notes |
-| --- | --- | --- | --- | --- |
-| 2026-06-26 | 12h | 50% | 😐 |  |
+*No daily logs written yet.*

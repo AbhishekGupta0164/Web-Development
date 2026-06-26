@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>GATE 2026 — AIR 50 | Abhishek</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#050912">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="GATE 2026">
+<script src="gate_lib/react.min.js"></script>
+<script src="gate_lib/react-dom.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:#050912;font-family:'Segoe UI',system-ui,sans-serif;color:#E0E8F8;min-height:100vh;overflow-x:hidden}
+::-webkit-scrollbar{width:5px;height:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:rgba(255,255,255,.12);border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,.22)}
+@keyframes glow{0%,100%{opacity:1}50%{opacity:.45}}
+@keyframes slideIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes goldPulse{0%,100%{box-shadow:0 0 12px rgba(251,191,36,.25)}50%{box-shadow:0 0 24px rgba(251,191,36,.55)}}
+@keyframes fill{from{stroke-dashoffset:var(--full)}}
+.slide{animation:slideIn .22s cubic-bezier(.16,1,.3,1) both}
+.glow{animation:glow 2.2s ease infinite}
+.pulse{animation:pulse 2s ease infinite}
+input,select,textarea,button{font-family:inherit;color:inherit}
+input:focus,select:focus,textarea:focus{outline:none}
+button{cursor:pointer;border:none;background:transparent}
+textarea{resize:vertical}
+select option{background:#0B1020;color:#E0E8F8}
+.card{background:rgba(15,22,40,.7);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.07);border-radius:12px;transition:all .22s cubic-bezier(.4,0,.2,1);box-shadow:0 4px 24px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.04)}
+.card:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.13);box-shadow:0 8px 32px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.07)}
+.mono{font-family:'Courier New',Courier,monospace}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+@media(max-width:900px){.grid2,.grid3{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div id="root"><div style="display:flex;height:100vh;align-items:center;justify-content:center;flex-direction:column;gap:14px;color:#4A5A7A"><div style="width:34px;height:34px;border:3px solid #FBBF24;border-top-color:transparent;border-radius:50%;animation:spin 1s linear infinite"></div><div style="font-size:12px;font-weight:600;letter-spacing:.5px">GATE 2026 Dashboard Loading...</div></div></div>
+<script>
+window.onerror = function(msg, src, line, col, err) {
+  document.getElementById('root').innerHTML = '<div style="color:#EF4444;padding:30px;font-family:monospace;font-size:13px;background:#0B1020;min-height:100vh"><h2 style="color:#FBBF24;margin-bottom:16px">JS Error (Line '+line+')</h2><pre>'+msg+'</pre><pre style="color:#888;margin-top:12px">'+(err&&err.stack?err.stack:'no stack')+'</pre></div>';
+  return true;
+};
+</script>
+<script>
+var R=React,useState=R.useState,useMemo=R.useMemo,useEffect=R.useEffect,useCallback=R.useCallback,useRef=R.useRef;
+
+// SVG Line Chart
+function SvgLine(p){var data=p.data||[],w=p.width||400,h=p.height||130,pad=30;
+if(!data.length)return React.createElement('div',{style:{textAlign:'center',padding:25,color:'#4A5A78',fontSize:11}},'Log mock scores above to see trend');
+var vals=data.map(function(d){return d.v;});
+var minV=0,maxV=100;
+var xs=data.map(function(d,i){return pad+(i/(Math.max(data.length-1,1)))*(w-pad*2);});
+var ys=data.map(function(d){return pad+(1-(d.v-minV)/(maxV-minV))*(h-pad*2);});
+var pts=xs.map(function(x,i){return x+','+ys[i];}).join(' ');
+return React.createElement('svg',{width:'100%',viewBox:'0 0 '+w+' '+h,style:{overflow:'visible'}},
+  React.createElement('defs',null,React.createElement('linearGradient',{id:'lg',x1:'0',y1:'0',x2:'0',y2:'1'},React.createElement('stop',{offset:'0%',stopColor:'#FBBF24',stopOpacity:.3}),React.createElement('stop',{offset:'100%',stopColor:'#FBBF24',stopOpacity:0}))),
+  [0,25,50,75,100].map(function(v,i){var y=pad+(1-v/100)*(h-pad*2);return React.createElement('g',{key:i},React.createElement('line',{x1:pad,y1:y,x2:w-pad,y2:y,stroke:'rgba(255,255,255,.05)',strokeWidth:1}),React.createElement('text',{x:pad-4,y:y+3,fontSize:8,fill:'#4A5A78',textAnchor:'end'},v));}),
+  data.map(function(d,i){return React.createElement('text',{key:i,x:xs[i],y:h-4,fontSize:8,fill:'#4A5A78',textAnchor:'middle'},d.n);}),
+  React.createElement('polyline',{points:pts,fill:'none',stroke:'#FBBF24',strokeWidth:2.5,strokeLinejoin:'round',strokeLinecap:'round'}),
+  data.map(function(d,i){return React.createElement('circle',{key:i,cx:xs[i],cy:ys[i],r:4,fill:'#FBBF24',stroke:'#050912',strokeWidth:2});}))
+;}
+
+// SVG Donut Chart
+function SvgDonut(p){var data=p.data||[],sz=p.size||110,r=38,cx=sz/2,cy=sz/2,circ=2*Math.PI*r;
+var total=data.reduce(function(a,b){return a+b.v;},0)||1;
+var offset=0;
+var slices=data.map(function(d,i){var pct=d.v/total,len=pct*circ,sl=React.createElement('circle',{key:i,cx:cx,cy:cy,r:r,fill:'none',stroke:d.c,strokeWidth:14,strokeDasharray:len+' '+(circ-len),strokeDashoffset:-offset,style:{transform:'rotate(-90deg)',transformOrigin:cx+'px '+cy+'px'}});offset+=len;return sl;});
+return React.createElement('svg',{width:sz,height:sz},slices);}
+
+// SVG Bar Chart
+function SvgBar(p){var data=p.data||[],w=p.width||400,h=p.height||145,pad={t:5,r:5,b:36,l:5};
+var bw=Math.max(8,(w-pad.l-pad.r)/data.length-4);
+return React.createElement('svg',{width:'100%',viewBox:'0 0 '+w+' '+h,style:{overflow:'visible'}},
+  data.map(function(d,i){var bh=Math.max(2,d.p/100*(h-pad.t-pad.b)),x=pad.l+i*(w-pad.l-pad.r)/data.length+2,y=h-pad.b-bh;
+    return React.createElement('g',{key:i},
+      React.createElement('rect',{x:x,y:y,width:bw,height:bh,fill:d.c,rx:3,style:{filter:'drop-shadow(0 0 3px '+d.c+'88)'}}),
+      React.createElement('text',{x:x+bw/2,y:h-pad.b+12,fontSize:8,fill:'#5A6A8A',textAnchor:'middle',transform:'rotate(-35,'+( x+bw/2)+','+(h-pad.b+12)+')'},d.n),
+      React.createElement('text',{x:x+bw/2,y:y-3,fontSize:8,fill:d.c,textAnchor:'middle'},d.p+'%'));
+  })
+);}
+
+// ── HELPERS ──────────────────────────────────────────────────────────────────
+function T(n,p,s){return{n:n,p:p||'M',s:s||'P',d:null,nt:'',pyq:false};}
+function D(n,p){return{n:n,p:p||'H',s:'D',d:'Pre-loaded',nt:'',pyq:true};}
+function IP(n,p){return{n:n,p:p||'H',s:'I',d:null,nt:'',pyq:false};}
+
+// ── FULL GATE CS 2026 SYLLABUS (Official + Applied GATE aligned) ──────────────
+var SYL=[
+// ── OS (DONE) ──
+{id:'OS',nm:'Operating Systems',sh:'OS',c:'#FF6B6B',gl:'rgba(255,107,107,.15)',w:8,sem:'4th Sem ✅',u:[
+{nm:'Applied Overview',t:[D('OS: what it does, Von Neumann Architecture, History'),D('CPU Modes: user vs kernel, FORK()/exec()/wait(), Solved Problems')]},
+{nm:'CPU Scheduling',t:[D('Process States (5), PCB structure, context switching, queues'),D('FCFS — convoy effect, avg waiting time, Gantt chart'),D('SJF non-preemptive + SRTF preemptive, LRTF, HRRN'),D('Round Robin: quantum effect, context switch overhead'),D('Priority Scheduling (preemptive+non-preemptive), MLQ, MLFQ'),D('Scheduling GATE PYQs 2000-2024 (timed drill)')]},
+{nm:'Process Sync & IPC',t:[D('Critical section: 3 requirements, Peterson\'s solution'),D('TestAndSet, Swap hardware instructions, busy-wait'),D('Semaphores: P()/V(), Binary vs Counting, Monitors'),D('Producer-Consumer, Reader-Writer (3 variants), Dining Philosophers'),D('Sync GATE PYQs 2000-2024')]},
+{nm:'Deadlocks',t:[D('4 conditions: ME/Hold&Wait/No-Preemption/Circular Wait'),D('Resource Allocation Graph: cycle ≠ deadlock (for multi-instance)'),D("Banker's Algorithm: Safety + Resource Request algorithms"),D('Prevention vs Avoidance vs Detection & Recovery'),D('Deadlock GATE PYQs 2000-2024')]},
+{nm:'Memory Management',t:[D('Logical vs Physical, MMU, address binding (3 times), overlays'),D('Paging: page table, PTBR, multi-level paging, inverted PT'),D('TLB: EAT = h×(t_TLB+t_mem)+(1-h)×(t_TLB+2×t_mem)'),D('Segmentation, Segmented paging, external vs internal fragmentation'),D('Page replacement: FIFO (Belady anomaly), OPT, LRU, Clock'),D('Thrashing: working set model, page fault frequency'),D('Memory GATE PYQs 2000-2024')]},
+{nm:'File Systems & Disk',t:[D('File allocation: contiguous, linked (FAT), indexed (inodes)'),D('Single/double/triple indirect blocks — GATE calculations'),D('Disk scheduling: FCFS, SSTF, SCAN, C-SCAN, LOOK, C-LOOK'),D('File System + Disk GATE PYQs 2000-2024')]},
+{nm:'OS PYQ Sprint',t:[D('Full OS PYQs 2014-2024 (3h timed)'),D('Scheduling + Paging + Banker speed drill (50 Qs in 90min)')]},
+]},
+// ── COA (IN PROGRESS) ──
+{id:'COA',nm:'Computer Organisation & Architecture',sh:'COA',c:'#4ECDC4',gl:'rgba(78,205,196,.15)',w:7,sem:'4th Sem 🔄',u:[
+{nm:'Applied Introduction',t:[IP('Why COA, Memory organisation, Addressability, byte-addressable'),IP('CPU-Memory interfacing, System Bus (data/addr/ctrl), Instruction Cycle'),T('Stack/Accumulator/General Register/Register-Register CPU types','H'),T('PSW (Program Status Word): flags, CPU modes, I/II','H')]},
+{nm:'Addressing Modes',t:[T('All 9 modes: Immediate, Register, Direct, Indirect, Indexed, Base, Relative, Auto-Inc/Dec','H'),T('ISA design: RISC vs CISC — properties & tradeoffs','H'),T('Instruction formats: 0/1/2/3-address, encoding, instruction cycle + interrupts','H'),T('Addressing Modes GATE PYQs 2000-2024','H')]},
+{nm:'CPU Performance',t:[T('CPI, MIPS, CPU time = IC × CPI × clock cycle time','H'),T("Amdahl's Law: speedup, serial fraction, GATE problems",'H'),T("Flynn's Classification: SISD/SIMD/MISD/MIMD",'M'),T('Hardwired vs Microprogrammed Control Unit','M')]},
+{nm:'Pipelining',t:[T('5-stage RISC pipeline, throughput, speedup = n stages (ideal)','H'),T('Data Hazards: RAW/WAR/WAW — stall cycle calculation','H'),T('Data forwarding/bypassing — when it resolves hazard','H'),T('Control Hazards: branch delay slots, 1-bit and 2-bit prediction','H'),T('Structural Hazards: resource conflicts','H'),T('Pipeline GATE PYQs 2000-2024 (10+ numericals)','H')]},
+{nm:'Cache Memory',t:[T('Direct mapped: index + tag + offset bits — address breakdown','H'),T('Fully associative, n-way Set associative: address mapping','H'),T('AMAT = hit_time + miss_rate × miss_penalty (multi-level)','H'),T('Replacement: LRU, FIFO, Random; Write-through vs Write-back','H'),T('Cache GATE PYQs 2000-2024 (10+ problems)','H')]},
+{nm:'Memory Hierarchy & I/O',t:[T('Memory hierarchy: registers → cache → RAM → secondary storage','M'),T('DMA: cycle stealing, burst mode, bandwidth calculation','H'),T('Interrupt-driven I/O: vectored, non-vectored, daisy chain','M'),T('COA Full Revision + All PYQs 2000-2024','H')]},
+]},
+// ── C PROGRAMMING ──
+{id:'CPRO',nm:'C Programming',sh:'C Prog',c:'#2DD4BF',gl:'rgba(45,212,191,.15)',w:5,sem:'4th Sem',u:[
+{nm:'Fundamentals & Control',t:[T('Data types + sizes, operators, precedence, type casting','H'),T('Bitwise ops: AND/OR/XOR/NOT/SHIFT — GATE trap questions','H'),T('if-else, switch, loops (for/while/do-while), break/continue/goto','H'),T('Control Flow GATE PYQs 2000-2024','H')]},
+{nm:'Functions & Recursion',t:[T('Functions: parameter passing (call by value), return types','H'),T('Local/global/static variables, storage classes: auto/extern/static/register','H'),T('Recursion: call stack, trace output questions','H'),T('Towers of Hanoi, Fibonacci — complexity analysis','H')]},
+{nm:'Pointers & Memory',t:[T('Pointer declaration, dereferencing, arithmetic (p+1 skips sizeof)','H'),T('Arrays = const ptr, 2D arrays row-major address: a[i][j]=base+i*n+j','H'),T('Dynamic memory: malloc/calloc/realloc/free, dangling pointers, leaks','H'),T('Pointer-to-pointer, arrays of pointers, function pointers','H'),T('Pointer trace GATE PYQs 2000-2024 (speed drill)','H')]},
+{nm:'Strings, Structs & Files',t:[T('Strings: char array, null terminator, strlen/strcpy/strcmp/strcat','H'),T('Structures, unions (size=largest member), typedef, enum, bit-fields','H'),T('File I/O: fopen/fclose/fread/fwrite/fseek/ftell','M'),T('All C Prog GATE PYQs 2014-2024','H')]},
+]},
+// ── DSA (UNITS 1-2 DONE) ──
+{id:'DSA',nm:'Data Structures & Algorithms',sh:'DSA',c:'#45B7D1',gl:'rgba(69,183,209,.15)',w:10,sem:'4th Sem 🔄',u:[
+{nm:'Algorithm Analysis [✅ Done]',t:[D('Big-O, Ω, Θ, o, ω — formal definitions + examples'),D('Insertion Sort: O(n²), stable, in-place, online, inversions count'),D('Master Theorem: 3 cases + inadmissible + extended'),D('Recursion tree method, substitution method, tail recursion')]},
+{nm:'Merge Sort & Recurrences [✅ Done]',t:[D('Merge Sort: stable, O(n log n), NOT in-place, external sort'),D('QuickSort: Lomuto/Hoare partition, randomized, avg O(n log n)'),D('Recursion tree, GATE 2007/2015'),D('Substitution, tail-call optimization')]},
+{nm:'All Sorting Algorithms',t:[T('Bubble Sort, Selection Sort: stability & in-place properties','H'),T('HeapSort: O(n log n), NOT stable, in-place','H'),T('Counting Sort, Radix Sort, Bucket Sort: when to use','H'),T('Lower bound Ω(n log n) for comparison-based sorting (decision tree)','H'),T('Sorting comparison table + GATE PYQs 2000-2024','H')]},
+{nm:'Linear Data Structures',t:[T('SLL/DLL: all operations, circular LL, sentinel nodes','H'),T('Arrays: 1D/2D row-major/col-major, special matrices (triangular, Toeplitz)','H'),T('Stack: parenthesis check, infix→postfix/prefix, expression evaluation','H'),T('Queue: circular Q, Deque, Priority Queue concept','H'),T('Linear DS GATE PYQs 2000-2024','H')]},
+{nm:'Trees',t:[T('Binary Tree: traversals (in/pre/post), properties, reconstruct from traversals','H'),T('BST: search/insert/delete (3 cases), inorder = sorted, O(h)','H'),T('AVL: balance factor, LL/RR/LR/RL rotations, height = O(log n)','H'),T('Binary Heaps: max-heap, heapify-up/down O(log n), Build-Heap O(n)','H'),T('HeapSort, Priority Queue ops, k-th largest','H'),T('Trees GATE PYQs 2000-2024','H')]},
+{nm:'Hashing',t:[T('Hash functions: division method, multiplication method','H'),T('Collision resolution: chaining O(1) avg; Open addressing','H'),T('Linear probing, quadratic probing, double hashing','H'),T('Load factor, rehashing threshold, GATE PYQs','H')]},
+{nm:'Graphs',t:[T('BFS: O(V+E), shortest path unweighted, level-order tree','H'),T('DFS: O(V+E), edge types (tree/back/forward/cross), discovery/finish times','H'),T('Topological sort: DFS-based + Kahn\'s BFS algorithm (only DAGs)','H'),T('SCC: Kosaraju\'s (2 DFS passes) + Tarjan\'s algorithm','H'),T("MST: Kruskal's (sort+Union-Find O(E log E)), Prim's O(V²)/O(E log V)",'H'),T("Dijkstra's O(V²)/O(E log V), Bellman-Ford O(VE) [handles neg], Floyd-Warshall O(V³)",'H'),T('Graph GATE PYQs 2000-2024','H')]},
+{nm:'Dynamic Programming & Greedy',t:[T('DP: optimal substructure + overlapping subproblems','H'),T('DP: Fibonacci, LCS, LIS, 0-1 Knapsack, Matrix Chain Mult, Edit Distance, Subset Sum','H'),T('Greedy: Activity selection, Huffman Coding, Fractional Knapsack, Job Sequencing','H'),T('DP + Greedy GATE PYQs 2000-2024','H')]},
+{nm:'DSA PYQ Sprint',t:[T('All DSA PYQs 2014-2024 (3h timed)','H'),T('DP speed drill: 20 problems in 60 min','H'),T('Graph numericals: 10 MST + 10 Shortest Path','H')]},
+]},
+// ── TOC ──
+{id:'TOC',nm:'Theory of Computation',sh:'TOC',c:'#A78BFA',gl:'rgba(167,139,250,.15)',w:8,sem:'5th Sem',u:[
+{nm:'Finite Automata',t:[T('DFA: formal def (Q,Σ,δ,q0,F), construct for divisibility/endings/patterns','H'),T('DFA Minimisation: table-filling algorithm (Myhill-Nerode theorem)','H'),T('NFA: power set of states, ε-closure, NFA→DFA subset construction','H'),T('ε-NFA: ε-closure computation, ε-NFA→DFA conversion','H'),T('Moore vs Mealy: output on state vs transition','H'),T('FA GATE PYQs 2000-2024 (construct + convert + minimise)','H')]},
+{nm:'Regular Languages',t:[T("Regular Expressions, Arden's Lemma (FA→RE), Thompson's construction (RE→NFA)",'H'),T('Pumping Lemma RL: 3 conditions, prove languages non-regular','H'),T('Closure properties RL: union/concatenation/star/complement/intersection all closed','H'),T('Regular Grammars, Chomsky hierarchy (Type 0/1/2/3)','H'),T('RL GATE PYQs 2000-2024','H')]},
+{nm:'CFLs & PDAs',t:[T('CFG: derivations, parse trees, ambiguity, simplification, CNF, GNF','H'),T('CYK algorithm O(n³) membership test','H'),T('PDA: acceptance by final state vs empty stack (equivalent)','H'),T('Pumping Lemma CFL: uvwxy theorem, prove languages not CFL','H'),T('Closure properties CFL: NOT closed under ∩ and complement','H'),T('CFG+PDA GATE PYQs 2000-2024','H')]},
+{nm:'TMs & Decidability',t:[T('TM: formal def, examples (aⁿbⁿcⁿ, binary addition), variants','H'),T("Halting Problem (diagonalisation), Rice's Theorem, PCP",'H'),T('RE vs Recursive (decidable) languages, closure properties','H'),T('P, NP, NP-Complete, NP-Hard: Cook-Levin, SAT, 3-SAT, Clique','H'),T('TOC PYQs 2014-2024 + DFA construction speed drill','H')]},
+]},
+// ── COMPILER DESIGN ──
+{id:'CD',nm:'Compiler Design',sh:'CD',c:'#F472B6',gl:'rgba(244,114,182,.15)',w:6,sem:'5th Sem',u:[
+{nm:'Lexical Analysis & Parsing I',t:[T('Compiler phases, Symbol Table, Error Handler, Lexical analysis','H'),T('Ambiguity: inherent ambiguity, left recursion elimination, left factoring','H'),T('FIRST and FOLLOW set computation (algorithmic rules)','H'),T('LL(1) parse table construction, LL(1) conflicts, LL(1) properties','H')]},
+{nm:'LR Parsing',t:[T('LR(0) items + automata (closure, goto)','H'),T('SLR(1): add FOLLOW for reduce conflicts','H'),T('CLR(1)/LR(1): lookahead in items; LALR(1): merge CLR states','H'),T('Parser power: LR(1)>LALR(1)>SLR(1)>LR(0)>LL(1)','H'),T('CD GATE PYQs 2014-2024 + FIRST/FOLLOW for 5 grammars in drill','H')]},
+{nm:'Runtime & Code Generation',t:[T('Attribute grammars: synthesised vs inherited attributes','M'),T('Syntax Directed Translation (SDT), 3-address code (TAC) formats','H'),T('Runtime environments: stack frames, activation records','M'),T('Data flow analysis: reaching definitions, liveness, constant propagation','M'),T('Code optimisation: dead code elimination, common subexpression, loop invariant','M')]},
+]},
+// ── DIGITAL LOGIC ──
+{id:'DL',nm:'Digital Logic',sh:'DL',c:'#FBBF24',gl:'rgba(251,191,36,.15)',w:8,sem:'4th Sem',u:[
+{nm:'Number Systems',t:[T("Conversions: bin/oct/hex/dec + BCD, Gray, Excess-3 codes",'H'),T("1's complement, 2's complement: overflow detection, subtraction",'H'),T("IEEE 754 single precision: sign/exponent/mantissa, normalised form",'H'),T("Booth's algorithm for signed multiplication",'M')]},
+{nm:'Boolean Algebra & K-Maps',t:[T('SOP/POS, minterms (Σ)/maxterms (Π), Duality, De Morgan, Shannon expansion','H'),T('K-Map 2/3/4/5-var: prime implicants, essential PIs, don\'t-cares, VEM maps','H'),T('NAND/NOR universal: convert any circuit to NAND-NAND or NOR-NOR','H')]},
+{nm:'Combinational Circuits',t:[T('Half Adder, Full Adder, Ripple Carry, Carry Look-Ahead Adder, BCD Adder','H'),T('MUX/DEMUX: n-var function realisation using 2ⁿ-to-1 MUX','H'),T('Decoder, Encoder, Priority Encoder, ROM/PAL/PLA design','H'),T('Comparator, GATE PYQs 2000-2024','H')]},
+{nm:'Sequential Circuits',t:[T('SR/JK/D/T Flip-Flops: characteristic equations, excitation tables, state diagrams','H'),T('FF interconversion: given target FF, find input logic using excitation table','H'),T('Moore/Mealy FSM design: state table → state diagram → logic','H'),T('Synchronous counters: binary, BCD; Ring, Johnson counters','H'),T('Ripple/Async counter: modulus, timing diagrams','H'),T('Shift registers: SISO/SIPO/PISO/PIPO, Sequence detector','H'),T('DL GATE PYQs 2000-2024 + K-Map speed drill','H')]},
+]},
+// ── ENGINEERING MATH ──
+{id:'MATH',nm:'Engineering Mathematics',sh:'Math',c:'#818CF8',gl:'rgba(129,140,248,.15)',w:13,sem:'4th Sem (M3)',u:[
+{nm:'Linear Algebra',t:[T('Matrices: types (symmetric/skew/orthogonal), determinant methods','H'),T('Rank: row echelon, Rouché-Capelli for Ax=b consistency','H'),T('Eigenvalues: char poly det(A-λI)=0, tr(A)=Σλᵢ, det(A)=Πλᵢ','H'),T('Eigenvectors, Cayley-Hamilton, diagonalisation, LU decomposition','H'),T('LA GATE PYQs 2000-2024','H')]},
+{nm:'Calculus',t:[T("Limits: L'Hôpital's, standard limits, indeterminate forms",'H'),T('Continuity, differentiability (diff→cont, not vice versa)','H'),T("MVT, Rolle's, Maxima/Minima: 1st+2nd derivative tests",'H'),T('Integration: substitution, parts, partial fractions, definite integrals','H')]},
+{nm:'Sets, Relations & Functions',t:[T('Relation types: R/S/Antisym/Trans/Equiv, partial order, Hasse diagrams','H'),T('Functions: injective/surjective/bijective, counting functions: nᵐ/n!/C(n,m)','H'),T('Lattices: GLB/LUB, bounded, complemented, distributive lattice','H'),T('Groups: semigroup→monoid→group→abelian→cyclic, subgroup, Lagrange theorem','M'),T('SRF GATE PYQs 2000-2024','H')]},
+{nm:'Mathematical Logic',t:[T('Propositional logic, tautology, PDNF/PCNF canonical forms','H'),T('Functionally complete sets: {NAND}, {NOR}, {¬,∧}, {¬,∨}','H'),T('Rules of inference: modus ponens, tollens, hypothetical syllogism','H'),T('Predicate logic (first-order): quantifiers, English↔Logic translation','H'),T('Logic GATE PYQs 2000-2024','H')]},
+{nm:'Combinatorics & Probability',t:[T('P&C: nPr=n!/(n-r)!, nCr, stars-and-bars, inclusion-exclusion','H'),T('Pigeonhole principle, derangements: D(n)=n!Σ(-1)ᵏ/k!','H'),T('Recurrence relations: linear with constant coefficients, generating functions','M'),T('Probability axioms, conditional, Bayes theorem, independence','H'),T('Random variables, PMF/CDF/PDF, E[X]=Σx·P(x), Var(X)','H'),T('Distributions: Bernoulli, Binomial, Poisson, Normal, Exponential','H'),T('Prob+Comb GATE PYQs 2000-2024','H')]},
+{nm:'Graph Theory',t:[T('Handshaking theorem: Σdeg(v)=2|E|, Eulerian (0 or 2 odd-degree)','H'),T('Hamiltonian: no simple characterisation; Planar: V-E+F=2, K₅/K₃₃','H'),T('Graph coloring: χ(G), 4-color theorem (planar), bipartite↔2-colorable','H'),T('Trees: |E|=|V|-1, # spanning trees, matchings, Hall\'s marriage theorem','H'),T('Graph Theory GATE PYQs 2000-2024','H')]},
+]},
+// ── GENERAL APTITUDE ──
+{id:'APT',nm:'General Aptitude',sh:'Apt',c:'#FB923C',gl:'rgba(251,146,60,.15)',w:15,sem:'Daily 15 min',u:[
+{nm:'Quantitative Aptitude',t:[T('Number theory: HCF/LCM, divisibility rules, remainders, unit digits','H'),T('Ratio/proportion, AP/GP/HP progressions','H'),T('Profit & Loss, Simple & Compound Interest, installments','H'),T('Time-Work, Pipes & Cisterns, Speed-Distance, Trains, Boats','H'),T('Geometry & Mensuration: 2D and 3D shapes, formulas','H'),T('Data Interpretation: bar/pie/line/table — approximation tricks','H')]},
+{nm:'Verbal & Analytical',t:[T('Grammar: tenses, articles, prepositions, subject-verb agreement','H'),T('Vocabulary: synonyms, antonyms, idioms, one-word substitutions','H'),T('Reading Comprehension: main idea, inference, author\'s tone','H'),T('Syllogisms (All/Some/No), analogy, coding-decoding','H'),T('Number series (5 pattern types), blood relations, directions','H'),T('Spatial: rotation, mirror image, paper folding, dice/cubes','H'),T('All Aptitude GATE PYQs 2014-2024 (aim 15/15 in 15 min)','H')]},
+]},
+// ── DBMS ──
+{id:'DBMS',nm:'Database Management Systems',sh:'DBMS',c:'#34D399',gl:'rgba(52,211,153,.15)',w:8,sem:'5th Sem',u:[
+{nm:'ER & Relational Model',t:[T('ER: entity types, cardinality (1:1/1:N/M:N), participation, weak entity, self-ref','H'),T('ER→Relational mapping (7 steps), keys: super/candidate/primary/foreign','H'),T('Relational Algebra: σ (select), π (project), × (cartesian), 5 joins, ÷ (division)','H'),T('Tuple Relational Calculus, Domain RC — GATE Qs','M'),T('RA GATE PYQs 2000-2024','H')]},
+{nm:'SQL',t:[T('SELECT with all clauses, aggregate functions (COUNT/SUM/AVG/MIN/MAX), NULL handling','H'),T('Joins: Inner/Left/Right/Full Outer/Natural, correlated subqueries, EXISTS/IN/ANY/ALL','H'),T('DDL (CREATE/ALTER/DROP), DML (INSERT/UPDATE/DELETE), DCL (GRANT/REVOKE)','H'),T('Views, integrity constraints, SQL GATE PYQs 2000-2024','H')]},
+{nm:'Normalisation',t:[T('FDs: Armstrong axioms, attribute closure, candidate key identification','H'),T('Canonical cover: irreducible FD set algorithm (step-by-step)','H'),T('1NF/2NF/3NF/BCNF: identify violation + decompose','H'),T('3NF synthesis (lossless + dep-preserving), BCNF may lose dep-preserving','H'),T('Multivalued dependencies, 4NF, lossless join test','M'),T('Normalisation GATE PYQs 2000-2024','H')]},
+{nm:'Transactions, Indexing & Concurrency',t:[T('ACID: Atomicity/Consistency/Isolation/Durability; concurrency problems','H'),T('Schedules: conflict serializability, precedence graph cycle detection','H'),T('2PL (growing+shrinking phases), Strict 2PL; Timestamp ordering, Thomas Write Rule','H'),T('B-Tree vs B+ Tree: structure, search/insert/delete, order, GATE calculations','H'),T('Dense/Sparse/Multilevel index, hashing for indexing, clustering','H'),T('Transactions GATE PYQs 2000-2024','H')]},
+]},
+// ── COMPUTER NETWORKS ──
+{id:'CN',nm:'Computer Networks',sh:'CN',c:'#60A5FA',gl:'rgba(96,165,250,.15)',w:8,sem:'5th Sem',u:[
+{nm:'OSI/TCP-IP & Physical Layer',t:[T('OSI 7 layers + TCP/IP 4 layers: PDUs (bit/frame/packet/segment/data)','H'),T('Packet switching vs Circuit switching vs Virtual Circuit switching','H'),T('Physical: encoding (NRZ/Manchester), bandwidth, Nyquist/Shannon theorems','M')]},
+{nm:'Data Link Layer',t:[T('CRC: polynomial long division — GATE numerical (appears every year)','H'),T('Hamming code: error detection + correction bit positions','H'),T('Framing: byte stuffing, bit stuffing','M'),T('ARQ efficiency: S&W=1/(1+2a), GBN=W/(1+2a), SR=W/(1+2a) where a=T_prop/T_trans','H'),T('CSMA/CD: collision detection, jam signal, exponential backoff','H'),T('ALOHA: Pure (18.4% max), Slotted (36.8% max) — GATE formula Qs','H'),T('Ethernet: frame (min 64B, max 1518B), MAC, Ethernet bridging, VLANs','H'),T('IEEE 802.11 (WiFi), Token Ring, Network Devices: hub/bridge/switch/router','H'),T('DLL GATE PYQs 2000-2024','H')]},
+{nm:'Network Layer',t:[T('IPv4: classful (A:8,B:16,C:24 bits), subnetting (CIDR), VLSM, supernetting','H'),T('IPv4 header: version/IHL/TOS/length/ID/flags/offset/TTL/protocol/checksum/src/dst','H'),T('Fragmentation: MTU, fragment offset (÷8), DF bit, MF bit — GATE Qs','H'),T('ARP (IP→MAC), RARP, DHCP, ICMP (ping/traceroute), NAT','H'),T('Routing: DV Algorithm (RIP/Bellman-Ford), Link-State (OSPF/Dijkstra)','H'),T('IPv6: 128-bit, no fragmentation at routers, stateless autoconfig','M'),T('Network GATE PYQs 2000-2024','H')]},
+{nm:'Transport Layer',t:[T('TCP: 3-way handshake (SYN/SYN-ACK/ACK), 4-way close (FIN/ACK/FIN/ACK)','H'),T('TCP flow control: sliding window, receiver buffer, rwnd','H'),T('TCP congestion control: Slow Start (cwnd doubles), Congestion Avoidance (cwnd+1), ssthresh','H'),T('TCP vs UDP: reliability/ordering/connection/checksum comparison','H'),T('TCP sockets: socket()/bind()/listen()/accept()/connect()/send()/recv()','H'),T('Silly Window Syndrome, Nagle algorithm, TCP timers','M'),T('Transport GATE PYQs 2000-2024','H')]},
+{nm:'Application Layer',t:[T('DNS: recursive/iterative resolution, hierarchy, resource records','H'),T('HTTP/1.0 vs 1.1: persistent connections; HTTPS, FTP (active/passive)','H'),T('SMTP, POP3, IMAP: send vs receive protocols','H'),T('Application Layer GATE PYQs 2000-2024','H')]},
+]},
+];
+
+// ── SCHEDULES ─────────────────────────────────────────────────────────────────
+var SCH=[
+{d:'Jun-23',ph:'B',s:'COA',u:'Applied Introduction',t:'Memory org, Addressability, CPU-Memory interface, System Bus, Instruction Cycle, CPU types',h:12,type:'study'},
+{d:'Jun-24',ph:'B',s:'COA',u:'Applied Introduction',t:'Stack/Accumulator/General Register CPU, PSW I & II, Solved problems',h:13,type:'study'},
+{d:'Jun-25',ph:'B',s:'COA',u:'Addressing Modes',t:'All 9 addressing modes, ISA design, RISC vs CISC, Instruction formats',h:12,type:'study'},
+{d:'Jun-26',ph:'B',s:'COA',u:'Instruction Set',t:'Transfer-of-control, Instruction Cycle with Interrupts, Types of Interrupts, RISC',h:12,type:'study'},
+{d:'Jun-27',ph:'B',s:'COA',u:'CPU Performance Pt1',t:"Micro-ops, Hardwired & Microprogrammed CU, Amdahl's Law, CPU time, Flynn's Classification",h:12,type:'study'},
+{d:'Jun-28',ph:'B',s:'COA',u:'CPU Performance Pt2',t:'Pipelining stages, types, RISC pipelining, Hazards RAW/WAR/WAW, stall cycles, Forwarding',h:13,type:'study'},
+{d:'Jun-29',ph:'B',s:'COA',u:'Cache Memory',t:'Direct/Associative/Set-Associative mapping, AMAT, Replacement, Update, Multi-level Cache',h:13,type:'study'},
+{d:'Jun-30',ph:'B',s:'COA',u:'Memory Hierarchy & I/O',t:'Memory hierarchy, DMA, Interrupts, COA full revision, All COA PYQs 2000-2024',h:14,type:'study'},
+{d:'Jul-01',ph:'B',s:'CPRO',u:'Fundamentals & Control',t:'Data types, operators, precedence, bitwise ops, if/switch/loops/break/continue/goto',h:12,type:'study'},
+{d:'Jul-02',ph:'B',s:'CPRO',u:'Functions & Recursion',t:'Functions, local/global/static vars, storage classes, recursion, Towers of Hanoi, GATE PYQs',h:12,type:'study'},
+{d:'Jul-03',ph:'B',s:'CPRO',u:'Pointers & Memory',t:'Pointers, dereferencing, arithmetic, arrays+ptrs, 2D arrays, dynamic memory, dangling ptrs',h:13,type:'study'},
+{d:'Jul-04',ph:'B',s:'CPRO',u:'Strings, Structs & Files',t:'Strings, structures, unions, typedef, enum, bit-fields, File I/O, All C Prog PYQs',h:12,type:'study'},
+{d:'Jul-05',ph:'B',s:'DSA',u:'All Sorting Algorithms',t:'Bubble, QuickSort (Lomuto/Hoare/randomized), HeapSort, Counting/Radix Sort, lower bound',h:13,type:'study'},
+{d:'Jul-06',ph:'B',s:'DSA',u:'Linear Data Structures',t:'SLL/DLL ops, special matrices, Stack (infix→postfix), Queue (circular/deque)',h:12,type:'study'},
+{d:'Jul-07',ph:'B',s:'DSA',u:'Trees Part 1',t:'BT traversals, properties, reconstruct from traversals, BST search/insert/delete',h:13,type:'study'},
+{d:'Jul-08',ph:'B',s:'DSA',u:'Trees Part 2 + Heaps',t:'AVL rotations (LL/RR/LR/RL), Binary Heaps, HeapSort, Build-Heap O(n)',h:13,type:'study'},
+{d:'Jul-09',ph:'B',s:'DSA',u:'Hashing',t:'Division/multiply hash, chaining, linear probing, double hashing, load factor',h:12,type:'study'},
+{d:'Jul-10',ph:'B',s:'DSA',u:'Graphs I',t:'BFS, DFS (edge types, discovery/finish times), cycle detection, Topological Sort',h:13,type:'study'},
+{d:'Jul-11',ph:'B',s:'DSA',u:'Graphs II — MST & SP',t:"SCC (Kosaraju), MST (Kruskal+Prim), Dijkstra, Bellman-Ford, Floyd-Warshall",h:14,type:'study'},
+{d:'Jul-12',ph:'B',s:'DSA',u:'DP & Greedy',t:'DP: LCS/Knapsack/Matrix Chain/Edit Distance; Greedy: Activity/Huffman/Job Seq',h:13,type:'study'},
+{d:'Jul-13',ph:'B',s:'DSA',u:'DSA PYQ Sprint',t:'All DSA PYQs 2014-2024 (3h timed). DP speed drill: 20 Qs in 60 min.',h:10,type:'study'},
+{d:'Jul-14',ph:'B',s:'TOC',u:'Finite Automata',t:'DFA formal def, construction for div-by-n/endings/patterns, NFA→DFA, ε-NFA, Minimisation',h:13,type:'study'},
+{d:'Jul-15',ph:'B',s:'TOC',u:'Regular Languages',t:"RE, Arden's Lemma (FA→RE), Thompson (RE→NFA), Pumping Lemma RL (prove 10 non-regular)",h:13,type:'study'},
+{d:'Jul-16',ph:'B',s:'TOC',u:'Moore/Mealy + CFGs',t:'Moore/Mealy machines, CFG design, CNF/GNF conversion, ambiguity, CYK algorithm',h:13,type:'study'},
+{d:'Jul-17',ph:'B',s:'TOC',u:'PDAs & Pumping Lemma CFL',t:'PDA (2 acceptance modes), CFG→PDA, Pumping Lemma CFL, Closure properties RL & CFL',h:14,type:'study'},
+{d:'Jul-18',ph:'B',s:'TOC',u:'Turing Machines & Decidability',t:"TM examples, variants, Halting Problem, Rice's Theorem, PCP, P/NP/NPC/NPH, GATE PYQs",h:14,type:'study'},
+{d:'Jul-19',ph:'B',s:'CD',u:'Lexical & Parsing I',t:'Compiler phases, lexical analysis, ambiguity, left recursion elim, left factoring, FIRST/FOLLOW',h:12,type:'study'},
+{d:'Jul-20',ph:'B',s:'CD',u:'Parsing II — LR Parsers',t:'LL(1) parse table, LR(0), SLR(1), CLR(1), LALR(1), power hierarchy, CD GATE PYQs',h:13,type:'study'},
+{d:'Jul-21',ph:'B',s:'CD',u:'Runtime & Code Generation',t:'Attribute grammars, SDT, TAC 3-address code, runtime environments, data flow analysis',h:12,type:'study'},
+{d:'Jul-22',ph:'B',s:'DL',u:'Number Systems',t:"Binary/Hex conversions, BCD, Gray, Excess-3, 2's complement, IEEE 754, Booth's",h:12,type:'study'},
+{d:'Jul-23',ph:'B',s:'DL',u:'Boolean Algebra & K-Maps',t:"SOP/POS, De Morgan's, Shannon, K-Map 2/3/4/5-var, prime implicants, VEM, GATE PYQs",h:13,type:'study'},
+{d:'Jul-24',ph:'B',s:'DL',u:'Combinational Circuits',t:'Adder/Subtractor, CLA, BCD Adder, MUX realisation, Decoder, ROM/PAL/PLA, GATE PYQs',h:13,type:'study'},
+{d:'Jul-25',ph:'B',s:'DL',u:'Sequential Circuits',t:'SR/JK/D/T FFs, excitation tables, FF interconversion, Moore/Mealy FSM',h:13,type:'study'},
+{d:'Jul-26',ph:'B',s:'DL',u:'Counters & Shift Registers',t:'Sync (Ring/Johnson/binary), Async ripple, Shift regs (SISO/SIPO/PISO/PIPO), Seq detector',h:14,type:'study'},
+{d:'Jul-27',ph:'B',s:'MATH',u:'Linear Algebra I',t:'Matrices, determinants, rank, Rouché-Capelli, system of linear equations',h:13,type:'study'},
+{d:'Jul-28',ph:'B',s:'MATH',u:'Linear Algebra II',t:'Eigenvalues, eigenvectors, Cayley-Hamilton, LU decomposition, GATE PYQs 2014-2024',h:14,type:'study'},
+{d:'Jul-29',ph:'B',s:'MATH',u:'Calculus',t:"Limits (L'Hopital), continuity, differentiability, MVT, max/min, integration",h:12,type:'study'},
+{d:'Jul-30',ph:'B',s:'MATH',u:'Sets, Relations & Functions',t:'Relation types, partial order, Hasse. Functions: counting injective/surjective/bijective. Lattices.',h:13,type:'study'},
+{d:'Jul-31',ph:'B',s:'MATH',u:'Mathematical Logic',t:'Prop. logic: tautology, PDNF/PCNF, inference rules. Pred. logic: quantifiers, translation.',h:12,type:'study'},
+{d:'Aug-01',ph:'B',s:'MATH',u:'Combinatorics',t:'P&C, inclusion-exclusion, pigeonhole, derangements, recurrence relations, generating functions',h:13,type:'study'},
+{d:'Aug-02',ph:'B',s:'MATH',u:'Probability',t:'Axioms, conditional, Bayes, RV, PMF/CDF/PDF, E[X], Var(X), Bernoulli/Binomial/Poisson/Normal',h:14,type:'study'},
+{d:'Aug-03',ph:'B',s:'MATH',u:'Graph Theory + Math Revision',t:'Eulerian, Hamiltonian, Planar (V-E+F=2), coloring, trees, matchings. Full Math PYQ sprint.',h:14,type:'study'},
+{d:'Aug-04',ph:'B',s:'APT',u:'Quantitative I',t:'Number theory, HCF/LCM, ratio, AP/GP, P&L, SI/CI, installments',h:10,type:'study'},
+{d:'Aug-05',ph:'B',s:'APT',u:'Quantitative II',t:'T&W, pipes, speed-distance, trains, boats, DI (bar/pie/line/table)',h:10,type:'study'},
+{d:'Aug-06',ph:'B',s:'APT',u:'Verbal & Analytical',t:'Grammar, Vocabulary, RC, Syllogisms, Analogy, Coding, Number Series, Spatial. PYQ sprint.',h:10,type:'study'},
+{d:'Aug-07',ph:'B',s:'DBMS',u:'ER & Relational Model',t:'ER diagrams, ER→Relational mapping, Relational Algebra all ops + joins, TRC/DRC',h:13,type:'study'},
+{d:'Aug-08',ph:'B',s:'DBMS',u:'SQL',t:'SELECT with all clauses, joins (5 types), correlated subqueries, EXISTS/IN, DDL/DML/DCL',h:13,type:'study'},
+{d:'Aug-09',ph:'B',s:'DBMS',u:'Normalisation',t:'FDs, attribute closure, canonical cover, 1NF→BCNF identification + decomposition, 3NF synthesis',h:14,type:'study'},
+{d:'Aug-10',ph:'B',s:'DBMS',u:'Transactions + Indexing',t:'ACID, conflict serializability, 2PL, Timestamp, Thomas Write Rule, B/B+ Trees, Dense/Sparse index',h:14,type:'study'},
+{d:'Aug-11',ph:'B',s:'CN',u:'OSI + DLL Part 1',t:'OSI/TCP-IP, packet/circuit/virtual circuit switching, Physical layer, CRC, Hamming code',h:13,type:'study'},
+{d:'Aug-12',ph:'B',s:'CN',u:'DLL Part 2 + LAN',t:'ARQ efficiency (S&W/GBN/SR), CSMA/CD, ALOHA, Ethernet, IEEE 802.11, Network devices',h:13,type:'study'},
+{d:'Aug-13',ph:'B',s:'CN',u:'Network Layer',t:'IPv4 classful, subnetting CIDR/VLSM, fragmentation, ARP/RARP/DHCP/ICMP, routing (DV+LS)',h:14,type:'study'},
+{d:'Aug-14',ph:'B',s:'CN',u:'Transport + Application',t:'TCP (3-way handshake, flow/congestion control, sockets), UDP, DNS, HTTP, SMTP, FTP. Full CN PYQs.',h:14,type:'study'},
+];
+
+// ── REVISION SCHEDULE (Sep – Jan 2027) ───────────────────────────────────────
+var GS=[
+{d:'Aug-15',ph:'R1',s:'OS',t:'OS full revision: Scheduling+Paging+Deadlock+File Sys. All PYQs 2014-2024.',h:12,type:'revision'},
+{d:'Aug-16',ph:'R1',s:'COA',t:'COA full revision: Pipeline hazards + Cache mapping numericals. Speed: 1 Q in < 3min.',h:12,type:'revision'},
+{d:'Aug-17',ph:'R1',s:'DSA',t:'DSA revision: AVL rotations, BFS/DFS, MST, DP patterns. 40 PYQs timed.',h:13,type:'revision'},
+{d:'Aug-18',ph:'R1',s:'TOC',t:'TOC revision: DFA construction (5 DFAs in 10min), Pumping Lemma proofs, Decidability table.',h:13,type:'revision'},
+{d:'Aug-19',ph:'R1',s:'CD+DL',t:'CD: FIRST/FOLLOW for 5 grammars + LR item sets. DL: K-Map speed + counter design.',h:12,type:'revision'},
+{d:'Aug-20',ph:'R1',s:'MATH',t:'Math: LA eigenvalues + Bayes chain + Planar graph. PYQ sprint 2019-2024.',h:12,type:'revision'},
+{d:'Aug-21',ph:'R1',s:'APT',t:'Aptitude: 10-year PYQ sprint (2014-2024). Target: 15/15 in 15 minutes.',h:8,type:'revision'},
+{d:'Aug-22',ph:'R1',s:'DBMS',t:'DBMS: SQL 3-table joins + BCNF decomp + serializability graph. 30 PYQs.',h:12,type:'revision'},
+{d:'Aug-23',ph:'R1',s:'CN',t:'CN: Subnetting 20 Qs, CRC long division drill, TCP congestion window, routing.',h:12,type:'revision'},
+{d:'Aug-24',ph:'R1',s:'CPRO',t:'C Prog: Pointer traces (20 Qs), recursion output (10 Qs), struct sizes. All PYQs.',h:11,type:'revision'},
+{d:'Aug-25',ph:'M',s:'MOCK',t:'🎯 MOCK TEST #1 — Full 65Q, 3 hours. Simulate exact exam environment. No breaks.',h:4,type:'mock'},
+{d:'Aug-26',ph:'M',s:'ANALYSIS',t:'Mock #1 deep analysis: Categorise every wrong Q (Concept/Silly/Time). Error log entry.',h:7,type:'analysis'},
+{d:'Aug-27',ph:'M',s:'ERROR',t:'Error log fix: Re-study concepts from Mock #1. Redo wrong Qs twice each.',h:12,type:'error'},
+{d:'Aug-28',ph:'R2',s:'PYQ',t:'PYQ Sprint: Solve GATE 2024 CS paper (3h timed). Map wrong Qs to topics.',h:7,type:'pyq'},
+{d:'Aug-29',ph:'R2',s:'ANALYSIS',t:'GATE 2024 analysis. Note traps and difficulty patterns.',h:5,type:'analysis'},
+{d:'Aug-30',ph:'R2',s:'OS+COA',t:'Deep dive: OS memory management (page tables) + COA cache AMAT hard Qs.',h:12,type:'revision'},
+{d:'Aug-31',ph:'R2',s:'TOC+CD',t:'Deep dive: Decidability proofs + LALR parsing table construction.',h:12,type:'revision'},
+{d:'Sep-01',ph:'M',s:'MOCK',t:'🎯 MOCK TEST #2 — Full 65Q, 3 hours. Target: 50+ score.',h:4,type:'mock'},
+{d:'Sep-02',ph:'M',s:'ANALYSIS',t:'Mock #2 analysis. Compare with Mock #1. Subject-wise accuracy trend.',h:7,type:'analysis'},
+{d:'Sep-03',ph:'R2',s:'ERROR',t:'Fix Mock #2 errors. Revise weak subject fundamentals.',h:12,type:'error'},
+{d:'Sep-04',ph:'R2',s:'PYQ',t:'PYQ Sprint: Solve GATE 2023 CS paper (3h timed).',h:7,type:'pyq'},
+{d:'Sep-05',ph:'R2',s:'DSA+C',t:'Deep dive: DP patterns (LCS/Knapsack/MCM) + Pointer arithmetic trace.',h:13,type:'revision'},
+{d:'Sep-06',ph:'R2',s:'BUFFER',t:'Buffer: Catch-up or mid-way self-assessment. Plan Oct schedule.',h:6,type:'buffer'},
+{d:'Sep-07',ph:'M',s:'MOCK',t:'🎯 MOCK TEST #3 — Full 65Q, 3 hours. Target: 55+.',h:4,type:'mock'},
+{d:'Sep-08',ph:'M',s:'ANALYSIS',t:'Mock #3 analysis. Map accuracy trends. Identify WEAKEST subject.',h:7,type:'analysis'},
+{d:'Sep-09',ph:'R2',s:'ERROR',t:'Fix Mock #3 errors. Weak subject: solve all PYQs of that subject today.',h:12,type:'error'},
+{d:'Sep-10',ph:'R2',s:'PYQ',t:'PYQ Sprint: Solve GATE 2022 CS paper.',h:7,type:'pyq'},
+{d:'Sep-11',ph:'R2',s:'MATH',t:'Deep dive: Probability Bayes chain + LA eigenvalue diagonalisation.',h:12,type:'revision'},
+{d:'Sep-12',ph:'R2',s:'BUFFER',t:'Month-end assessment: Top 3 weak subjects identified for Oct.',h:6,type:'buffer'},
+{d:'Sep-13',ph:'M',s:'MOCK',t:'🎯 MOCK TEST #4 — Full 65Q. Target: 60+.',h:4,type:'mock'},
+{d:'Sep-14',ph:'M',s:'ANALYSIS',t:'Mock #4 analysis. 4-mock error pattern report: recurring mistakes.',h:7,type:'analysis'},
+{d:'Sep-15',ph:'TS',s:'ERROR',t:'Fix Mock #4 errors. Re-study fundamentals of wrong Qs.',h:12,type:'error'},
+{d:'Sep-16',ph:'TS',s:'PYQ',t:'PYQ Sprint: Solve GATE 2021 CS paper.',h:7,type:'pyq'},
+{d:'Sep-17',ph:'TS',s:'OS+COA',t:"OS: Peterson's/Semaphore applications. COA: Pipeline stalls + DMA bandwidth.",h:13,type:'revision'},
+{d:'Sep-18',ph:'TS',s:'BUFFER',t:'Formula compilation pass 1. Skim weak topics.',h:6,type:'buffer'},
+{d:'Sep-19',ph:'M',s:'MOCK',t:'🎯 MOCK TEST #5 — Full 65Q. Target: 62+.',h:4,type:'mock'},
+{d:'Sep-20',ph:'M',s:'ANALYSIS',t:'Mock #5 analysis. Review time spent per subject in mock.',h:7,type:'analysis'},
+{d:'Sep-21',ph:'TS',s:'ERROR',t:'Fix Mock #5 mistakes. Similar test series problems.',h:12,type:'error'},
+{d:'Sep-22',ph:'TS',s:'PYQ',t:'PYQ Sprint: Solve GATE 2020 CS paper.',h:7,type:'pyq'},
+{d:'Sep-23',ph:'TS',s:'DSA+TOC',t:'DSA: Advanced graph problems. TOC: Context-free grammars ambiguity.',h:13,type:'revision'},
+{d:'Sep-24',ph:'TS',s:'BUFFER',t:'Physical/mental reset. Formula review.',h:5,type:'buffer'},
+{d:'Sep-25',ph:'M',s:'MOCK',t:'🎯 MOCK TEST #6 — Full 65Q. Target: 65+.',h:4,type:'mock'},
+{d:'Sep-26',ph:'M',s:'ANALYSIS',t:'Mock #6 analysis. Note progress on weak subjects.',h:7,type:'analysis'},
+{d:'Sep-27',ph:'TS',s:'ERROR',t:'Fix Mock #6 errors. Write conceptual traps in error book.',h:12,type:'error'},
+{d:'Sep-28',ph:'TS',s:'PYQ',t:'PYQ Sprint: Solve GATE 2019 CS paper.',h:7,type:'pyq'},
+{d:'Sep-29',ph:'TS',s:'DBMS+CN',t:'DBMS: Normalisation BCNF check hard Qs. CN: IP addressing subnet hard Qs.',h:13,type:'revision'},
+{d:'Sep-30',ph:'TS',s:'BUFFER',t:'Review formula sheets. Identify Nov plan.',h:5,type:'buffer'},
+{d:'Oct-01',ph:'M',s:'MOCK',t:'🎯 MOCK TEST #7 — Full 65Q. Target: 68+.',h:4,type:'mock'},
+{d:'Oct-02',ph:'M',s:'ANALYSIS',t:'Mock #7 analysis.',h:7,type:'analysis'},
+{d:'Oct-03',ph:'TS',s:'ERROR',t:'Fix Mock #7. Revise concepts of wrong Qs.',h:12,type:'error'},
+{d:'Oct-04',ph:'TS',s:'PYQ',t:'PYQ Sprint: Solve GATE 2018 CS paper.',h:7,type:'pyq'},
+{d:'Oct-05',ph:'TS',s:'APT',t:'Aptitude: All 10-year PYQ papers. Target 15/15 today.',h:6,type:'revision'},
+{d:'Oct-06',ph:'TS',s:'BUFFER',t:'Rest. Formula sheet review.',h:5,type:'buffer'},
+{d:'Oct-07',ph:'M',s:'MOCK',t:'🎯 MOCK TEST #8 — Full 65Q. Target: 70+.',h:4,type:'mock'},
+{d:'Oct-08',ph:'M',s:'ANALYSIS',t:'Mock #8 analysis. 8-mock comprehensive trend chart.',h:7,type:'analysis'},
+{d:'Oct-09',ph:'TS',s:'ERROR',t:'Fix Mock #8 mistakes.',h:12,type:'error'},
+{d:'Oct-10',ph:'TS',s:'MATH',t:'Math: Eigenvalues + Bayes + Graph Theory advanced Qs.',h:12,type:'revision'},
+{d:'Oct-11',ph:'TS',s:'PYQ',t:'PYQ Sprint: Solve GATE 2017 CS paper.',h:7,type:'pyq'},
+{d:'Oct-12',ph:'TS',s:'BUFFER',t:'Formula cards from memory. Plan Nov.',h:5,type:'buffer'},
+{d:'Oct-13',ph:'M',s:'MOCK',t:'🎯 MOCK TEST #9 — Full 65Q. Target: 72+.',h:4,type:'mock'},
+{d:'Oct-14',ph:'M',s:'ANALYSIS',t:'Mock #9 analysis.',h:7,type:'analysis'},
+{d:'Oct-15',ph:'TS',s:'ERROR',t:'Fix Mock #9 errors.',h:12,type:'error'},
+{d:'Oct-16',ph:'TS',s:'PYQ',t:'PYQ Sprint: Solve GATE 2016 CS paper.',h:7,type:'pyq'},
+{d:'Oct-17',ph:'TS',s:'OS+COA',t:'OS: Disk scheduling advanced. COA: Interrupt latency + DMA bandwidth.',h:12,type:'revision'},
+{d:'Oct-18',ph:'TS',s:'BUFFER',t:'Rest. Notes review.',h:5,type:'buffer'},
+{d:'Oct-19',ph:'M',s:'MOCK',t:'🎯 MOCK TEST #10 — Full 65Q. Target: 74+.',h:4,type:'mock'},
+{d:'Oct-20',ph:'M',s:'ANALYSIS',t:'Mock #10 analysis.',h:7,type:'analysis'},
+{d:'Oct-21',ph:'TS',s:'ERROR',t:'Fix Mock #10.',h:12,type:'error'},
+{d:'Oct-22',ph:'TS',s:'PYQ',t:'PYQ Sprint: GATE 2015 CS paper.',h:7,type:'pyq'},
+{d:'Oct-23',ph:'TS',s:'DBMS+CN',t:'DBMS: Concurrency serializability hard Qs. CN: Routing algorithms.',h:13,type:'revision'},
+{d:'Oct-24',ph:'TS',s:'BUFFER',t:'Formula cards review.',h:5,type:'buffer'},
+{d:'Oct-25',ph:'M',s:'MOCK',t:'🎯 MOCK TEST #11 — Full 65Q. Target: 75+.',h:4,type:'mock'},
+{d:'Oct-26',ph:'M',s:'ANALYSIS',t:'Mock #11 analysis.',h:7,type:'analysis'},
+{d:'Oct-27',ph:'TS',s:'ERROR',t:'Fix Mock #11.',h:12,type:'error'},
+{d:'Oct-28',ph:'TS',s:'PYQ',t:'PYQ Sprint: GATE 2014 CS paper.',h:7,type:'pyq'},
+{d:'Oct-29',ph:'TS',s:'MATH',t:'Math: LA + Prob + Combinatorics all hard PYQs.',h:12,type:'revision'},
+{d:'Oct-30',ph:'TS',s:'BUFFER',t:'Month assessment. Plan Nov.',h:5,type:'buffer'},
+{d:'Oct-31',ph:'TS',s:'SPEED',t:'Speed drill: 50 mixed PYQs in 90 min.',h:4,type:'revision'},
+{d:'Nov-01',ph:'P',s:'WEAK',t:'Weakest subject deep dive: re-study all fundamentals + every PYQ.',h:13,type:'revision'},
+{d:'Nov-02',ph:'M',s:'MOCK',t:'🎯 MOCK TEST #12 — Full 65Q. Target: 76+.',h:4,type:'mock'},
+{d:'Nov-03',ph:'M',s:'ANALYSIS',t:'Mock #12 analysis.',h:7,type:'analysis'},
+{d:'Nov-04',ph:'P',s:'ERROR',t:'Fix Mock #12.',h:12,type:'error'},
+{d:'Nov-05',ph:'P',s:'PYQ',t:'PYQ Sprint: GATE 2013 CS paper.',h:7,type:'pyq'},
+{d:'Nov-06',ph:'P',s:'BUFFER',t:'Rest day.',h:5,type:'buffer'},
+{d:'Nov-07',ph:'M',s:'MOCK',t:'🎯 MOCK TEST #13 — Full 65Q. Target: 78+.',h:4,type:'mock'},
+{d:'Nov-08',ph:'M',s:'ANALYSIS',t:'Mock #13 analysis.',h:7,type:'analysis'},
+{d:'Nov-09',ph:'P',s:'ERROR',t:'Fix Mock #13.',h:12,type:'error'},
+{d:'Nov-10',ph:'P',s:'PYQ',t:'PYQ Sprint: GATE 2012 CS paper.',h:7,type:'pyq'},
+{d:'Nov-11',ph:'P',s:'MATH',t:'Math: Eigenvalues, Bayes, combinatorics.',h:12,type:'revision'},
+{d:'Nov-12',ph:'P',s:'BUFFER',t:'Formula cards from memory.',h:5,type:'buffer'},
+{d:'Nov-13',ph:'M',s:'MOCK',t:'🎯 MOCK TEST #14 — Full 65Q. Target: 80+.',h:4,type:'mock'},
+{d:'Nov-14',ph:'M',s:'ANALYSIS',t:'Mock #14 analysis.',h:7,type:'analysis'},
+{d:'Nov-15',ph:'P',s:'ERROR',t:'Fix Mock #14.',h:12,type:'error'},
+{d:'Nov-16',ph:'P',s:'PYQ',t:'PYQ Sprint: GATE 2011 CS paper.',h:7,type:'pyq'},
+{d:'Nov-17',ph:'P',s:'BUFFER',t:'Rest day.',h:5,type:'buffer'},
+{d:'Nov-18',ph:'M',s:'MOCK',t:'🎯 MOCK TEST #15 — Full 65Q. Target: 80+.',h:4,type:'mock'},
+{d:'Nov-19',ph:'M',s:'ANALYSIS',t:'Mock #15 + 15-mock comprehensive trend review.',h:7,type:'analysis'},
+{d:'Nov-20',ph:'P',s:'ERROR',t:'Fix Mock #15 + compile all-mock error book.',h:12,type:'error'},
+{d:'Nov-21',ph:'P',s:'REVISION',t:'1st pass: OS + COA notes (2h each).',h:8,type:'revision'},
+{d:'Nov-22',ph:'P',s:'REVISION',t:'1st pass: DSA + C Prog notes (2h each).',h:8,type:'revision'},
+{d:'Nov-23',ph:'P',s:'REVISION',t:'1st pass: TOC + CD notes (2h each).',h:8,type:'revision'},
+{d:'Nov-24',ph:'P',s:'REVISION',t:'1st pass: DBMS + CN notes (2h each).',h:8,type:'revision'},
+{d:'Nov-25',ph:'P',s:'REVISION',t:'1st pass: Math + DL + Aptitude notes (2h each).',h:8,type:'revision'},
+{d:'Nov-26',ph:'P',s:'BUFFER',t:'Rest day.',h:4,type:'buffer'},
+{d:'Nov-27',ph:'P',s:'FORMULAS',t:'Write all formulas from memory — full pass.',h:5,type:'revision'},
+{d:'Nov-28',ph:'P',s:'APT',t:'GA 10-year PYQ speed run. Target: 15/15 in 12 min.',h:4,type:'revision'},
+{d:'Nov-29',ph:'P',s:'BUFFER',t:'Rest day.',h:4,type:'buffer'},
+{d:'Nov-30',ph:'P',s:'SPEED',t:'Speed drill: 60 mixed numericals in 120 min.',h:4,type:'revision'},
+{d:'Dec-01',ph:'P',s:'REVISION',t:'2nd pass: OS + COA (weak topics only, 1.5h each).',h:6,type:'revision'},
+{d:'Dec-02',ph:'P',s:'REVISION',t:'2nd pass: DSA + TOC (weak topics only, 1.5h each).',h:6,type:'revision'},
+{d:'Dec-03',ph:'P',s:'REVISION',t:'2nd pass: DBMS + CN (weak topics only, 1.5h each).',h:6,type:'revision'},
+{d:'Dec-04',ph:'P',s:'REVISION',t:'2nd pass: Math + DL (weak topics only, 1.5h each).',h:6,type:'revision'},
+{d:'Dec-05',ph:'P',s:'BUFFER',t:'Rest day.',h:4,type:'buffer'},
+{d:'Dec-06',ph:'P',s:'FORMULAS',t:'Write all formulas from memory — 2nd pass.',h:4,type:'revision'},
+{d:'Dec-07',ph:'P',s:'APT',t:'Aptitude: 5-year recent PYQs. Speed target: 15/15 in 10 min.',h:4,type:'revision'},
+{d:'Dec-08',ph:'P',s:'BUFFER',t:'Rest day.',h:3,type:'buffer'},
+{d:'Dec-09',ph:'P',s:'PYQ',t:'GATE 2024 re-attempt under 3h. Compare with first attempt.',h:4,type:'pyq'},
+{d:'Dec-10',ph:'P',s:'PYQ',t:'GATE 2023 re-attempt under 3h. Target improvement.',h:4,type:'pyq'},
+{d:'Dec-11',ph:'P',s:'BUFFER',t:'Rest day.',h:3,type:'buffer'},
+{d:'Dec-12',ph:'P',s:'REVISION',t:'All formula cards — rapid review.',h:3,type:'revision'},
+{d:'Dec-13',ph:'P',s:'REVISION',t:'All formula cards — rapid review.',h:3,type:'revision'},
+{d:'Dec-14',ph:'P',s:'BUFFER',t:'Rest day.',h:2,type:'buffer'},
+{d:'Dec-15',ph:'F',s:'LIGHT',t:'Light revision: tricky concept flashcards only. No heavy problem solving.',h:3,type:'revision'},
+{d:'Dec-16',ph:'F',s:'APT',t:'GA: 30 mixed PYQs. Light warm-up.',h:2,type:'revision'},
+{d:'Dec-17',ph:'F',s:'BUFFER',t:'Rest day.',h:0,type:'buffer'},
+{d:'Dec-18',ph:'F',s:'FORMULAS',t:'Final formula card skim. Sleep early. Relax.',h:2,type:'revision'},
+{d:'Dec-19',ph:'F',s:'BUFFER',t:'Pre-exam rest. Check center/admit card. Sleep well.',h:0,type:'buffer'},
+{d:'Dec-20',ph:'F',s:'GATE',t:'🏆 GATE 2026 EXAM DAY — Computer Science — Feb 2026 session (varies by slot)',h:0,type:'mock'},
+];
+// (Adjust Dec dates based on GATE 2026 official announcement — typically Feb 1-16, 2027)
+
+var MOODS=['😩','😔','😐','😊','🔥'];
+var ALLSUBS=['OS','COA','C Prog','DSA','TOC','CD','DL','Math','Apt','DBMS','CN'];
+var PHASE={B:{l:'Breadth',c:'#10B981'},R1:{l:'Rev 1',c:'#FBBF24'},R2:{l:'Rev 2',c:'#FB923C'},TS:{l:'Test Series',c:'#A78BFA'},P:{l:'Precision',c:'#EF4444'},F:{l:'Final',c:'#60A5FA'},M:{l:'Mock/PYQ',c:'#F472B6'}};
+var TICON={study:'📖',mock:'🎯',analysis:'📊',revision:'🔄',error:'🔨',pyq:'📜',buffer:'🛡️'};
+
+function build(){
+  return SYL.map(function(s){return Object.assign({},s,{u:s.u.map(function(u,ui){return Object.assign({},u,{id:s.id+'_u'+ui,t:u.t.map(function(t,ti){return Object.assign({},t,{id:s.id+'_u'+ui+'_t'+ti});})});})});});
+}
+var DEF=build();
+
+function saveSubs(d){try{localStorage.setItem('gate26v3_subs',JSON.stringify(d));}catch(e){}}
+function loadX(k,def){try{var v=localStorage.getItem(k);if(v)return JSON.parse(v);}catch(e){}return def;}
+function loadSubs(){return loadX('gate26v3_subs',DEF);}
+function saveX(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+
+var SM={P:{l:'Pending',c:'#5A7AAF',bg:'rgba(90,122,175,.15)',nx:'I'},I:{l:'Progress',c:'#FBBF24',bg:'rgba(251,191,36,.15)',nx:'D'},D:{l:'Done ✓',c:'#10b981',bg:'rgba(16,185,129,.15)',nx:'S'},S:{l:'Skipped',c:'#EF4444',bg:'rgba(239,68,68,.12)',nx:'P'}};
+var PM={H:{l:'🔴 HIGH',c:'#f43f5e',bg:'rgba(244,63,94,.15)',nx:'M'},M:{l:'🟡 MED',c:'#f59e0b',bg:'rgba(245,158,11,.15)',nx:'L'},L:{l:'🟢 LOW',c:'#10b981',bg:'rgba(16,185,129,.12)',nx:'H'}};
+
+function calcStats(subs){var tot=0,dn=0,pr=0,pn=0,sk=0,bs={};subs.forEach(function(s){var sd=0,st=0;s.u.forEach(function(u){u.t.forEach(function(t){tot++;st++;if(t.s==='D'){dn++;sd++;}else if(t.s==='I')pr++;else if(t.s==='P')pn++;else sk++;});});bs[s.id]={d:sd,t:st,p:st?Math.round(sd/st*100):0};});return{tot:tot,dn:dn,pr:pr,pn:pn,sk:sk,pct:tot?Math.round(dn/tot*100):0,bs:bs};}
+function fmtD(d){return d.toLocaleDateString('en-IN',{day:'2-digit',month:'short'}).replace(' ','-');}
+function getNow(){return fmtD(new Date())+' '+new Date().toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'});}
+function getToday(){return fmtD(new Date());}
+function getYest(){var d=new Date();d.setDate(d.getDate()-1);return fmtD(d);}
+function daysTo(ds){return Math.max(0,Math.ceil((new Date(ds)-new Date())/86400000));}
+
+// Ring SVG
+function Ring(p){var pct=p.pct||0,sz=p.size||70,st=p.stroke||5,cl=p.color||'#10B981';var r=(sz-st*2)/2,c=2*Math.PI*r,off=c-(pct/100)*c;return(React.createElement('svg',{width:sz,height:sz,style:{transform:'rotate(-90deg)'}},React.createElement('circle',{cx:sz/2,cy:sz/2,r:r,fill:'none',stroke:'rgba(255,255,255,.05)',strokeWidth:st}),React.createElement('circle',{cx:sz/2,cy:sz/2,r:r,fill:'none',stroke:cl,strokeWidth:st,strokeDasharray:c,strokeDashoffset:off,strokeLinecap:'round',style:{filter:'drop-shadow(0 0 4px '+cl+'88)',transition:'stroke-dashoffset .6s'}})));}
+
+// Stat Card
+function SC(p){var l=p.label,v=p.value,sub=p.sub,c=p.color||'#10B981',ic=p.icon;return(React.createElement('div',{className:'card',style:{padding:'11px 13px',flex:1,minWidth:95,position:'relative',overflow:'hidden',cursor:p.onClick?'pointer':'default'},onClick:p.onClick},React.createElement('div',{style:{position:'absolute',top:0,left:0,right:0,height:2,background:'linear-gradient(90deg,'+c+','+c+'00)'}}),React.createElement('div',{style:{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:5}},React.createElement('span',{style:{fontSize:16}}),React.createElement('div',{style:{width:5,height:5,borderRadius:'50%',background:c,boxShadow:'0 0 6px '+c,animation:'glow 2.2s ease infinite'}})),React.createElement('div',{className:'mono',style:{fontSize:20,fontWeight:800,color:c,lineHeight:1}}),React.createElement('div',{className:'mono',style:{fontSize:20,fontWeight:800,color:c,lineHeight:1}},v),React.createElement('div',{style:{fontSize:9.5,color:'#CBD5E8',marginTop:2,fontWeight:600,textTransform:'uppercase',letterSpacing:.4}},(ic?ic+' ':'')+l),sub&&React.createElement('div',{style:{fontSize:8.5,color:'#6B7DA0',marginTop:1}},sub)));}
+
+// Topic Row
+function TopicRow(p){
+var tp=p.topic,sc=p.sColor,onS=p.onStatus,onP=p.onPriority,onN=p.onNote;
+var[sn,setSn]=useState(false);
+var sm=SM[tp.s],pm=PM[tp.p],isDone=tp.s==='D',isProg=tp.s==='I';
+return React.createElement('div',{style:{display:'flex',flexDirection:'column',background:isDone?'rgba(16,185,129,.03)':'rgba(255,255,255,.01)',border:'1px solid '+(isDone?'rgba(16,185,129,.18)':'rgba(255,255,255,.04)'),borderLeft:'3px solid '+(isDone?'#10B981':isProg?'#FBBF24':'rgba(255,255,255,.08)'),borderRadius:6,padding:'5px 8px',marginBottom:3,cursor:'pointer',transition:'all .15s'},
+onClick:function(){onS(isDone?'P':'D');}},
+React.createElement('div',{style:{display:'flex',alignItems:'center',gap:5,width:'100%'}},
+React.createElement('div',{style:{width:12,height:12,borderRadius:3,border:'1px solid '+(isDone?'#10B981':'#475569'),background:isDone?'#10B981':'transparent',display:'flex',alignItems:'center',justifyContent:'center',color:'#020617',fontSize:8,fontWeight:900,flexShrink:0,transition:'all .15s'}},(isDone?'✓':'')),
+React.createElement('div',{style:{flex:1,fontSize:10.5,color:isDone?'#5A6A8A':'#CBD5E8',textDecoration:isDone?'line-through':'none',lineHeight:1.4,transition:'color .15s'}},tp.n),
+tp.nt&&tp.nt.length>0&&React.createElement('span',{style:{fontSize:8,color:'#818CF8',background:'rgba(99,102,241,.1)',padding:'1px 4px',borderRadius:3,flexShrink:0}},'📝'),
+React.createElement('div',{style:{display:'flex',alignItems:'center',gap:3},onClick:function(e){e.stopPropagation();}},
+React.createElement('button',{onClick:function(){setSn(!sn);},style:{fontSize:7.5,padding:'1px 4px',borderRadius:3,background:sn?'rgba(129,140,248,.15)':'rgba(255,255,255,.03)',color:sn?'#818CF8':'#6B7DA0',border:'1px solid '+(sn?'rgba(129,140,248,.25)':'rgba(255,255,255,.06)'),cursor:'pointer'}},'✎'),
+React.createElement('button',{onClick:function(){onP(pm.nx);},style:{fontSize:7.5,padding:'1px 4px',borderRadius:3,background:pm.bg,color:pm.c,border:'1px solid '+pm.c+'25',cursor:'pointer'}},pm.l.replace('🔴 ','🔴').replace('🟡 ','🟡').replace('🟢 ','🟢')),
+React.createElement('button',{onClick:function(){onS(sm.nx);},style:{fontSize:7.5,padding:'1px 5px',borderRadius:3,background:sm.bg,color:sm.c,border:'1px solid '+sm.c+'25',minWidth:50,textAlign:'center',cursor:'pointer'}},sm.l))),
+isDone&&tp.d&&React.createElement('div',{style:{fontSize:7.5,color:'#2A5040',marginTop:2,marginLeft:17}},'✓ '+tp.d),
+sn&&React.createElement('div',{style:{marginTop:5,width:'100%'},onClick:function(e){e.stopPropagation();}},
+React.createElement('textarea',{value:tp.nt||'',onChange:function(e){onN(e.target.value);},placeholder:'Notes, formulas, PYQ traps, observations...',style:{width:'100%',minHeight:50,background:'rgba(99,102,241,.04)',border:'1px solid rgba(99,102,241,.12)',borderRadius:5,color:'#A0B0C8',fontSize:10,padding:'4px 6px',lineHeight:1.45}})));
+}
+
+// ── MAIN APP ─────────────────────────────────────────────────────────────────
+function App(){
+var[subs,setSubs]=useState(loadSubs);
+var[tab,setTab]=useState(function(){return loadX('gate26v3_tab','today');});
+var[expS,setExpS]=useState({});
+var[expU,setExpU]=useState({});
+var[filt,setFilt]=useState({s:'ALL',p:'ALL',q:''});
+var[actS,setActS]=useState(null);
+var[hrs,setHrs]=useState(function(){return loadX('gate26v3_hrs',{});});
+var[daily,setDaily]=useState(function(){return loadX('gate26v3_daily',{});});
+var defM=Array.from({length:15},function(_,i){return{n:i+1,sc:null,rk:null,dt:null,sub:{},notes:''};});
+var[mocks,setMocks]=useState(function(){return loadX('gate26v3_mocks',defM);});
+var[strk,setStrk]=useState(function(){return loadX('gate26v3_strk',{c:0,b:0,l:null});});
+var[showLog,setShowLog]=useState(false);
+var[logH,setLogH]=useState(8);
+var[logD,setLogD]=useState(50);
+var[logSubs,setLogSubs]=useState([]);
+var[logMood,setLogMood]=useState(3);
+var[logNote,setLogNote]=useState('');
+// Pomodoro
+var[pomoAct,setPomoAct]=useState(false);
+var[pomoTime,setPomoTime]=useState(25*60);
+var[pomoDur,setPomoDur]=useState(25*60);
+var[pomoSub,setPomoSub]=useState('COA');
+var[pomoPaused,setPomoPaused]=useState(true);
+var[pomoMode,setPomoMode]=useState('work');
+var pomoRef=useRef(null);
+
+var st=useMemo(function(){return calcStats(subs);},[subs]);
+var today=getToday();
+var todayK=new Date().toISOString().split('T')[0];
+var todayLog=daily[todayK];
+var todayPlan=[...SCH,...GS].find(function(x){return x.d===today;});
+var totH=Object.values(hrs).reduce(function(a,b){return a+b;},0);
+var doneM=mocks.filter(function(m){return m.sc!==null;});
+var avgSc=doneM.length?Math.round(doneM.reduce(function(a,m){return a+m.sc;},0)/doneM.length):null;
+
+useEffect(function(){saveSubs(subs);},[subs]);
+useEffect(function(){saveX('gate26v3_hrs',hrs);},[hrs]);
+useEffect(function(){saveX('gate26v3_daily',daily);},[daily]);
+useEffect(function(){saveX('gate26v3_mocks',mocks);},[mocks]);
+useEffect(function(){saveX('gate26v3_strk',strk);},[strk]);
+useEffect(function(){saveX('gate26v3_tab',tab);},[tab]);
+
+// Pomodoro timer
+useEffect(function(){
+  if(pomoAct&&!pomoPaused){
+    pomoRef.current=setInterval(function(){
+      setPomoTime(function(t){
+        if(t<=1){clearInterval(pomoRef.current);setPomoAct(false);setPomoPaused(true);
+          try{var ctx=new(window.AudioContext||window.webkitAudioContext)();var o=ctx.createOscillator();var g=ctx.createGain();o.connect(g);g.connect(ctx.destination);o.frequency.value=pomoMode==='work'?523:659;g.gain.value=.3;o.start();g.gain.exponentialRampToValueAtTime(.01,ctx.currentTime+1.2);o.stop(ctx.currentTime+1.2);}catch(e){}
+          return 0;}return t-1;});},1000);
+  }else{clearInterval(pomoRef.current);}
+  return function(){clearInterval(pomoRef.current);};
+},[pomoAct,pomoPaused]);
+
+function fmtTime(s){var m=Math.floor(s/60),sec=s%60;return(m< 10?'0':'')+m+':'+(sec< 10?'0':'')+sec;}
+function mStrk(){setStrk(function(k){if(k.l===today)return k;var nc=k.l===getYest()?k.c+1:1;return{c:nc,b:Math.max(k.b,nc),l:today};});}
+
+var updateTopic=useCallback(function(tid,field,val){
+setSubs(function(prev){return prev.map(function(s){return Object.assign({},s,{u:s.u.map(function(u){return Object.assign({},u,{t:u.t.map(function(t){if(t.id!==tid)return t;var u2=Object.assign({},t);u2[field]=val;if(field==='s'&&val==='D'){u2.d=getNow();mStrk();}if(field==='s'&&val!=='D')u2.d=null;return u2;})});})});})});},[]);
+
+function markUD(unit){unit.t.forEach(function(t){if(t.s!=='D')updateTopic(t.id,'s','D');});}
+function logHr(sid,h){setHrs(function(p){var n=Object.assign({},p);n[sid]=(n[sid]||0)+h;return n;});}
+function saveLog(){
+  setDaily(function(p){var n=Object.assign({},p);n[todayK]={hours:logH,done:logD,subjects:logSubs,mood:logMood,notes:logNote,ts:new Date().toISOString()};return n;});
+  mStrk();setShowLog(false);setLogNote('');setLogSubs([]);
+}
+function updM(i,f,v){setMocks(function(p){var m=p.slice();m[i]=Object.assign({},m[i]);m[i][f]=v;return m;});}
+
+function toggleS(id){setExpS(function(e){var n=Object.assign({},e);n[id]=!n[id];return n;});}
+function toggleU(id){setExpU(function(e){var n=Object.assign({},e);n[id]=!n[id];return n;});}
+
+var filtered=useMemo(function(){
+  return subs.map(function(s){if(actS&&s.id!==actS)return null;var us=s.u.map(function(u){return Object.assign({},u,{t:u.t.filter(function(t){if(filt.s!=='ALL'&&t.s!==filt.s)return false;if(filt.p!=='ALL'&&t.p!==filt.p)return false;if(filt.q&&!t.n.toLowerCase().includes(filt.q.toLowerCase()))return false;return true;})});}).filter(function(u){return u.t.length>0;});if(!us.length)return null;return Object.assign({},s,{u:us});}).filter(Boolean);
+},[subs,actS,filt]);
+
+var pieD=[{n:'Done',v:st.dn,c:'#10B981'},{n:'Progress',v:st.pr,c:'#FBBF24'},{n:'Pending',v:st.pn,c:'#5A7AAF'},{n:'Skipped',v:st.sk,c:'#EF4444'}].filter(function(x){return x.v>0;});
+var barD=subs.map(function(s){return{n:s.sh,p:(st.bs[s.id]||{p:0}).p,c:s.c};});
+var mLine=doneM.map(function(m){return{n:'#'+m.n,v:m.sc};});
+
+function resetAll(){if(confirm('Reset ALL progress? This cannot be undone!')){setSubs(DEF);saveSubs(DEF);setHrs({});setMocks(defM);setStrk({c:0,b:0,l:null});setDaily({});['gate26v3_hrs','gate26v3_mocks','gate26v3_strk','gate26v3_daily'].forEach(function(k){saveX(k,null);});}}
+
+var TABS=[{id:'today',l:'🏠 Today'},{id:'syllabus',l:'📚 Syllabus'},{id:'schedule',l:'📅 Schedule'},{id:'mocks',l:'🎯 Mocks'},{id:'analytics',l:'📊 Analytics'},{id:'strategy',l:'🚀 AIR 50 Guide'}];
+
+return React.createElement('div',{style:{background:'radial-gradient(ellipse at 15% 10%,rgba(78,205,196,.05) 0%,transparent 45%),radial-gradient(ellipse at 85% 90%,rgba(99,102,241,.04) 0%,transparent 45%),#050912',minHeight:'100vh'}},
+React.createElement('div',{style:{position:'fixed',inset:0,backgroundImage:'repeating-linear-gradient(rgba(255,255,255,.007) 0,rgba(255,255,255,.007) 1px,transparent 1px,transparent 55px),repeating-linear-gradient(90deg,rgba(255,255,255,.007) 0,rgba(255,255,255,.007) 1px,transparent 1px,transparent 55px)',pointerEvents:'none',zIndex:0}}),
+React.createElement('div',{style:{position:'relative',zIndex:1,maxWidth:1480,margin:'0 auto',padding:'0 14px 70px'}},
+
+// ── HEADER ──
+React.createElement('div',{style:{display:'flex',alignItems:'center',justifyContent:'space-between',padding:'10px 0 8px',borderBottom:'1px solid rgba(255,255,255,.05)',marginBottom:11,flexWrap:'wrap',gap:8}},
+React.createElement('div',{style:{display:'flex',alignItems:'center',gap:9}},
+React.createElement('div',{style:{width:40,height:40,borderRadius:10,background:'linear-gradient(135deg,#FBBF24,#10B981)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:10,fontWeight:900,color:'#030712',animation:'goldPulse 3s ease infinite',flexShrink:0,letterSpacing:-.5}},'G26'),
+React.createElement('div',null,
+React.createElement('div',{style:{fontSize:14,fontWeight:900}},
+'GATE 2026 ',React.createElement('span',{style:{background:'linear-gradient(90deg,#FBBF24,#4ECDC4)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent'}},'AIR 50'),' — Abhishek'),
+React.createElement('div',{style:{fontSize:9,color:'#4A5A78'}},'OS ✅ | DSA 50% ✅ | COA 🔄 | Breadth→Aug 14 | 15 Mocks→Nov | GATE CS = Feb 2027'))),
+React.createElement('div',{style:{display:'flex',alignItems:'center',gap:11,flexWrap:'wrap'}},
+[{l:'STREAK',v:strk.c+'d',c:'#FBBF24'},{l:'HOURS',v:Math.floor(totH)+'h',c:'#10B981'},{l:'DONE',v:st.pct+'%',c:'#818CF8'},{l:'MOCKS',v:doneM.length+'/15',c:'#F472B6'},{l:'AVG',v:avgSc?avgSc+'%':'—',c:'#60A5FA'}].map(function(x,i){return React.createElement('div',{key:i,style:{textAlign:'center'}},React.createElement('div',{style:{fontSize:7.5,color:'#4A5A78',fontWeight:700,letterSpacing:1.2,textTransform:'uppercase'}},x.l),React.createElement('div',{className:'mono',style:{fontSize:15,fontWeight:800,color:x.c}},x.v));}),
+React.createElement('div',{style:{position:'relative',cursor:'pointer'},onClick:function(){setTab('analytics');}},
+React.createElement(Ring,{pct:st.pct,size:52,stroke:4,color:'#FBBF24'}),
+React.createElement('div',{style:{position:'absolute',inset:0,display:'flex',alignItems:'center',justifyContent:'center',fontSize:9.5,fontWeight:800,color:'#FBBF24',fontFamily:'Courier New,monospace'}},st.pct+'%')),
+React.createElement('button',{onClick:resetAll,style:{fontSize:9,color:'#EF4444',border:'1px solid rgba(239,68,68,.2)',borderRadius:5,padding:'4px 7px',background:'rgba(239,68,68,.05)',cursor:'pointer'}},'⟳ Reset'))),
+
+// ── TABS ──
+React.createElement('div',{style:{display:'flex',gap:3,marginBottom:11,flexWrap:'wrap'}},
+TABS.map(function(t){var a=tab===t.id;return React.createElement('button',{key:t.id,onClick:function(){setTab(t.id);},style:{padding:'6px 12px',borderRadius:7,fontSize:11,fontWeight:a?700:500,background:a?'rgba(251,191,36,.1)':'rgba(255,255,255,.02)',border:'1px solid '+(a?'rgba(251,191,36,.3)':'rgba(255,255,255,.05)'),color:a?'#FBBF24':'#CBD5E8',cursor:'pointer',transition:'all .2s',whiteSpace:'nowrap'}},t.l);})),
+
+// ═══ TODAY TAB ═══════════════════════════════════════════════════════════════
+tab==='today'&&React.createElement('div',{className:'slide'},
+
+// Today card + Pomodoro row
+React.createElement('div',{style:{display:'grid',gridTemplateColumns:'1fr 280px',gap:12,marginBottom:12}},
+
+// Today's task card
+React.createElement('div',{style:{background:'linear-gradient(135deg,rgba(251,191,36,.07),rgba(78,205,196,.04))',border:'1px solid rgba(251,191,36,.18)',borderRadius:13,padding:'14px 16px'}},
+React.createElement('div',{style:{display:'flex',alignItems:'center',gap:6,marginBottom:8}},
+React.createElement('div',{style:{width:8,height:8,borderRadius:'50%',background:'#FBBF24',boxShadow:'0 0 10px #FBBF24'},className:'pulse'}),
+React.createElement('span',{style:{fontSize:10.5,fontWeight:700,color:'#FBBF24',letterSpacing:.4}},'TODAY — '+today+'   |   GA: 15 min daily   |   Target: 12h')),
+todayPlan?React.createElement('div',{style:{display:'flex',gap:12,flexWrap:'wrap',alignItems:'flex-start'}},
+React.createElement('div',{style:{flex:1,minWidth:160}},
+React.createElement('div',{style:{fontSize:15,fontWeight:800,marginBottom:4}},todayPlan.s+(todayPlan.u?' — ':'')),
+React.createElement('span',{style:{color:'#4ECDC4',fontSize:15,fontWeight:800}},todayPlan.u||''),
+React.createElement('div',{style:{fontSize:11,color:'#A0B0C8',background:'rgba(255,255,255,.03)',borderLeft:'3px solid #FBBF24',padding:'5px 9px',borderRadius:'0 5px 5px 0',lineHeight:1.5,marginTop:4}},todayPlan.t)),
+React.createElement('div',{style:{minWidth:130}},
+React.createElement('div',{style:{fontSize:9,color:'#A0B0C8',marginBottom:3}},'Log hours — '+todayPlan.s+':'),
+React.createElement('div',{style:{display:'flex',gap:2,flexWrap:'wrap',marginBottom:4}},
+[1,2,3,4,5,6,7,8,9,10,12].map(function(h){var lg=hrs[todayPlan.s]||0;return React.createElement('button',{key:h,onClick:function(){logHr(todayPlan.s,1);},style:{width:20,height:20,borderRadius:3,fontSize:8,fontWeight:700,cursor:'pointer',background:lg>=h?'rgba(251,191,36,.15)':'rgba(255,255,255,.03)',border:'1px solid '+(lg>=h?'rgba(251,191,36,.3)':'rgba(255,255,255,.05)'),color:lg>=h?'#FBBF24':'#6B7DA0'}},h);})),
+React.createElement('div',{className:'mono',style:{fontSize:9,color:'#FBBF24'}},(hrs[todayPlan.s]||0)+'h logged / '+todayPlan.h+'h target')))
+:React.createElement('div',{style:{fontSize:12,color:'#6B7DA0'}},'No scheduled task today. Review weakest subject or rest.')),
+
+// Pomodoro timer
+React.createElement('div',{className:'card',style:{padding:'14px',display:'flex',flexDirection:'column',gap:8}},
+React.createElement('div',{style:{display:'flex',alignItems:'center',gap:6,marginBottom:4}},
+React.createElement('div',{style:{width:7,height:7,borderRadius:'50%',background:pomoAct&&!pomoPaused?'#FBBF24':'#4A5A78',boxShadow:pomoAct&&!pomoPaused?'0 0 8px #FBBF24':'none'},className:pomoAct&&!pomoPaused?'pulse':''}),
+React.createElement('span',{style:{fontSize:10.5,fontWeight:700,color:'#FBBF24'}},'⏱ Focus Timer')),
+// Mode selector
+React.createElement('div',{style:{display:'flex',gap:2,background:'rgba(255,255,255,.02)',borderRadius:5,padding:2}},
+[{l:'Study',v:'work',c:'#f43f5e'},{l:'Break',v:'break',c:'#10B981'}].map(function(m){return React.createElement('button',{key:m.v,onClick:function(){if(!pomoAct){setPomoMode(m.v);var d=m.v==='work'?pomoDur:5*60;setPomoDur(d);setPomoTime(d);}},style:{flex:1,fontSize:9,fontWeight:700,padding:'3px 0',borderRadius:4,background:pomoMode===m.v?m.c+'18':'transparent',color:pomoMode===m.v?m.c:'#6B7DA0',cursor:'pointer'}},m.l);})),
+// Timer display
+React.createElement('div',{style:{display:'flex',alignItems:'center',gap:10,justifyContent:'center'}},
+React.createElement('div',{style:{position:'relative',width:56,height:56,flexShrink:0}},
+React.createElement(Ring,{pct:Math.round((pomoTime/pomoDur)*100),size:56,stroke:4,color:pomoMode==='work'?'#f43f5e':'#10B981'}),
+React.createElement('div',{className:'mono',style:{position:'absolute',inset:0,display:'flex',alignItems:'center',justifyContent:'center',fontSize:11,fontWeight:800,color:pomoMode==='work'?'#f43f5e':'#10B981'}},fmtTime(pomoTime))),
+React.createElement('div',{style:{flex:1}},
+pomoMode==='work'&&React.createElement('div',null,
+React.createElement('select',{value:pomoSub,onChange:function(e){setPomoSub(e.target.value);},disabled:pomoAct,style:{width:'100%',background:'rgba(255,255,255,.03)',border:'1px solid rgba(255,255,255,.08)',borderRadius:4,padding:'2px 5px',color:'#E0E8F8',fontSize:9.5,marginBottom:4}},
+ALLSUBS.map(function(s){return React.createElement('option',{key:s,value:s},s);})),
+React.createElement('div',{style:{display:'flex',gap:2}},
+[25,45,60,90].map(function(m){return React.createElement('button',{key:m,onClick:function(){if(!pomoAct){setPomoDur(m*60);setPomoTime(m*60);}},style:{flex:1,fontSize:8,fontWeight:700,padding:'2px 0',borderRadius:3,background:pomoDur===m*60?'rgba(244,63,94,.18)':'rgba(255,255,255,.03)',color:pomoDur===m*60?'#f43f5e':'#6B7DA0',cursor:'pointer'}},m+'m');})))),
+// Controls
+React.createElement('div',{style:{display:'flex',gap:4}},
+React.createElement('button',{onClick:function(){if(!pomoAct){setPomoAct(true);setPomoPaused(false);}else{setPomoPaused(!pomoPaused);}},style:{flex:1,padding:'5px 0',borderRadius:5,background:pomoAct&&!pomoPaused?'rgba(245,158,11,.15)':'rgba(16,185,129,.15)',color:pomoAct&&!pomoPaused?'#f59e0b':'#10B981',border:'1px solid '+(pomoAct&&!pomoPaused?'rgba(245,158,11,.3)':'rgba(16,185,129,.3)'),fontSize:10,fontWeight:700,cursor:'pointer'}},pomoAct?(pomoPaused?'Resume':'Pause'):'Start'),
+pomoAct&&React.createElement('button',{onClick:function(){clearInterval(pomoRef.current);setPomoAct(false);setPomoTime(pomoDur);setPomoPaused(true);},style:{padding:'5px 8px',borderRadius:5,background:'rgba(239,68,68,.1)',color:'#EF4444',border:'1px solid rgba(239,68,68,.25)',fontSize:10,cursor:'pointer'}},'Stop')))),
+
+// Stats row
+React.createElement('div',{style:{display:'flex',gap:7,marginBottom:11,flexWrap:'wrap'}},
+React.createElement(SC,{label:'Topics Done',value:st.dn,sub:'of '+st.tot+' total',color:'#10B981',icon:'✅',onClick:function(){setTab('syllabus');setFilt({s:'D',p:'ALL',q:''});}}),
+React.createElement(SC,{label:'Completion',value:st.pct+'%',color:'#FBBF24',icon:'📈'}),
+React.createElement(SC,{label:'In Progress',value:st.pr,color:'#FB923C',icon:'🔄',onClick:function(){setTab('syllabus');setFilt({s:'I',p:'ALL',q:''});}}),
+React.createElement(SC,{label:'Days to Exam',value:daysTo('2027-02-15'),sub:'GATE CS ~Feb 2027',color:'#F472B6',icon:'⏳'}),
+React.createElement(SC,{label:'Best Streak',value:strk.b+'d',sub:'current: '+strk.c+'d',color:'#A78BFA',icon:'🔥'}),
+React.createElement(SC,{label:'Mock Avg',value:avgSc?avgSc+'%':'—',sub:doneM.length+'/15 done',color:'#60A5FA',icon:'🎯'})),
+
+// Daily log
+React.createElement('div',{style:{display:'flex',alignItems:'center',justifyContent:'space-between',marginBottom:6}},
+React.createElement('div',{style:{fontSize:11,fontWeight:700,color:'#CBD5E8'}},'📓 Today\'s Study Log'),
+React.createElement('button',{onClick:function(){if(todayLog){setLogH(todayLog.hours||8);setLogD(todayLog.done||50);setLogSubs(todayLog.subjects||[]);setLogMood(todayLog.mood||3);setLogNote(todayLog.notes||'');}setShowLog(!showLog);},style:{fontSize:9.5,padding:'4px 10px',borderRadius:6,background:todayLog?'rgba(16,185,129,.12)':'rgba(251,191,36,.12)',color:todayLog?'#10B981':'#FBBF24',border:'1px solid '+(todayLog?'rgba(16,185,129,.3)':'rgba(251,191,36,.3)'),cursor:'pointer',fontWeight:600}},todayLog?'✏️ Edit Log':'+ Log Today')),
+
+showLog&&React.createElement('div',{className:'card slide',style:{padding:12,marginBottom:10}},
+React.createElement('div',{style:{display:'grid',gridTemplateColumns:'1fr 1fr',gap:8,marginBottom:8}},
+React.createElement('div',null,React.createElement('div',{style:{fontSize:9,color:'#A0B0C8',marginBottom:2}},'Hours studied: ',React.createElement('span',{className:'mono',style:{color:'#FBBF24',fontWeight:700}},logH,'h')),React.createElement('input',{type:'range',min:0,max:16,step:.5,value:logH,onChange:function(e){setLogH(Number(e.target.value));},style:{width:'100%',accentColor:'#FBBF24'}})),
+React.createElement('div',null,React.createElement('div',{style:{fontSize:9,color:'#A0B0C8',marginBottom:2}},'Target completion: ',React.createElement('span',{className:'mono',style:{color:'#10B981',fontWeight:700}},logD,'%')),React.createElement('input',{type:'range',min:0,max:100,step:5,value:logD,onChange:function(e){setLogD(Number(e.target.value));},style:{width:'100%',accentColor:'#10B981'}}))),
+React.createElement('div',{style:{marginBottom:7}},
+React.createElement('div',{style:{fontSize:9,color:'#A0B0C8',marginBottom:3}},'Subjects studied:'),
+React.createElement('div',{style:{display:'flex',flexWrap:'wrap',gap:3}},
+ALLSUBS.map(function(s){var a=logSubs.includes(s);return React.createElement('button',{key:s,onClick:function(){setLogSubs(function(p){return p.includes(s)?p.filter(function(x){return x!==s;}):p.concat(s);});},style:{fontSize:9,padding:'2px 6px',borderRadius:4,background:a?'rgba(16,185,129,.18)':'rgba(255,255,255,.03)',color:a?'#10B981':'#8B9AB8',border:'1px solid '+(a?'rgba(16,185,129,.3)':'rgba(255,255,255,.06)'),cursor:'pointer'}},s);}))),
+React.createElement('div',{style:{display:'flex',gap:4,marginBottom:7}},
+React.createElement('span',{style:{fontSize:9,color:'#A0B0C8',marginRight:4}},'Mood:'),
+MOODS.map(function(m,i){return React.createElement('button',{key:i,onClick:function(){setLogMood(i+1);},style:{fontSize:15,cursor:'pointer',opacity:logMood===i+1?1:.3,transform:logMood===i+1?'scale(1.25)':'scale(1)',transition:'all .15s'}},m);})),
+React.createElement('textarea',{value:logNote,onChange:function(e){setLogNote(e.target.value);},placeholder:'Key learnings, difficulties, tomorrow plan...',style:{width:'100%',minHeight:45,background:'rgba(255,255,255,.03)',border:'1px solid rgba(255,255,255,.07)',borderRadius:5,color:'#C0D0E0',fontSize:10.5,padding:'5px 7px',marginBottom:7}}),
+React.createElement('div',{style:{display:'flex',gap:5}},
+React.createElement('button',{onClick:saveLog,style:{flex:1,padding:'6px',borderRadius:5,background:'rgba(16,185,129,.15)',color:'#10B981',border:'1px solid rgba(16,185,129,.3)',fontWeight:700,fontSize:11,cursor:'pointer'}},'✓ Save Log'),
+React.createElement('button',{onClick:function(){setShowLog(false);},style:{padding:'6px 12px',borderRadius:5,background:'rgba(239,68,68,.1)',color:'#EF4444',border:'1px solid rgba(239,68,68,.25)',fontSize:11,cursor:'pointer'}},'✕'))),
+
+// Subject grid
+React.createElement('div',{style:{fontSize:9.5,fontWeight:700,color:'#4A5A78',letterSpacing:1.5,textTransform:'uppercase',marginBottom:6}},'Subject Progress'),
+React.createElement('div',{style:{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(145px,1fr))',gap:5}},
+subs.map(function(s){var ss=st.bs[s.id]||{d:0,t:0,p:0};return React.createElement('div',{key:s.id,onClick:function(){setTab('syllabus');setActS(s.id);setExpS(function(e){var n=Object.assign({},e);n[s.id]=true;return n;});},style:{background:'rgba(15,22,40,.5)',border:'1px solid '+s.c+'20',borderRadius:8,padding:'8px 10px',cursor:'pointer',transition:'all .2s'},onMouseEnter:function(e){e.currentTarget.style.background=s.c+'0D';e.currentTarget.style.borderColor=s.c+'40';},onMouseLeave:function(e){e.currentTarget.style.background='rgba(15,22,40,.5)';e.currentTarget.style.borderColor=s.c+'20';}},
+React.createElement('div',{style:{display:'flex',alignItems:'center',gap:5,marginBottom:4}},React.createElement('div',{style:{width:6,height:6,borderRadius:'50%',background:s.c,boxShadow:'0 0 4px '+s.c}}),React.createElement('span',{style:{fontSize:10,fontWeight:700,flex:1,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}),React.createElement('span',{className:'mono',style:{fontSize:10,fontWeight:800,color:s.c}},ss.p+'%')),
+React.createElement('div',{style:{fontSize:10,fontWeight:700,color:'#CBD5E8',marginBottom:4,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}},s.sh),
+React.createElement('div',{style:{height:3,background:'rgba(255,255,255,.05)',borderRadius:2,overflow:'hidden',marginBottom:3}},React.createElement('div',{style:{width:ss.p+'%',height:'100%',background:s.c,borderRadius:2,boxShadow:'0 0 4px '+s.c,transition:'width .5s'}})),
+React.createElement('div',{className:'mono',style:{fontSize:8,color:'#4A5A78'}},ss.d+'/'+ss.t+' • '+s.w+'% GATE • '+(hrs[s.id]||0)+'h'));}))
+),
+
+// ═══ SYLLABUS TAB ════════════════════════════════════════════════════════════
+tab==='syllabus'&&React.createElement('div',{className:'slide',style:{display:'grid',gridTemplateColumns:'165px 1fr',gap:12}},
+
+// Left nav
+React.createElement('div',{style:{position:'sticky',top:10}},
+React.createElement('div',{style:{fontSize:8.5,fontWeight:700,color:'#4A5A78',letterSpacing:1.5,textTransform:'uppercase',marginBottom:5}},'Subjects'),
+subs.map(function(s){var ss=st.bs[s.id]||{p:0},a=actS===s.id;return React.createElement('div',{key:s.id,onClick:function(){setActS(a?null:s.id);},style:{display:'flex',alignItems:'center',gap:5,padding:'5px 7px',borderRadius:6,marginBottom:2,cursor:'pointer',background:a?s.c+'10':'transparent',border:'1px solid '+(a?s.c+'25':'transparent'),transition:'all .15s'}},React.createElement('div',{style:{width:5,height:5,borderRadius:'50%',background:s.c}}),React.createElement('span',{style:{flex:1,fontSize:10,fontWeight:a?700:500,color:a?s.c:'#8B9AB8',overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}},s.sh),React.createElement('span',{className:'mono',style:{fontSize:9,fontWeight:700,color:a?s.c:'#4A5A78'}},ss.p+'%'));}),
+React.createElement('button',{onClick:function(){setActS(null);setFilt({s:'ALL',p:'ALL',q:''});},style:{width:'100%',marginTop:5,fontSize:9.5,color:'#8B9AB8',border:'1px solid rgba(255,255,255,.07)',borderRadius:5,padding:'4px 7px',background:'transparent',cursor:'pointer'}},'Show All'),
+React.createElement('div',{style:{marginTop:8,fontSize:8.5,color:'#4A5A78',lineHeight:1.7}},
+React.createElement('div',{style:{fontWeight:700,color:'#6B7DA0',marginBottom:2}},'Priority:'),
+React.createElement('div',null,'🔴 HIGH — appears annually'),
+React.createElement('div',null,'🟡 MED — appears regularly'),
+React.createElement('div',null,'🟢 LOW — rare, deprioritise'))),
+
+// Tree
+React.createElement('div',null,
+React.createElement('div',{style:{display:'flex',gap:5,marginBottom:7,flexWrap:'wrap'}},
+React.createElement('input',{value:filt.q,onChange:function(e){setFilt(function(f){return Object.assign({},f,{q:e.target.value});});},placeholder:'🔍 Search topics...',style:{flex:1,minWidth:130,background:'rgba(255,255,255,.03)',border:'1px solid rgba(255,255,255,.09)',borderRadius:7,padding:'6px 9px',color:'#E0E8F8',fontSize:11.5}}),
+React.createElement('select',{value:filt.s,onChange:function(e){setFilt(function(f){return Object.assign({},f,{s:e.target.value});});},style:{background:'rgba(255,255,255,.03)',border:'1px solid rgba(255,255,255,.09)',borderRadius:7,padding:'6px 8px',color:'#8B9AB8',fontSize:11}},
+React.createElement('option',{value:'ALL'},'All Status'),React.createElement('option',{value:'P'},'Pending'),React.createElement('option',{value:'I'},'Progress'),React.createElement('option',{value:'D'},'Done'),React.createElement('option',{value:'S'},'Skipped')),
+React.createElement('select',{value:filt.p,onChange:function(e){setFilt(function(f){return Object.assign({},f,{p:e.target.value});});},style:{background:'rgba(255,255,255,.03)',border:'1px solid rgba(255,255,255,.09)',borderRadius:7,padding:'6px 8px',color:'#8B9AB8',fontSize:11}},
+React.createElement('option',{value:'ALL'},'All Priority'),React.createElement('option',{value:'H'},'🔴 HIGH'),React.createElement('option',{value:'M'},'🟡 MED'),React.createElement('option',{value:'L'},'🟢 LOW'))),
+
+React.createElement('div',{style:{display:'flex',gap:3,marginBottom:7,flexWrap:'wrap'}},
+Object.entries(SM).map(function(e){var k=e[0],v=e[1];var cnt=k==='D'?st.dn:k==='I'?st.pr:k==='P'?st.pn:st.sk;return React.createElement('button',{key:k,onClick:function(){setFilt(function(f){return Object.assign({},f,{s:f.s===k?'ALL':k});});},style:{padding:'2px 8px',borderRadius:5,fontSize:9.5,fontWeight:600,cursor:'pointer',background:filt.s===k?v.bg:'transparent',border:'1px solid '+(filt.s===k?v.c+'40':'rgba(255,255,255,.05)'),color:filt.s===k?v.c:'#5A6A8A'}},v.l.replace(' ✓',''),' (',cnt,')');})),
+
+React.createElement('div',{style:{maxHeight:'calc(100vh - 200px)',overflowY:'auto',paddingRight:2}},
+filtered.length===0?React.createElement('div',{style:{textAlign:'center',padding:40,color:'#4A5A78'}},React.createElement('div',{style:{fontSize:32,marginBottom:8}},'🔍'),React.createElement('div',{style:{fontSize:12}},'No topics found')):
+filtered.map(function(sj){
+var ss=st.bs[sj.id]||{p:0,d:0,t:0},isOpen=expS[sj.id];
+return React.createElement('div',{key:sj.id,style:{marginBottom:5,borderRadius:10,overflow:'hidden',border:'1px solid '+(isOpen?sj.c+'22':'rgba(255,255,255,.04)'),transition:'border .2s'}},
+React.createElement('div',{onClick:function(){toggleS(sj.id);},style:{display:'flex',alignItems:'center',gap:7,padding:'9px 11px',cursor:'pointer',background:'linear-gradient(90deg,'+sj.c+'09,transparent)',userSelect:'none'}},
+React.createElement('div',{style:{width:8,height:8,borderRadius:'50%',background:sj.c,boxShadow:'0 0 5px '+sj.c,flexShrink:0}}),
+React.createElement('div',{style:{flex:1,minWidth:0}},
+React.createElement('div',{style:{display:'flex',alignItems:'center',gap:5,flexWrap:'wrap'}},React.createElement('span',{style:{fontSize:12.5,fontWeight:800}},sj.nm),React.createElement('span',{style:{fontSize:8,color:sj.c,background:sj.c+'12',padding:'1px 4px',borderRadius:3,fontWeight:700}},sj.w+'% GATE'),React.createElement('span',{style:{fontSize:8,color:'#4A5A78'}},sj.sem)),
+React.createElement('div',{style:{height:2.5,background:'rgba(255,255,255,.05)',borderRadius:2,marginTop:3,overflow:'hidden'}},React.createElement('div',{style:{width:ss.p+'%',height:'100%',background:'linear-gradient(90deg,'+sj.c+','+sj.c+'88)',boxShadow:'0 0 4px '+sj.c,transition:'width .4s'}}))),
+React.createElement('div',{style:{display:'flex',gap:2,marginRight:6}},
+[2,4,6,8,10].map(function(h){var lg=hrs[sj.id]||0;return React.createElement('button',{key:h,onClick:function(e){e.stopPropagation();logHr(sj.id,2);},title:'Log 2h',style:{width:17,height:17,borderRadius:3,fontSize:7.5,fontWeight:700,cursor:'pointer',background:lg>=h?sj.c+'18':'rgba(255,255,255,.02)',color:lg>=h?sj.c:'#4A5A78',border:'none'}},h);}),
+React.createElement('span',{className:'mono',style:{fontSize:8,color:sj.c,marginLeft:2}},(hrs[sj.id]||0)+'h')),
+React.createElement('span',{className:'mono',style:{fontSize:14,fontWeight:800,color:sj.c}},ss.p+'%'),
+React.createElement('span',{style:{fontSize:8,color:'#4A5A78',transform:isOpen?'rotate(180deg)':'none',transition:'transform .2s',display:'inline-block',marginLeft:3}},'▼')),
+
+isOpen&&React.createElement('div',{className:'slide',style:{padding:'2px 10px 10px'}},
+sj.u.map(function(un){
+var uDone=un.t.filter(function(t){return t.s==='D';}).length,up=un.t.length?Math.round(uDone/un.t.length*100):0,uOpen=expU[un.id];
+return React.createElement('div',{key:un.id,style:{marginBottom:2}},
+React.createElement('div',{onClick:function(){toggleU(un.id);},style:{display:'flex',alignItems:'center',gap:5,padding:'4px 6px',background:'rgba(255,255,255,.015)',borderRadius:6,cursor:'pointer',userSelect:'none'}},
+React.createElement('span',{style:{fontSize:8,color:uOpen?'#E0E8F8':'#5A6A8A',transform:uOpen?'rotate(90deg)':'none',transition:'transform .18s',display:'inline-block',flexShrink:0}},'▶'),
+React.createElement('span',{style:{flex:1,fontSize:10.5,fontWeight:600,color:'#B0C0D8'}}),
+React.createElement('span',{style:{flex:1,fontSize:10.5,fontWeight:600,color:'#B0C0D8'}},un.nm),
+React.createElement('div',{style:{width:36,height:2.5,background:'rgba(255,255,255,.05)',borderRadius:2,overflow:'hidden'}}),
+React.createElement('div',{style:{width:36,height:2.5,background:'rgba(255,255,255,.05)',borderRadius:2,overflow:'hidden',marginRight:4}},React.createElement('div',{style:{width:up+'%',height:'100%',background:sj.c}})),
+React.createElement('span',{className:'mono',style:{fontSize:9,fontWeight:700,color:sj.c,minWidth:24,textAlign:'right'}},up+'%'),
+React.createElement('span',{style:{fontSize:8.5,color:'#4A5A78',marginLeft:3}},uDone+'/'+un.t.length),
+up< 100&&React.createElement('button',{onClick:function(e){e.stopPropagation();markUD(un);},style:{fontSize:7.5,color:sj.c,border:'1px solid '+sj.c+'22',borderRadius:3,padding:'1px 4px',cursor:'pointer',background:'transparent',flexShrink:0,marginLeft:3}},'✓All')),
+uOpen&&React.createElement('div',{className:'slide',style:{paddingLeft:10,paddingTop:2}},
+un.t.map(function(tp){return React.createElement(TopicRow,{key:tp.id,topic:tp,sColor:sj.c,onStatus:function(v){updateTopic(tp.id,'s',v);},onPriority:function(v){updateTopic(tp.id,'p',v);},onNote:function(v){updateTopic(tp.id,'nt',v);}});})
+)
+)
+})
+)
+)
+})
+)
+)
+),
+
+// ═══ SCHEDULE TAB ════════════════════════════════════════════════════════════
+tab==='schedule'&&React.createElement('div',{className:'slide'},
+React.createElement('div',{style:{marginBottom:9}},
+React.createElement('div',{style:{fontSize:13,fontWeight:800}},'Complete Day-by-Day Schedule'),
+React.createElement('div',{style:{fontSize:10,color:'#4A5A78'}},'Breadth: Jun 23→Aug 14 (',SCH.length,'d) | Revision+Mocks: Aug 15→Dec 20 (',GS.length,'d)')),
+React.createElement('div',{style:{display:'grid',gridTemplateColumns:'1fr 1fr',gap:8}},
+React.createElement('div',null,
+React.createElement('div',{style:{fontSize:10,fontWeight:700,color:'#10B981',letterSpacing:1,marginBottom:5}},'BREADTH PASS — Jun 23 to Aug 14'),
+React.createElement('div',{style:{maxHeight:'calc(100vh - 185px)',overflowY:'auto',paddingRight:2}},
+SCH.map(function(x,i){var td=today===x.d,sub=subs.find(function(s){return s.sh===x.s||s.id===x.s;}),clr=sub?sub.c:'#5A6A8A';
+return React.createElement('div',{key:i,style:{display:'flex',alignItems:'flex-start',gap:6,padding:'4px 7px',marginBottom:1,borderRadius:5,background:td?'rgba(16,185,129,.06)':'rgba(255,255,255,.008)',border:'1px solid '+(td?'rgba(16,185,129,.18)':'transparent')}},
+React.createElement('div',{className:'mono',style:{fontSize:9,minWidth:42,color:td?'#10B981':'#4A5A78',fontWeight:td?700:400,paddingTop:2,flexShrink:0}},x.d),
+React.createElement('div',{style:{width:3,height:3,borderRadius:'50%',background:clr,marginTop:5,flexShrink:0}}),
+React.createElement('div',{style:{minWidth:40,fontSize:9.5,fontWeight:700,color:clr,flexShrink:0,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}},x.s),
+React.createElement('div',{style:{flex:1,minWidth:0}},
+x.u&&React.createElement('div',{style:{fontSize:9,fontWeight:600,color:'#7B8DAE',marginBottom:1}},x.u),
+React.createElement('div',{style:{fontSize:9,color:td?'#B0C8E0':'#5A6A8A',lineHeight:1.3}},x.t)),
+td&&React.createElement('div',{style:{fontSize:7.5,color:'#10B981',fontWeight:700,background:'rgba(16,185,129,.12)',padding:'1px 4px',borderRadius:3,flexShrink:0}},'TODAY')
+)
+})
+)
+),
+React.createElement('div',null,
+React.createElement('div',{style:{fontSize:10,fontWeight:700,color:'#FBBF24',letterSpacing:1,marginBottom:5}},'REVISION + MOCKS — Aug 15 to Dec 20'),
+React.createElement('div',{style:{maxHeight:'calc(100vh - 185px)',overflowY:'auto',paddingRight:2}},
+GS.map(function(x,i){var td=today===x.d,isMock=x.s==='MOCK',isGate=x.s==='GATE';
+return React.createElement('div',{key:i,style:{display:'flex',alignItems:'flex-start',gap:6,padding:'4px 7px',marginBottom:1,borderRadius:5,background:td?'rgba(16,185,129,.06)':isMock?'rgba(239,68,68,.02)':isGate?'rgba(251,191,36,.06)':'rgba(255,255,255,.008)',border:'1px solid '+(td?'rgba(16,185,129,.18)':isMock?'rgba(239,68,68,.08)':isGate?'rgba(251,191,36,.15)':'transparent')}},
+React.createElement('div',{className:'mono',style:{fontSize:9,minWidth:42,color:td?'#10B981':isMock?'#EF4444':isGate?'#FBBF24':'#4A5A78',fontWeight:td||isMock||isGate?700:400,paddingTop:2,flexShrink:0}},x.d),
+React.createElement('div',{style:{minWidth:46,fontSize:9.5,fontWeight:700,color:isMock?'#EF4444':isGate?'#FBBF24':'#FBBF24',flexShrink:0}},x.s),
+React.createElement('div',{style:{flex:1,fontSize:9,color:td?'#B0C8E0':isMock?'#D0D8E8':'#5A6A8A',lineHeight:1.3}},x.t),
+td&&React.createElement('div',{style:{fontSize:7.5,color:'#10B981',fontWeight:700,background:'rgba(16,185,129,.12)',padding:'1px 4px',borderRadius:3,flexShrink:0}},'TODAY')
+)
+})
+)
+)
+)
+),
+
+// ═══ MOCKS TAB ═══════════════════════════════════════════════════════════════
+tab==='mocks'&&React.createElement('div',{className:'slide',style:{display:'grid',gridTemplateColumns:'1fr 1fr',gap:14}},
+
+React.createElement('div',null,
+React.createElement('div',{style:{fontSize:13,fontWeight:800,marginBottom:3}},'15 Mock Test Tracker'),
+React.createElement('div',{style:{fontSize:9.5,color:'#4A5A78',marginBottom:9}},'Target: 80%+ avg by Mock #12. Exam date: ~Feb 2027 (GATE 2026).'),
+React.createElement('div',{style:{maxHeight:'calc(100vh - 185px)',overflowY:'auto'}},
+mocks.map(function(m,i){var hasSc=m.sc!==null,sc=m.sc||0,clr=sc>=80?'#10B981':sc>=65?'#FBBF24':sc>=50?'#FB923C':'#EF4444';
+return React.createElement('div',{key:i,className:'card',style:{padding:'8px 10px',marginBottom:5}},
+React.createElement('div',{style:{display:'flex',alignItems:'center',gap:7,marginBottom:hasSc?5:0}},
+React.createElement('div',{className:'mono',style:{fontSize:13,fontWeight:800,color:hasSc?clr:'#4A5A78',minWidth:24}},'#'+m.n),
+React.createElement('div',{style:{flex:1}},
+hasSc?React.createElement('div',{style:{display:'flex',alignItems:'center',gap:5}},
+React.createElement('div',{style:{flex:1,height:5,background:'rgba(255,255,255,.05)',borderRadius:3,overflow:'hidden'}},React.createElement('div',{style:{width:m.sc+'%',height:'100%',background:clr,borderRadius:3,transition:'width .5s'}})),
+React.createElement('span',{className:'mono',style:{fontSize:14,fontWeight:800,color:clr}},m.sc),
+React.createElement('span',{style:{fontSize:9,color:'#4A5A78'}},'/100')):
+React.createElement('input',{type:'number',min:0,max:100,placeholder:'Enter score (0–100)...',onChange:function(e){if(e.target.value!==''){updM(i,'sc',Number(e.target.value));updM(i,'dt',getNow());}},style:{width:'100%',background:'rgba(255,255,255,.03)',border:'1px solid rgba(255,255,255,.09)',borderRadius:5,padding:'4px 7px',color:'#E0E8F8',fontSize:11}})),
+m.dt&&React.createElement('div',{style:{fontSize:7.5,color:'#4A5A78',marginLeft:'auto'}},m.dt.split(' ')[0]),
+hasSc&&React.createElement('button',{onClick:function(){updM(i,'sc',null);},style:{fontSize:9,color:'#EF4444',cursor:'pointer'}},'✕')),
+hasSc&&React.createElement('div',null,
+React.createElement('div',{style:{display:'grid',gridTemplateColumns:'repeat(5,1fr)',gap:3,marginBottom:5}},
+['OS','COA','DSA','TOC','CD','DL','Math','Apt','DBMS','CN'].slice(0,10).map(function(sb){var sv=m.sub?m.sub[sb]:null;return React.createElement('div',{key:sb,style:{textAlign:'center'}},React.createElement('div',{style:{fontSize:7,color:'#5A6A8A',marginBottom:1}},sb),React.createElement('input',{type:'number',min:0,max:10,placeholder:'—',value:sv===null||sv===undefined?'':sv,onChange:function(e){var mm=mocks.slice();mm[i]=Object.assign({},mm[i]);mm[i].sub=Object.assign({},mm[i].sub||{});mm[i].sub[sb]=e.target.value===''?null:Number(e.target.value);setMocks(mm);},style:{width:'100%',textAlign:'center',background:'rgba(255,255,255,.03)',border:'1px solid rgba(255,255,255,.07)',borderRadius:3,padding:'2px 1px',color:sv>=7?'#10B981':sv>=4?'#FBBF24':'#EF4444',fontSize:10,fontWeight:700}}));})),
+React.createElement('textarea',{value:m.notes||'',onChange:function(e){updM(i,'notes',e.target.value);},placeholder:'Analysis: concepts missed, silly errors, time management...',style:{width:'100%',minHeight:35,background:'rgba(255,255,255,.02)',border:'1px solid rgba(255,255,255,.07)',borderRadius:4,color:'#A0B0C8',fontSize:9.5,padding:'3px 5px'}})));
+}))),
+
+React.createElement('div',null,
+React.createElement('div',{style:{fontSize:13,fontWeight:800,marginBottom:9}},'Performance Analysis'),
+React.createElement('div',{style:{display:'flex',gap:5,marginBottom:9,flexWrap:'wrap'}},
+[{l:'Done',v:doneM.length+'/15',c:'#60A5FA'},{l:'Average',v:avgSc?avgSc+'%':'—',c:'#FBBF24'},{l:'Best',v:doneM.length?Math.max.apply(null,doneM.map(function(m){return m.sc;}))+'%':'—',c:'#10B981'},{l:'Target',v:'80%+',c:'#A78BFA'}].map(function(x,i){return React.createElement('div',{key:i,className:'card',style:{flex:1,minWidth:70,padding:'7px 8px',textAlign:'center'}},React.createElement('div',{className:'mono',style:{fontSize:16,fontWeight:800,color:x.c}},x.v),React.createElement('div',{style:{fontSize:8.5,color:'#5A6A8A'}},x.l));})),
+
+React.createElement('div',{className:'card',style:{padding:11,marginBottom:9}},
+React.createElement('div',{style:{fontSize:9.5,fontWeight:700,color:'#5A6A8A',textTransform:'uppercase',letterSpacing:.7,marginBottom:7}},'Score Trend'),
+React.createElement(SvgLine,{data:mLine,width:400,height:130})),
+
+React.createElement('div',{className:'card',style:{padding:11}},
+React.createElement('div',{style:{fontSize:9.5,fontWeight:700,color:'#5A6A8A',textTransform:'uppercase',letterSpacing:.7,marginBottom:7}},'GATE CS Rank Cutoffs (Historical)'),
+[{y:'2024',a1:77.3,a100:65.0,a500:54.2},{y:'2023',a1:83.6,a100:68.0,a500:56.3},{y:'2022',a1:80.1,a100:65.5,a500:53.8}].map(function(r,i){return React.createElement('div',{key:i,style:{display:'flex',gap:8,fontSize:9,marginBottom:4,padding:'3px 6px',background:'rgba(255,255,255,.02)',borderRadius:4}},
+React.createElement('span',{className:'mono',style:{color:'#FBBF24',fontWeight:700,minWidth:32}},r.y+':'),
+React.createElement('span',{style:{color:'#10B981'}},'AIR 1=',r.a1,'  '),
+React.createElement('span',{style:{color:'#FBBF24'}},'AIR 100=',r.a100,'  '),
+React.createElement('span',{style:{color:'#60A5FA'}},'AIR 500=',r.a500));}),
+avgSc&&React.createElement('div',{style:{marginTop:7,padding:'6px 8px',background:'rgba(251,191,36,.06)',border:'1px solid rgba(251,191,36,.15)',borderRadius:6}},
+React.createElement('div',{style:{fontSize:9.5,color:'#E0E8F8'}},'Your mock avg ',React.createElement('span',{className:'mono',style:{color:'#FBBF24',fontWeight:800}},avgSc,'%'),' → Projected rank: ',React.createElement('span',{style:{color:'#4ECDC4',fontWeight:700}},avgSc>=80?'AIR 1–15 (IISc/Direct PSU)':avgSc>=72?'AIR 16–75 (IIT Bombay/Madras)':avgSc>=64?'AIR 76–200 (Old IITs)':avgSc>=55?'AIR 201–600 (New IITs/NITs)':'AIR 600+ (Keep pushing!)')))))),
+
+// ═══ ANALYTICS TAB ═══════════════════════════════════════════════════════════
+tab==='analytics'&&React.createElement('div',{className:'slide',style:{display:'grid',gridTemplateColumns:'1fr 1fr',gap:12}},
+
+React.createElement('div',{className:'card',style:{padding:13}},
+React.createElement('div',{style:{fontSize:9.5,fontWeight:700,color:'#5A6A8A',textTransform:'uppercase',letterSpacing:.7,marginBottom:8}},'Status Distribution'),
+React.createElement('div',{style:{display:'flex',alignItems:'center',gap:9}},
+React.createElement(SvgDonut,{data:pieD,size:110}),
+React.createElement('div',{style:{flex:1}},pieD.map(function(d,i){return React.createElement('div',{key:i,style:{display:'flex',alignItems:'center',gap:6,marginBottom:5}},React.createElement('div',{style:{width:7,height:7,borderRadius:'50%',background:d.c}}),React.createElement('span',{style:{fontSize:10,color:'#A0B0C8',flex:1}},d.n),React.createElement('span',{className:'mono',style:{fontSize:11,fontWeight:700,color:d.c}},d.v),React.createElement('span',{style:{fontSize:8,color:'#4A5A78'}},' (',st.tot?Math.round(d.v/st.tot*100):0,'%)'));})))),
+
+React.createElement('div',{className:'card',style:{padding:13}},
+React.createElement('div',{style:{fontSize:9.5,fontWeight:700,color:'#5A6A8A',textTransform:'uppercase',letterSpacing:.7,marginBottom:8}},'Subject Completion %'),
+React.createElement(SvgBar,{data:barD,width:400,height:145})),
+
+React.createElement('div',{className:'card',style:{padding:13}},
+React.createElement('div',{style:{fontSize:9.5,fontWeight:700,color:'#5A6A8A',textTransform:'uppercase',letterSpacing:.7,marginBottom:8}},'Hours Logged Per Subject'),
+subs.map(function(s){var h=hrs[s.id]||0,mx=Math.max.apply(null,subs.map(function(x){return hrs[x.id]||0;}).concat([1]));return React.createElement('div',{key:s.id,style:{display:'flex',alignItems:'center',gap:5,marginBottom:4}},React.createElement('span',{style:{fontSize:9,minWidth:35,color:s.c,fontWeight:700}},s.sh),React.createElement('div',{style:{flex:1,height:6,background:'rgba(255,255,255,.05)',borderRadius:3,overflow:'hidden'}},React.createElement('div',{style:{width:h?Math.max(2,h/mx*100)+'%':'2%',height:'100%',background:s.c,borderRadius:3,boxShadow:'0 0 3px '+s.c,transition:'width .4s'}})),React.createElement('span',{className:'mono',style:{fontSize:9,minWidth:24,textAlign:'right',color:'#5A6A8A'}},h+'h'));})),
+
+React.createElement('div',{className:'card',style:{padding:13}},
+React.createElement('div',{style:{fontSize:9.5,fontWeight:700,color:'#5A6A8A',textTransform:'uppercase',letterSpacing:.7,marginBottom:8}},'GATE Weight vs Readiness (white = weight target)'),
+subs.map(function(s){var ss=st.bs[s.id]||{p:0},gap=s.w-ss.p;return React.createElement('div',{key:s.id,style:{display:'flex',alignItems:'center',gap:5,marginBottom:5}},React.createElement('span',{style:{fontSize:9,minWidth:34,color:s.c,fontWeight:700}},s.sh),React.createElement('span',{className:'mono',style:{fontSize:8.5,minWidth:18,color:'#4A5A78'}},s.w+'%'),React.createElement('div',{style:{flex:1,position:'relative',height:8,background:'rgba(255,255,255,.04)',borderRadius:3,overflow:'hidden'}},React.createElement('div',{style:{position:'absolute',left:s.w+'%',top:0,bottom:0,width:1.5,background:'rgba(255,255,255,.22)',zIndex:2}}),React.createElement('div',{style:{width:ss.p+'%',height:'100%',background:s.c,borderRadius:3,opacity:.75,transition:'width .4s'}})),React.createElement('span',{className:'mono',style:{fontSize:9,minWidth:30,textAlign:'right',color:gap>5?'#EF4444':gap>0?'#FBBF24':'#10B981',fontWeight:700}},gap>0?'-'+gap+'%':'✓'));}),
+React.createElement('div',{style:{fontSize:8.5,color:'#3A4A60',marginTop:5}},'White line = GATE weight. Red = gap to fill.'))),
+
+// ═══ STRATEGY TAB ════════════════════════════════════════════════════════════
+tab==='strategy'&&React.createElement('div',{className:'slide'},
+
+React.createElement('div',{style:{background:'linear-gradient(135deg,rgba(78,205,196,.07),rgba(99,102,241,.04))',border:'1px solid rgba(78,205,196,.18)',borderRadius:13,padding:'14px 16px',marginBottom:12}},
+React.createElement('div',{style:{fontSize:14,fontWeight:900,color:'#4ECDC4',marginBottom:5}},'🎯 AIR 50 Blueprint — Abhishek (RGPV BTech, GATE 2026)'),
+React.createElement('div',{style:{fontSize:10.5,color:'#A0B0C8',lineHeight:1.7}},'OS ✅ done | DSA 50% ✅ | COA 🔄 started Jun 23 | GATE 2026 = CS paper Feb 2027 | Applied GATE course aligned | Breadth by Aug 14 | 15 mocks Sep–Nov | Notes-first approach (not formula sheets) | AIR 50 → NUS/TU Munich via GATE score (no GRE)')),
+
+React.createElement('div',{style:{display:'grid',gridTemplateColumns:'1fr 1fr',gap:12,marginBottom:12}},
+
+[{title:'Phase 1: Breadth Pass',period:'Jun 23 → Aug 14 (53 days)',c:'#4ECDC4',items:[
+'COA (Jun 23-30): Pipeline hazards + Cache AMAT = 80% of COA marks. Master these two cold.',
+'C Programming (Jul 1-4): Pointer tracing + Recursion output = guaranteed marks every year. Never guess — always trace.',
+'DSA (Jul 5-13): 8 DP patterns memorised, Graph algorithms automatic, AVL rotation in 60s.',
+'TOC (Jul 14-18): DFA construction speed is #1 skill. Build 5 DFAs daily. 3-state DFA in < 60 sec.',
+'CD (Jul 19-21): FIRST/FOLLOW for any grammar in 4 min. SLR(1) table from CLR states.',
+'DL (Jul 22-26): K-Map + Counters = 70% of DL marks. Write FF equations in your notes.',
+'Math (Jul 27 - Aug 3): Heaviest subject (13%). Probability + Linear Algebra = must-be-perfect.',
+'Apt (Aug 4-6): 15 marks! 15 min daily from Day 1 → 15/15 by exam day.',
+'DBMS (Aug 7-10): SQL joins + BCNF decomp = 80% of DBMS questions.',
+'CN (Aug 11-14): Subnetting + TCP congestion + CRC = appears every GATE.']},
+{title:'Phase 2: Revision 1 (15 days)',period:'Aug 15 → Aug 31',c:'#FBBF24',items:[
+'One subject/day revision from YOUR notes. Speed > completeness. 10-12h/day.',
+'Mock #1 on Aug 25: Score will be 40-55. Normal. Do NOT panic — just analyse.',
+'Error Log: Categorise every wrong Q: Subject | Topic | Error type (Silly/Concept/Time).',
+'After Mock #1: Fix ONLY wrong concepts — do not re-study what you already know well.',
+'GA speed: 15 questions in 15 minutes target. If not there, drill daily after each mock.']},
+{title:'Phase 3: Test Series (Sep–Nov)',period:'Sep → Nov 15 Mocks',c:'#A78BFA',items:[
+'Mock every 3-5 days: 3h test + 2h deep analysis + next day error fix.',
+'Mock #5 target: 60+/100. Mock #10 target: 70+/100. Mock #15 target: 80+/100.',
+'After each mock: Subject-wise accuracy → drop time on < 40% accuracy subjects.',
+'PYQ Sprints between mocks: GATE 2024 → 2016 in order (full papers, 3h timed).',
+'Weekly GA: 10-year PYQ set timed (target 15/15 in 12 minutes from Mock #8 onwards).']},
+{title:'Phase 4: Precision + Exam',period:'Dec → Feb 2027',c:'#EF4444',items:[
+'Dec 1-15: 2nd pass notes (weak topics only). No new learning. Formula cards from memory.',
+'Dec 16-19: Light revision. Sleep well. Check admit card, exam centre, travel.',
+'GATE CS Exam (~Feb 2027): Attempt GA first (15 min → 15 marks → confidence boost).',
+'Exam order: GA (15 min) → 1-mark tech Qs → 2-mark tech Qs → Review flagged.',
+'Skip rule: >2.5× expected time on any Q → flag, move on, return if time allows.',
+'NAT questions (numerical): No negative marking! Never leave NAT blank if even 50% sure.']}].map(function(ph,i){return React.createElement('div',{key:i,className:'card',style:{padding:13}},
+React.createElement('div',{style:{display:'flex',alignItems:'center',gap:6,marginBottom:8}},
+React.createElement('div',{style:{width:7,height:7,borderRadius:'50%',background:ph.c,boxShadow:'0 0 6px '+ph.c}}),
+React.createElement('div',null,
+React.createElement('div',{style:{fontSize:11.5,fontWeight:800,color:ph.c}},ph.title),
+React.createElement('div',{style:{fontSize:9.5,color:'#4A5A78'}},ph.period))),
+React.createElement('div',{style:{display:'flex',flexDirection:'column',gap:4}},
+ph.items.map(function(item,j){return React.createElement('div',{key:j,style:{display:'flex',gap:5,fontSize:10.5,color:'#A0B0C8',lineHeight:1.45}},React.createElement('span',{style:{color:ph.c,flexShrink:0}},'▸'),React.createElement('span',null,item));})));
+})),
+
+React.createElement('div',{className:'card',style:{padding:13}},
+React.createElement('div',{style:{fontSize:12,fontWeight:800,color:'#FBBF24',marginBottom:9}},'Subject-Specific AIR 50 Speed Targets'),
+React.createElement('div',{style:{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(240px,1fr))',gap:7}},
+[{s:'OS',t:"Scheduling Gantt: < 90 sec. Banker's: < 3 min. Page replacement trace: < 2 min."},
+{s:'COA',t:'Pipeline stall calc: < 2 min. AMAT variants: < 90 sec. Cache address breakdown: automatic.'},
+{s:'DSA',t:'8 DP patterns memorised. Dijkstra table: < 4 min. AVL rotation: < 60 sec.'},
+{s:'TOC',t:'3-state DFA for any language: < 60 sec. Pumping Lemma proof: < 3 min template.'},
+{s:'Math',t:'Eigenvalue (3×3): < 3 min. Bayes chain: < 2 min. Planar test: < 30 sec.'},
+{s:'Apt',t:'15 GA questions: < 12 min. Percentage swap trick automatic. RC: questions-first always.'},
+{s:'DBMS',t:'BCNF decomp with lossless check: < 3 min. SQL 3-table join: confident. Precedence graph: < 2 min.'},
+{s:'CN',t:'Subnetting (any class): < 90 sec. CRC long division: error-free. GBN efficiency: formula instant.'},
+{s:'CD',t:'FIRST/FOLLOW for any grammar: < 4 min. SLR(1) table: < 10 min. LALR conflicts: identify in < 2 min.'},
+{s:'DL',t:"K-Map (5-var): < 5 min. FF interconversion (JK→D): < 90 sec via excitation table. 2's complement: automatic."},
+{s:'C Prog',t:'Pointer trace: always draw stack+heap diagram. Recursion output: trace call tree. Never guess.'}
+].map(function(x,i){return React.createElement('div',{key:i,style:{display:'flex',gap:7,fontSize:10,lineHeight:1.5}},React.createElement('span',{style:{color:'#FBBF24',fontWeight:700,minWidth:42,fontSize:11}},x.s+':'),React.createElement('span',{style:{color:'#A0B0C8'}},x.t));})))),
+
+// Footer
+React.createElement('div',{style:{textAlign:'center',marginTop:22,padding:'8px 0',borderTop:'1px solid rgba(255,255,255,.03)',color:'#1A2A40',fontSize:9.5}},
+'GATE 2026 AIR 50 — Abhishek | '+st.dn+'/'+st.tot+' topics ('+st.pct+'%) | Click topic → cycle Done/Pending | Click ✎ → notes | Click status/priority → change')
+)));
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App,null));
+</script>
+</body>
+</html>

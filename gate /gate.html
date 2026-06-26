@@ -425,7 +425,7 @@ var GS=[
   {d:'Feb-04',ph:'F',s:'BUFFER',t:'Check center. Rest. Sleep early.',h:0,type:'buffer'},
   {d:'Feb-05',ph:'F',s:'GATE',t:'🏆 GATE 2026 EXAM DAY — AIR 1 is yours. Execute.',h:0,type:'mock'}
 ];
-function saveSubs(d){try{localStorage.setItem('air1v2_subs',JSON.stringify(d));}catch(e){}}
+function saveSubs(d){try{localStorage.setItem('air1v3_subs',JSON.stringify(d));}catch(e){}}
 function loadX(k,def){try{var v=localStorage.getItem(k);if(v)return JSON.parse(v);}catch(e){}return def;}
 var SYL_TARGETS = {
   'Memory org': '2026-06-23',
@@ -635,13 +635,14 @@ var SYL_TARGETS = {
   'CN GATE PYQs': '2026-09-07'
 };
 function loadSubs(){
-  var loaded = loadX('air1v2_subs', null);
+  var loaded = loadX('air1v3_subs', null);
   var base = SYL.map(function(s){
     return Object.assign({}, s, {
-      u: s.u.map(function(u){
+      u: s.u.map(function(u, uIdx){
         return Object.assign({}, u, {
-          t: u.t.map(function(t){
+          t: u.t.map(function(t, tIdx){
             return Object.assign({}, t, {
+              id: s.id + '_' + uIdx + '_' + tIdx,
               exp: SYL_TARGETS[t.n] || t.exp || null
             });
           })

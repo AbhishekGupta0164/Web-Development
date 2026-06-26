@@ -15,36 +15,31 @@
               "n": "OS overview, Von Neumann, CPU modes, system calls",
               "p": "H",
               "s": "D",
-              "d": "Pre-loaded",
-              "nt": "",
-              "id": "OS_u0_t0"
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Process states (5), PCB structure, context switching",
               "p": "H",
               "s": "D",
-              "d": "26-Jun 08:18 am",
-              "nt": "",
-              "id": "OS_u0_t1"
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "fork()/exec()/wait()/exit() \u2014 GATE numericals",
               "p": "H",
               "s": "D",
-              "d": "26-Jun 08:21 am",
-              "nt": "",
-              "id": "OS_u0_t2"
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Threads: kernel/user level, multithreading models",
               "p": "H",
               "s": "D",
-              "d": "Pre-loaded",
-              "nt": "",
-              "id": "OS_u0_t3"
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "OS_u0"
+          ]
         },
         {
           "nm": "CPU Scheduling",
@@ -53,52 +48,45 @@
               "n": "FCFS \u2014 convoy effect, avg waiting time calc",
               "p": "H",
               "s": "D",
-              "d": "Pre-loaded",
-              "nt": "",
-              "id": "OS_u1_t0"
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "SJF (non-preemptive) + SRTF (preemptive) \u2014 Gantt charts",
               "p": "H",
               "s": "D",
-              "d": "Pre-loaded",
-              "nt": "",
-              "id": "OS_u1_t1"
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Round Robin: quantum effect, context switch overhead",
               "p": "H",
               "s": "D",
-              "d": "Pre-loaded",
-              "nt": "",
-              "id": "OS_u1_t2"
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Priority (preemptive+non-preemptive), LRTF, HRRN",
               "p": "H",
               "s": "D",
-              "d": "Pre-loaded",
-              "nt": "",
-              "id": "OS_u1_t3"
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Multilevel Queue, Multilevel Feedback Queue",
               "p": "H",
               "s": "D",
-              "d": "Pre-loaded",
-              "nt": "",
-              "id": "OS_u1_t4"
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "OS Scheduling PYQs 2000-2024 timed drill",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "OS_u1_t5"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "OS_u1"
+          ]
         },
         {
           "nm": "Process Sync & IPC",
@@ -107,52 +95,45 @@
               "n": "Critical section: 3 requirements, Peterson's solution",
               "p": "H",
               "s": "D",
-              "d": "Pre-loaded",
-              "nt": "",
-              "id": "OS_u2_t0"
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "TestAndSet, Swap hardware instructions",
               "p": "H",
               "s": "D",
-              "d": "Pre-loaded",
-              "nt": "",
-              "id": "OS_u2_t1"
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Semaphores: P()/V(), Binary vs Counting, busy-wait",
               "p": "H",
               "s": "D",
-              "d": "Pre-loaded",
-              "nt": "",
-              "id": "OS_u2_t2"
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Producer-Consumer, Reader-Writer (3 variants), Dining Philosophers",
               "p": "H",
               "s": "D",
-              "d": "Pre-loaded",
-              "nt": "",
-              "id": "OS_u2_t3"
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Monitors: condition variables, signal() and wait()",
               "p": "H",
               "s": "D",
-              "d": "Pre-loaded",
-              "nt": "",
-              "id": "OS_u2_t4"
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Sync PYQs 2000-2024",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "OS_u2_t5"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "OS_u2"
+          ]
         },
         {
           "nm": "Deadlocks",
@@ -161,44 +142,38 @@
               "n": "4 conditions: ME, Hold&Wait, No-Preemption, Circular Wait",
               "p": "H",
               "s": "D",
-              "d": "Pre-loaded",
-              "nt": "",
-              "id": "OS_u3_t0"
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Resource Allocation Graph: cycle detection",
               "p": "H",
               "s": "D",
-              "d": "Pre-loaded",
-              "nt": "",
-              "id": "OS_u3_t1"
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Banker's Algorithm: Safety + Resource Request algorithms",
               "p": "H",
               "s": "D",
-              "d": "Pre-loaded",
-              "nt": "",
-              "id": "OS_u3_t2"
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Prevention vs Avoidance vs Detection & Recovery",
               "p": "H",
               "s": "D",
-              "d": "Pre-loaded",
-              "nt": "",
-              "id": "OS_u3_t3"
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "All Banker Algorithm PYQs 2000-2024",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "OS_u3_t4"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "OS_u3"
+          ]
         },
         {
           "nm": "Memory Management",
@@ -207,60 +182,52 @@
               "n": "Logical vs Physical, MMU, address binding (3 times)",
               "p": "H",
               "s": "D",
-              "d": "Pre-loaded",
-              "nt": "",
-              "id": "OS_u4_t0"
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Paging: page table, page# + offset, PTBR, multi-level",
               "p": "H",
               "s": "D",
-              "d": "Pre-loaded",
-              "nt": "",
-              "id": "OS_u4_t1"
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "TLB: EAT = h\u00d7(t_TLB+t_mem) + (1-h)\u00d7(t_TLB+2\u00d7t_mem)",
               "p": "H",
               "s": "D",
-              "d": "Pre-loaded",
-              "nt": "",
-              "id": "OS_u4_t2"
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Segmentation, Segmented paging, external fragmentation",
               "p": "H",
               "s": "D",
-              "d": "Pre-loaded",
-              "nt": "",
-              "id": "OS_u4_t3"
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Page replacement: FIFO (Belady), OPT, LRU, Clock, Second-chance",
               "p": "H",
               "s": "D",
-              "d": "Pre-loaded",
-              "nt": "",
-              "id": "OS_u4_t4"
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Thrashing: working set model, page fault frequency",
               "p": "H",
               "s": "D",
-              "d": "Pre-loaded",
-              "nt": "",
-              "id": "OS_u4_t5"
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Memory PYQs 2000-2024",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "OS_u4_t6"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "OS_u4"
+          ]
         },
         {
           "nm": "File Systems & Disk",
@@ -269,36 +236,31 @@
               "n": "File allocation: contiguous, linked (FAT), indexed (inodes)",
               "p": "H",
               "s": "D",
-              "d": "Pre-loaded",
-              "nt": "",
-              "id": "OS_u5_t0"
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Single/double/triple indirect blocks \u2014 GATE calculations",
               "p": "H",
               "s": "D",
-              "d": "Pre-loaded",
-              "nt": "",
-              "id": "OS_u5_t1"
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Disk scheduling: FCFS, SSTF, SCAN, C-SCAN, LOOK",
               "p": "H",
               "s": "D",
-              "d": "Pre-loaded",
-              "nt": "",
-              "id": "OS_u5_t2"
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "File system + disk PYQs 2000-2024",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "OS_u5_t3"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "OS_u5"
+          ]
         },
         {
           "nm": "OS PYQ Sprint",
@@ -306,21 +268,18 @@
             {
               "n": "Full OS PYQs 2014-2024 (3h timed)",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "OS_u6_t0"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Scheduling + Paging + Banker speed drill (50 Qs in 90min)",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "OS_u6_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "OS_u6"
+          ]
         }
       ]
     },
@@ -339,52 +298,45 @@
               "n": "Memory org: word size, addressability, byte-addressable",
               "p": "H",
               "s": "D",
-              "d": "26-Jun 08:18 am",
-              "nt": "",
-              "id": "COA_u0_t0"
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "System bus: data/address/control bus width implications",
               "p": "H",
               "s": "D",
-              "d": "26-Jun 08:21 am",
-              "nt": "",
-              "id": "COA_u0_t1"
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "CPU types: Stack, Accumulator, General Register machines",
               "p": "H",
               "s": "D",
-              "d": "26-Jun 08:21 am",
-              "nt": "",
-              "id": "COA_u0_t2"
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "All 9 addressing modes: immediate, register, direct, indirect, indexed, base, relative, auto-inc/dec",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "COA_u0_t3"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "ISA design: RISC vs CISC \u2014 properties, tradeoffs",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "COA_u0_t4"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Instruction formats: 0/1/2/3 address, instruction cycle + interrupts",
               "p": "H",
               "s": "D",
-              "d": "26-Jun 08:21 am",
-              "nt": "",
-              "id": "COA_u0_t5"
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "COA_u0"
+          ]
         },
         {
           "nm": "CPU Performance",
@@ -392,37 +344,32 @@
             {
               "n": "CPI, MIPS, CPU time formula \u2014 GATE numericals",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "COA_u1_t0"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Amdahl's Law: speedup, serial fraction, GATE problems",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "COA_u1_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Flynn's Classification: SISD/SIMD/MISD/MIMD",
               "p": "M",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "COA_u1_t2"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Hardwired vs Microprogrammed Control Unit",
               "p": "M",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "COA_u1_t3"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "COA_u1"
+          ]
         },
         {
           "nm": "Pipelining",
@@ -430,53 +377,46 @@
             {
               "n": "5-stage RISC pipeline, speedup = n stages (ideal)",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "COA_u2_t0"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Data Hazards: RAW/WAR/WAW \u2014 stall cycle calculation",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "COA_u2_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Data forwarding/bypassing \u2014 when it helps, when it doesn't",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "COA_u2_t2"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Control Hazards: branch delay slots, 1-bit and 2-bit prediction",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "COA_u2_t3"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Structural Hazards: resource conflicts",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "COA_u2_t4"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Pipeline PYQs 2000-2024 (10+ numerical)",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "COA_u2_t5"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "COA_u2"
+          ]
         },
         {
           "nm": "Cache Memory",
@@ -484,53 +424,46 @@
             {
               "n": "Direct mapped: index + tag + offset bits \u2014 address breakdown",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "COA_u3_t0"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Fully associative, Set associative: n-way calculation",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "COA_u3_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "AMAT = hit_time + miss_rate \u00d7 miss_penalty (multilevel)",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "COA_u3_t2"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Replacement: LRU, FIFO, Random, Optimal",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "COA_u3_t3"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Write-through vs Write-back, Write-allocate vs No-write-allocate",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "COA_u3_t4"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Cache PYQs 2000-2024 (10+ problems)",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "COA_u3_t5"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "COA_u3"
+          ]
         },
         {
           "nm": "I/O + Revision",
@@ -538,29 +471,25 @@
             {
               "n": "DMA: cycle stealing, burst mode, bandwidth calculation",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "COA_u4_t0"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Interrupt-driven I/O: vectored, daisy chain arbitration",
               "p": "M",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "COA_u4_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "COA full revision + all PYQs 2000-2024",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "COA_u4_t2"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "COA_u4"
+          ]
         }
       ]
     },
@@ -578,37 +507,32 @@
             {
               "n": "Data types + sizes, operators, precedence, type casting",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CPRO_u0_t0"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Bitwise ops: AND/OR/XOR/NOT/SHIFT \u2014 GATE trap Qs",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CPRO_u0_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "if-else, switch, loops (for/while/do-while), break/continue/goto",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CPRO_u0_t2"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "C Prog GATE PYQs 2000-2020 (control flow)",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CPRO_u0_t3"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "CPRO_u0"
+          ]
         },
         {
           "nm": "Functions & Recursion",
@@ -616,29 +540,25 @@
             {
               "n": "Functions, local/global/static vars, storage classes",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CPRO_u1_t0"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Recursion: call stack, trace output questions",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CPRO_u1_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Towers of Hanoi, Fibonacci \u2014 complexity analysis",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CPRO_u1_t2"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "CPRO_u1"
+          ]
         },
         {
           "nm": "Pointers & Memory",
@@ -646,45 +566,39 @@
             {
               "n": "Pointer declaration, dereferencing, pointer arithmetic (p+1 skips sizeof type)",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CPRO_u2_t0"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Arrays and pointers: array name = const ptr, 2D arrays row-major",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CPRO_u2_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Dynamic memory: malloc/calloc/realloc/free, dangling ptrs",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CPRO_u2_t2"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Pointer-to-pointer, arrays of pointers, function pointers",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CPRO_u2_t3"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "C Prog pointer trace PYQs 2000-2024 (speed drill)",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CPRO_u2_t4"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "CPRO_u2"
+          ]
         },
         {
           "nm": "Strings, Structs & Files",
@@ -692,37 +606,32 @@
             {
               "n": "Strings: char array, null terminator, stdlib functions",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CPRO_u3_t0"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Structures, unions (size=max member), typedef, enum",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CPRO_u3_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "File I/O: fopen/fclose/fread/fwrite/fseek",
               "p": "M",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CPRO_u3_t2"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "All C Prog PYQs 2014-2024 full set",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CPRO_u3_t3"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "CPRO_u3"
+          ]
         }
       ]
     },
@@ -741,36 +650,31 @@
               "n": "Big-O, \u03a9, \u0398, o, \u03c9 \u2014 formal definitions and properties",
               "p": "H",
               "s": "D",
-              "d": "Pre-loaded",
-              "nt": "",
-              "id": "DSA_u0_t0"
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Insertion Sort: O(n\u00b2), stable, in-place, online, inversions",
               "p": "H",
               "s": "D",
-              "d": "Pre-loaded",
-              "nt": "",
-              "id": "DSA_u0_t1"
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Master Theorem: 3 cases + inadmissible cases",
               "p": "H",
               "s": "D",
-              "d": "Pre-loaded",
-              "nt": "",
-              "id": "DSA_u0_t2"
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Recursion tree, substitution method",
               "p": "H",
               "s": "D",
-              "d": "Pre-loaded",
-              "nt": "",
-              "id": "DSA_u0_t3"
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "DSA_u0"
+          ]
         },
         {
           "nm": "Sorting",
@@ -779,60 +683,52 @@
               "n": "Merge Sort: O(n log n), stable, not in-place, external sort",
               "p": "H",
               "s": "D",
-              "d": "Pre-loaded",
-              "nt": "",
-              "id": "DSA_u1_t0"
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "QuickSort: Lomuto/Hoare, randomized, O(n log n) avg, O(n\u00b2) worst",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DSA_u1_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Bubble, Selection Sort: stability, in-place properties",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DSA_u1_t2"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "HeapSort: O(n log n), not stable, in-place",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DSA_u1_t3"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Counting Sort, Radix Sort: when to use, stability",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DSA_u1_t4"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Lower bound \u03a9(n log n) for comparison sorting",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DSA_u1_t5"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Sorting comparison table + all GATE PYQs",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DSA_u1_t6"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "DSA_u1"
+          ]
         },
         {
           "nm": "Linear Data Structures",
@@ -840,45 +736,39 @@
             {
               "n": "SLL/DLL: all operations, circular LL, sentinel nodes",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DSA_u2_t0"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Arrays: 2D row-major/col-major, special matrices (triangular, Toeplitz)",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DSA_u2_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Stack: parenthesis, infix\u2192postfix/prefix, expression evaluation",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DSA_u2_t2"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Queue: circular, deque, priority queue concept",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DSA_u2_t3"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Arrays+LL+Stack+Queue GATE PYQs 2000-2024",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DSA_u2_t4"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "DSA_u2"
+          ]
         },
         {
           "nm": "Trees",
@@ -886,37 +776,32 @@
             {
               "n": "Binary Tree: traversals, properties, reconstruction from traversals",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DSA_u3_t0"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "BST: search/insert/delete (3 cases), inorder = sorted, O(h)",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DSA_u3_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "AVL: balance factor, LL/RR/LR/RL rotations, height formulas",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DSA_u3_t2"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "AVL GATE PYQs 2000-2024 (rotation + height)",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DSA_u3_t3"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "DSA_u3"
+          ]
         },
         {
           "nm": "Heaps & Hashing",
@@ -924,45 +809,39 @@
             {
               "n": "Max/Min Heap: heapify-down O(log n), Build-Heap O(n)",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DSA_u4_t0"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "HeapSort, Priority Queue operations",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DSA_u4_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Hashing: division/multiplication, chaining (O(1) avg)",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DSA_u4_t2"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Open addressing: linear probing, double hashing, quadratic",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DSA_u4_t3"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Load factor, rehashing, GATE PYQs",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DSA_u4_t4"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "DSA_u4"
+          ]
         },
         {
           "nm": "Graphs",
@@ -971,60 +850,52 @@
               "n": "BFS: O(V+E), shortest path unweighted, level-order",
               "p": "H",
               "s": "D",
-              "d": "26-Jun 08:18 am",
-              "nt": "",
-              "id": "DSA_u5_t0"
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "DFS: O(V+E), edge types, cycle detection, discovery/finish times",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DSA_u5_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Topological sort: DFS-based + Kahn algorithm (only DAGs)",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DSA_u5_t2"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "SCC: Kosaraju (2 DFS passes)",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DSA_u5_t3"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "MST: Kruskal (sort+Union-Find), Prim O(V\u00b2) \u2014 properties",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DSA_u5_t4"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Dijkstra O(V\u00b2)/O(E log V), Bellman-Ford O(VE), Floyd-Warshall O(V\u00b3)",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DSA_u5_t5"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Graph GATE PYQs 2000-2024",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DSA_u5_t6"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "DSA_u5"
+          ]
         },
         {
           "nm": "DP & Greedy",
@@ -1032,37 +903,32 @@
             {
               "n": "DP: optimal substructure + overlapping subproblems",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DSA_u6_t0"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "DP problems: Fibonacci, LCS, LIS, 0-1 Knapsack, Matrix Chain, Edit Distance, Subset Sum",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DSA_u6_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Greedy: Activity selection, Huffman, Fractional Knapsack, Job Sequencing",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DSA_u6_t2"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "DP + Greedy GATE PYQs 2000-2024 (20 problems timed)",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DSA_u6_t3"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "DSA_u6"
+          ]
         },
         {
           "nm": "DSA PYQ Sprint",
@@ -1070,29 +936,25 @@
             {
               "n": "All DSA PYQs 2014-2024 (3h timed)",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DSA_u7_t0"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "DP problems: 20 in 60 min speed drill",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DSA_u7_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Graph algorithms numericals: 10 MST + 10 SP",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DSA_u7_t2"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "DSA_u7"
+          ]
         }
       ]
     },
@@ -1110,53 +972,46 @@
             {
               "n": "DFA: formal def, construct for divisibility, endings, patterns",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "TOC_u0_t0"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "DFA Minimisation: table-filling (Myhill-Nerode)",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "TOC_u0_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "NFA: power set of states, NFA to DFA subset construction",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "TOC_u0_t2"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "\u03b5-NFA: \u03b5-closure computation, \u03b5-NFA to DFA",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "TOC_u0_t3"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Moore vs Mealy machines: output function difference",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "TOC_u0_t4"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "FA GATE PYQs 2000-2024 (construct + convert)",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "TOC_u0_t5"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "TOC_u0"
+          ]
         },
         {
           "nm": "Regular Languages",
@@ -1164,45 +1019,39 @@
             {
               "n": "Regular Expressions, Arden's Lemma (FA\u2192RE), Thompson (RE\u2192NFA)",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "TOC_u1_t0"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Pumping Lemma RL: 3 conditions, prove 10 languages non-regular",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "TOC_u1_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Closure properties RL: all 7 closed + decision properties",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "TOC_u1_t2"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Regular Grammars, Chomsky hierarchy",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "TOC_u1_t3"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "RL GATE PYQs 2000-2024",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "TOC_u1_t4"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "TOC_u1"
+          ]
         },
         {
           "nm": "CFLs & PDAs",
@@ -1210,53 +1059,46 @@
             {
               "n": "CFG: derivations, parse trees, ambiguity removal, CNF, GNF",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "TOC_u2_t0"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "CYK algorithm O(n\u00b3) membership test",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "TOC_u2_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "PDA: acceptance by final state vs empty stack (equivalent)",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "TOC_u2_t2"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Pumping Lemma CFL: uvwxy, prove 10 languages not CFL",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "TOC_u2_t3"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Closure properties CFL (not closed under \u2229, complement)",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "TOC_u2_t4"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "CFG+PDA GATE PYQs 2000-2024",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "TOC_u2_t5"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "TOC_u2"
+          ]
         },
         {
           "nm": "TMs & Complexity",
@@ -1264,45 +1106,39 @@
             {
               "n": "TM: formal def, examples (a\u207fb\u207fc\u207f, binary add), variants",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "TOC_u3_t0"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Halting Problem (diagonal argument), Rice's Theorem, PCP",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "TOC_u3_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "RE vs Recursive languages, Chomsky hierarchy",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "TOC_u3_t2"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "P, NP, NP-Complete, NP-Hard: definitions + SAT, 3-SAT, Clique",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "TOC_u3_t3"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "TOC PYQs 2014-2024 (3h timed) + 5 DFA drills in 10 min",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "TOC_u3_t4"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "TOC_u3"
+          ]
         }
       ]
     },
@@ -1320,37 +1156,32 @@
             {
               "n": "Compiler phases, lexical analysis, token types",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CD_u0_t0"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Ambiguity, left recursion elimination, left factoring",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CD_u0_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "FIRST and FOLLOW set computation rules",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CD_u0_t2"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "LL(1) parse table, LL(1) conflicts, when grammar is LL(1)",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CD_u0_t3"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "CD_u0"
+          ]
         },
         {
           "nm": "LR Parsing",
@@ -1358,37 +1189,32 @@
             {
               "n": "LR(0) items + automata, SLR(1) using FOLLOW for reduce",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CD_u1_t0"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "CLR(1)/LR(1): lookahead in items, LALR(1): merge CLR states",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CD_u1_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Power: LR(1)>LALR(1)>SLR(1)>LR(0)>LL(1)",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CD_u1_t2"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "CD GATE PYQs 2014-2024 + FIRST/FOLLOW for 5 grammars",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CD_u1_t3"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "CD_u1"
+          ]
         },
         {
           "nm": "Code Generation",
@@ -1396,29 +1222,25 @@
             {
               "n": "Attribute grammars: synthesised vs inherited",
               "p": "M",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CD_u2_t0"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "SDT, TAC 3-address code formats",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CD_u2_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Basic blocks, flow graphs, optimisation (constant folding, dead code)",
               "p": "M",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CD_u2_t2"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "CD_u2"
+          ]
         }
       ]
     },
@@ -1436,21 +1258,18 @@
             {
               "n": "Conversions (bin/oct/hex/dec), BCD, Gray, Excess-3",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DL_u0_t0"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "1's/2's complement, IEEE 754 single precision, Booth's algorithm",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DL_u0_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "DL_u0"
+          ]
         },
         {
           "nm": "Boolean Algebra & K-Maps",
@@ -1458,29 +1277,25 @@
             {
               "n": "SOP/POS, minterms/maxterms, duality, De Morgan, Shannon expansion",
               "p": "H",
-              "s": "S",
-              "d": null,
-              "nt": "",
-              "id": "DL_u1_t0"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "K-Map 2/3/4/5-var, prime implicants, essential PIs, dont-cares, VEM",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DL_u1_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "NAND/NOR universal, NAND-NAND/NOR-NOR, XOR/XNOR properties",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DL_u1_t2"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "DL_u1"
+          ]
         },
         {
           "nm": "Combinational Circuits",
@@ -1488,29 +1303,25 @@
             {
               "n": "Half/Full Adder, ripple carry, carry look-ahead, BCD adder",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DL_u2_t0"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "MUX/DEMUX function realization, decoder, encoder, ROM/PAL/PLA",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DL_u2_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Combinational GATE PYQs 2000-2024",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DL_u2_t2"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "DL_u2"
+          ]
         },
         {
           "nm": "Sequential Circuits",
@@ -1518,45 +1329,39 @@
             {
               "n": "SR/JK/D/T Flip-Flops: char equations, excitation tables, FF interconversion",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DL_u3_t0"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Moore/Mealy FSM design: state table, state diagram",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DL_u3_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Synchronous counters (binary, BCD), Ring, Johnson, Ripple counter",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DL_u3_t2"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Shift registers (SISO/SIPO/PISO/PIPO), Sequence detector design",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DL_u3_t3"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "DL GATE PYQs 2000-2024 full set + K-Map speed drill",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DL_u3_t4"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "DL_u3"
+          ]
         }
       ]
     },
@@ -1574,45 +1379,39 @@
             {
               "n": "Matrices: types, determinant (Sarrus/cofactor), minor, adjoint, inverse",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "MATH_u0_t0"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Rank: row echelon, Rouch\u00e9-Capelli theorem for Ax=b",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "MATH_u0_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Eigenvalues: char poly det(A-\u03bbI)=0, tr(A)=\u03a3\u03bb\u1d62, det(A)=\u03a0\u03bb\u1d62",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "MATH_u0_t2"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Eigenvectors, Cayley-Hamilton theorem, LU decomposition",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "MATH_u0_t3"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "LA GATE PYQs 2000-2024",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "MATH_u0_t4"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "MATH_u0"
+          ]
         },
         {
           "nm": "Calculus",
@@ -1620,37 +1419,32 @@
             {
               "n": "Limits: L'H\u00f4pital's rule, standard limits, indeterminate forms",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "MATH_u1_t0"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Continuity, differentiability (implies continuity, not vice versa)",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "MATH_u1_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "MVT, Rolle's theorem, Maxima/Minima (1st+2nd derivative test)",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "MATH_u1_t2"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Integration: substitution, parts, partial fractions, definite integrals",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "MATH_u1_t3"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "MATH_u1"
+          ]
         },
         {
           "nm": "Sets, Relations & Functions",
@@ -1658,45 +1452,39 @@
             {
               "n": "Relation types: R/S/T/Antisym/Equiv, partial order, Hasse diagrams",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "MATH_u2_t0"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Functions: injective/surjective/bijective, counting functions",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "MATH_u2_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Lattices: GLB/LUB, bounded, complemented, distributive",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "MATH_u2_t2"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Groups: semigroup, monoid, group, abelian, cyclic, subgroup",
               "p": "M",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "MATH_u2_t3"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "SRF GATE PYQs 2000-2024",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "MATH_u2_t4"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "MATH_u2"
+          ]
         },
         {
           "nm": "Mathematical Logic",
@@ -1704,45 +1492,39 @@
             {
               "n": "Propositional logic, tautology, PDNF/PCNF canonical forms",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "MATH_u3_t0"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Functionally complete sets: {NAND},{NOR},{\u00ac,\u2227},{\u00ac,\u2228}",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "MATH_u3_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Rules of inference: modus ponens, tollens, hypothetical syllogism",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "MATH_u3_t2"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Predicate logic, quantifiers, English\u2194Logic translation",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "MATH_u3_t3"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Logic GATE PYQs 2000-2024",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "MATH_u3_t4"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "MATH_u3"
+          ]
         },
         {
           "nm": "Combinatorics & Probability",
@@ -1750,53 +1532,46 @@
             {
               "n": "P&C, inclusion-exclusion, pigeonhole, derangements, Binomial theorem",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "MATH_u4_t0"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Recurrence relations (linear with constant coeff), generating functions",
               "p": "M",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "MATH_u4_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Probability axioms, conditional, Bayes theorem, independence",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "MATH_u4_t2"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Random variables, PMF/CDF/PDF, E[X], Var(X) formulas",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "MATH_u4_t3"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Distributions: Bernoulli, Binomial, Poisson, Normal, Exponential",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "MATH_u4_t4"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Prob + Combinatorics GATE PYQs 2000-2024",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "MATH_u4_t5"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "MATH_u4"
+          ]
         },
         {
           "nm": "Graph Theory",
@@ -1804,45 +1579,39 @@
             {
               "n": "Handshaking theorem, Eulerian (0/2 odd-degree), Hamiltonian",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "MATH_u5_t0"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Planar graphs: Euler formula V-E+F=2, K\u2085/K\u2083\u2083 non-planar",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "MATH_u5_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Graph coloring: chromatic number, 4-color theorem",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "MATH_u5_t2"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Trees: |E|=|V|-1, # spanning trees, matchings, Hall's theorem",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "MATH_u5_t3"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Graph theory GATE PYQs 2000-2024",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "MATH_u5_t4"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "MATH_u5"
+          ]
         }
       ]
     },
@@ -1860,45 +1629,39 @@
             {
               "n": "Number theory: divisibility, HCF/LCM, remainders, unit digits, base system",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "APT_u0_t0"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Ratio/proportion, AP/GP/HP progressions, P&L, SI/CI, installments",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "APT_u0_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Time-work, pipes, speed-distance, trains, boats & streams",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "APT_u0_t2"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Geometry: triangles, circles, 2D/3D mensuration",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "APT_u0_t3"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Data Interpretation: bar/pie/line/table \u2014 approximation tricks",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "APT_u0_t4"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "APT_u0"
+          ]
         },
         {
           "nm": "Verbal & Analytical",
@@ -1906,53 +1669,46 @@
             {
               "n": "Grammar: tenses, articles, prepositions, subject-verb agreement",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "APT_u1_t0"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Vocabulary: synonyms, antonyms, idioms, one-word substitutions",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "APT_u1_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Reading Comprehension: main idea, inference, tone",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "APT_u1_t2"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Syllogisms, analogy, coding-decoding, number series (5 types)",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "APT_u1_t3"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Spatial: rotation, mirror image, paper folding, dice/cubes",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "APT_u1_t4"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "All Aptitude GATE PYQs 2014-2024 (aim 15/15 in 30 min)",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "APT_u1_t5"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "APT_u1"
+          ]
         }
       ]
     },
@@ -1970,45 +1726,39 @@
             {
               "n": "ER: entity, cardinality, participation, weak entity, self-ref",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DBMS_u0_t0"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "ER\u2192Relational mapping (7 steps), keys, integrity constraints",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DBMS_u0_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Relational Algebra: \u03c3, \u03c0, \u00d7, all 5 join types, \u00f7 (division)",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DBMS_u0_t2"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "TRC, DRC \u2014 GATE Qs",
               "p": "M",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DBMS_u0_t3"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "RA GATE PYQs 2000-2024",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DBMS_u0_t4"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "DBMS_u0"
+          ]
         },
         {
           "nm": "SQL",
@@ -2016,37 +1766,32 @@
             {
               "n": "SELECT (all clauses), aggregate functions, NULL handling",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DBMS_u1_t0"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Inner/Outer/Natural joins, correlated subqueries, EXISTS/IN",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DBMS_u1_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "DDL/DML/DCL, views, indexes \u2014 GATE output prediction Qs",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DBMS_u1_t2"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "SQL GATE PYQs 2000-2024",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DBMS_u1_t3"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "DBMS_u1"
+          ]
         },
         {
           "nm": "Normalisation",
@@ -2054,53 +1799,46 @@
             {
               "n": "FDs: Armstrong axioms, attribute closure, candidate keys",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DBMS_u2_t0"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Canonical cover: irreducible FD set algorithm",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DBMS_u2_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "1NF/2NF/3NF/BCNF: identification + decomposition",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DBMS_u2_t2"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "3NF synthesis (lossless + dep-preserving), BCNF decomposition",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DBMS_u2_t3"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "4NF: multivalued dependencies, lossless join test",
               "p": "M",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DBMS_u2_t4"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Normalisation GATE PYQs 2000-2024",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DBMS_u2_t5"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "DBMS_u2"
+          ]
         },
         {
           "nm": "Transactions & Indexing",
@@ -2108,53 +1846,46 @@
             {
               "n": "ACID, concurrency problems: Lost Update, Dirty Read, Unrepeatable Read",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DBMS_u3_t0"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Conflict serializability: precedence graph cycle detection",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DBMS_u3_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "2PL (growing+shrinking phases), Timestamp, Thomas Write Rule",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DBMS_u3_t2"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "B-Tree vs B+ Tree: search, insert, delete, GATE numericals",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DBMS_u3_t3"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Dense/Sparse/Multilevel index, hashing for indexing",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DBMS_u3_t4"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Transactions GATE PYQs 2000-2024",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "DBMS_u3_t5"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "DBMS_u3"
+          ]
         }
       ]
     },
@@ -2172,53 +1903,46 @@
             {
               "n": "OSI 7 layers + TCP/IP 4 layers: PDUs, encapsulation",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CN_u0_t0"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "CRC: polynomial long division \u2014 GATE numericals (every year)",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CN_u0_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Hamming code: error detection + correction",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CN_u0_t2"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "ARQ efficiency: Stop-and-Wait=1/(1+2a), GBN=W/(1+2a), SR=W/(1+2a)",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CN_u0_t3"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "CSMA/CD: collision detect, jam, backoff. ALOHA: Pure 18.4%, Slotted 36.8%",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CN_u0_t4"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Ethernet frame (min 64B), MAC addresses, ARP, VLANs",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CN_u0_t5"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "CN_u0"
+          ]
         },
         {
           "nm": "Network Layer",
@@ -2226,53 +1950,46 @@
             {
               "n": "IPv4: classful A/B/C, subnetting (CIDR), VLSM \u2014 all GATE Qs are subnetting",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CN_u1_t0"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "IPv4 header: TTL, fragmentation (MTU, offset, DF/MF flags)",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CN_u1_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "ARP/RARP/DHCP/ICMP, NAT, private IP ranges",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CN_u1_t2"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Routing: Distance-Vector (RIP: Bellman-Ford), Link-State (OSPF: Dijkstra)",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CN_u1_t3"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "IPv6: 128-bit, no fragmentation at routers, stateless autoconfig",
               "p": "M",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CN_u1_t4"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "Network GATE PYQs 2000-2024",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CN_u1_t5"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "CN_u1"
+          ]
         },
         {
           "nm": "Transport & Application",
@@ -2280,53 +1997,46 @@
             {
               "n": "TCP: 3-way handshake, 4-way close, flow control, sliding window",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CN_u2_t0"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "TCP congestion: Slow Start (exponential), Congestion Avoidance (linear), ssthresh",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CN_u2_t1"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "TCP vs UDP: reliability, ordering, connection, checksum",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CN_u2_t2"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "DNS: recursive/iterative, HTTP, FTP active/passive, SMTP/POP3/IMAP",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CN_u2_t3"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "RSA: key gen, E(M)=M\u1d49 mod n, digital signatures",
               "p": "M",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CN_u2_t4"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             },
             {
               "n": "CN GATE PYQs 2000-2024 + subnetting speed drill (20 Qs)",
               "p": "H",
-              "s": "P",
-              "d": null,
-              "nt": "",
-              "id": "CN_u2_t5"
+              "s": "D",
+              "d": "26-Jun 09:51 AM",
+              "nt": ""
             }
-          ],
-          "id": "CN_u2"
+          ]
         }
       ]
     }
@@ -2459,20 +2169,9 @@
     "b": 1,
     "l": "26-Jun"
   },
-  "daily": {
-    "2026-06-26": {
-      "hours": 12,
-      "done": 50,
-      "subjects": [
-        "COA"
-      ],
-      "mood": 3,
-      "notes": "",
-      "ts": "2026-06-26T03:01:27.908Z"
-    }
-  },
+  "daily": {},
   "missed": [
-    "2026-06-22"
+    "2026-06-24"
   ],
   "pomoHistory": []
 }
